@@ -3,6 +3,7 @@ from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
 )
 from file_management.models import File
+from store.models import Store
 
 
 class MyUserManager(BaseUserManager):
@@ -36,16 +37,11 @@ class User(AbstractBaseUser):
         unique=True,
         blank=False
     )
-    name = models.CharField(max_length=200, null=False, blank=False)
-    surname = models.CharField(max_length=200, null=False, blank=False)
     username = models.CharField(max_length=200, null=False, blank=False, unique=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     is_owner = models.BooleanField(default=False)
-    date_of_birth = models.DateTimeField(auto_now_add=True)
-    picture = models.OneToOneField(File, on_delete=models.DO_NOTHING, null=True)
-    last_connection_date = models.DateTimeField(null=True)
 
     objects = MyUserManager()
 
@@ -70,3 +66,13 @@ class User(AbstractBaseUser):
     @property
     def is_staff(self):
         return self.is_admin
+
+
+class Profile(models.Model):
+    favourite_stores = models.ManyToManyField(Store)
+    date_of_birth = models.DateTimeField()
+    picture = models.OneToOneField(File, on_delete=models.DO_NOTHING, null=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=False)
+    name = models.CharField(max_length=200, null=False, blank=False)
+    surname = models.CharField(max_length=200, null=False, blank=False)
+

@@ -38,7 +38,12 @@ INSTALLED_APPS = [
     'store',
     'user',
     'interaction',
-    'file_management'
+    'file_management',
+    'feed',
+    'debug_toolbar',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'web'
 ]
 
 MIDDLEWARE = [
@@ -49,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'shopisan.urls'
