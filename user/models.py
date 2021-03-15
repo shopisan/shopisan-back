@@ -6,7 +6,7 @@ from file_management.models import File
 from store.models import Store
 
 
-class MyUserManager(BaseUserManager):
+class UserManager(BaseUserManager):
     def create_user(self, email, password=None, is_owner=False):
         if not email:
             raise ValueError('Users must have an email address')
@@ -43,7 +43,7 @@ class User(AbstractBaseUser):
     created = models.DateTimeField(auto_now_add=True)
     is_owner = models.BooleanField(default=False)
 
-    objects = MyUserManager()
+    objects = UserManager()
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['password']

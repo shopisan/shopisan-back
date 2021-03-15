@@ -26,4 +26,6 @@ class Store(models.Model):
     openingTimes = models.JSONField(null=True)
     profilePicture = models.ForeignKey(File, on_delete=models.SET_NULL, null=True)
     categories = models.ManyToManyField(StoreCategories)
+    latitude = models.CharField(max_length=100)
+    longitude = models.CharField(max_length=100)
 
