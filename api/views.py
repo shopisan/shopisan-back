@@ -17,9 +17,10 @@ def get_url_names(request):
     from django.apps import apps
 
     list_of_url_names = [
-        "http://127.0.0.1:8000/api/users",
-        "http://127.0.0.1:8000/api/files",
-        "http://127.0.0.1:8000/api/stores",
+        "http://127.0.0.1:8000/api/users/",
+        "http://127.0.0.1:8000/api/files/",
+        "http://127.0.0.1:8000/api/stores/",
+        "http://127.0.0.1:8000/api/stores_geo/",
     ]
 
     return Response(list_of_url_names)

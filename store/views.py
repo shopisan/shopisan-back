@@ -24,7 +24,7 @@ class StoreCategoriesSet(viewsets.ModelViewSet):
     queryset = StoreCategories.objects.all()
     serializer_class = StoreCategorySerializer
     # todo faire une permission accès readOnly pour tout le monde, et edit uniquement pour les admis
-    permission_classes = [permissions.IsAdminUser]
+    permission_classes = [permissions.AllowAny]
 
 
 class CountrySet(viewsets.ModelViewSet):

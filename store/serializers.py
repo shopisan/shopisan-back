@@ -37,7 +37,7 @@ class StoreSerializer(serializers.HyperlinkedModelSerializer):
 class StoreCategorySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = StoreCategories
-        fields = "__all__"
+        fields = ['id', 'url', 'en', 'fr']
 
 
 class CountrySerializer(serializers.HyperlinkedModelSerializer):
