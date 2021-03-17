@@ -2,6 +2,7 @@ from openpyxl import load_workbook
 from django.core.management.base import BaseCommand, CommandError
 from django.conf import settings
 from store.models import StoreCategories, Store
+import json
 
 
 class Command(BaseCommand):
@@ -13,15 +14,14 @@ class Command(BaseCommand):
         wb = load_workbook(filename=filename)
         # todo truncate la table, reset les pk + creer un dictionnary avec
         # activities = self.parse_activities(workbook=wb)
+
         activities = {}
         activities_entity = StoreCategories.objects.all()
         for cat in activities_entity:
             activities[cat.pk] = cat
 
         self.parse_stores(workbook=wb, activities=activities)
-
         self.stdout.write(self.style.SUCCESS(settings.BASE_DIR))
-        # self.stdout.write(self.style.SUCCESS('Successfully parsed xlsx file'))
 
     def parse_activities(self, workbook):
         activities = {}
@@ -33,22 +33,19 @@ class Command(BaseCommand):
             store_cat.save()
             activities[store_cat.pk] = store_cat
 
-            # self.stdout.write(self.style.SUCCESS(print(row[1].value)))
-            # self.stdout.write(self.style.SUCCESS(print(row[2].value)))
         self.stdout.write(self.style.SUCCESS("Stores categories imported"))
         return activities
 
     def parse_stores(self, workbook, activities):
         ws = workbook['Boutiques']
-        for index, row in enumerate(ws.iter_rows(min_row=2, max_col=9, values_only=True)):
-            print(index)
+        for index, row in enumerate(ws.iter_rows(min_row=2, max_col=9, max_row=3, values_only=True)):
             store = Store()
             store.name = row[0]
             store.streetAvenue = row[1]
             store.country = row[2]
             store.postalCode = row[3]
             store.website = row[4]
-            store.openingTimes = row[5]
+            store.openingTimes = json.loads(row[5])
             store.save()
 
             self.stdout.write(self.style.SUCCESS(print(row[8])))
@@ -59,6 +56,5 @@ class Command(BaseCommand):
                 for activity_id in activity_ids:
                     if "" != activity_id.strip():
                         store.categories.add(activities[int(activity_id)])
-                    # todo créer un dictionnary avec les id en keys ++ associer avec store selon ID
                 store.save()
             self.stdout.write(self.style.SUCCESS("Stores imported"))

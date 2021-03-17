@@ -46,12 +46,7 @@ class StoreCategoryGeoList(generics.ListAPIView):
 
     def get_queryset(self):
         categories_str = self.request.query_params.get('categories', None)
-        # todo prendre en compte la cas ou aucunes catégories n'a été selectionnée
         position = self.request.query_params.get('position', None)
-        user_coordinates = {
-            'lat':  50.7600302,
-            'lng': 5.6708353
-        }
 
         if categories_str is None:
             stores = Store.objects.all()
@@ -59,21 +54,25 @@ class StoreCategoryGeoList(generics.ListAPIView):
             categories = categories_str.split(',')
             stores = Store.objects.filter(categories__in=categories)
 
-        def compare(item1: Store, item2: Store):
-            if item1.latitude is None or item1.longitude is None:
-                return 1
+        if position is not None:
+            pos = position.split(',')
+            user_coordinates = {
+                'lat':  pos[0],
+                'lng': pos[1]
+            }
 
-            if item2.latitude is None or item2.longitude is None:
-                return -1
-            return haversine_distance(item1, user_coordinates) - haversine_distance(item2, user_coordinates)
+            def compare(item1: Store, item2: Store):
+                if item1.latitude is None or item1.longitude is None:
+                    return 1
 
-        sorted(stores, key=cmp_to_key(compare))
+                if item2.latitude is None or item2.longitude is None:
+                    return -1
+                return haversine_distance(item1, user_coordinates) - haversine_distance(item2, user_coordinates)
+
+            sorted(stores, key=cmp_to_key(compare))
 
         # if categories_str is None:
             # todo limiter le nombre de rows
-
-        # todo tester l'output
-        # todo si input bonne, ajouter les coordinates du user en param
 
         return stores
 
