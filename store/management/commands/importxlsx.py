@@ -12,11 +12,11 @@ class Command(BaseCommand):
         self.stdout.write(self.style.SUCCESS(print(filename)))
         wb = load_workbook(filename=filename)
         # todo truncate la table, reset les pk + creer un dictionnary avec
-        # activities = self.parse_activities(workbook=wb)
-        activities = {}
-        activities_entity = StoreCategories.objects.all()
-        for cat in activities_entity:
-            activities[cat.pk] = cat
+        activities = self.parse_activities(workbook=wb)
+        # activities = {}
+        # activities_entity = StoreCategories.objects.all()
+        # for cat in activities_entity:
+        #     activities[cat.pk] = cat
 
         self.parse_stores(workbook=wb, activities=activities)
 
