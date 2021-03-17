@@ -3,9 +3,11 @@ from rest_framework import permissions
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from functools import cmp_to_key
 
 from .models import Store, StoreCategories, City, Country
 from .serializers import StoreSerializer, StoreCategorySerializer, CountrySerializer, CitySerializer
+from .maps import haversine_distance
 
 # todo dans le serializer de l'entité store, ajouter le call api pour chopper lat et long
 
@@ -43,13 +45,35 @@ class StoreCategoryGeoList(generics.ListAPIView):
     serializer_class = StoreSerializer
 
     def get_queryset(self):
-        categoriesStr = self.request.query_params.get('categories', None)
-        categories = categoriesStr.split(',')
+        categories_str = self.request.query_params.get('categories', None)
+        # todo prendre en compte la cas ou aucunes catégories n'a été selectionnée
         position = self.request.query_params.get('position', None)
+        user_coordinates = {
+            'lat':  50.7600302,
+            'lng': 5.6708353
+        }
 
-        # todo check comment permettre de  filtrer selon plusieurs categories
-        stores = Store.objects.filter(categories__in=categories)
-        # todo order selon la proximité
+        if categories_str is None:
+            stores = Store.objects.all()
+        else:
+            categories = categories_str.split(',')
+            stores = Store.objects.filter(categories__in=categories)
+
+        def compare(item1: Store, item2: Store):
+            if item1.latitude is None or item1.longitude is None:
+                return 1
+
+            if item2.latitude is None or item2.longitude is None:
+                return -1
+            return haversine_distance(item1, user_coordinates) - haversine_distance(item2, user_coordinates)
+
+        sorted(stores, key=cmp_to_key(compare))
+
+        # if categories_str is None:
+            # todo limiter le nombre de rows
+
+        # todo tester l'output
+        # todo si input bonne, ajouter les coordinates du user en param
 
         return stores
 

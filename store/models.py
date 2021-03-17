@@ -13,7 +13,8 @@ class City(models.Model):
 
 
 class StoreCategories(models.Model):
-    name = models.CharField(max_length=100, null=False)
+    en = models.CharField(max_length=100, null=False)
+    fr = models.CharField(max_length=100, null=False)
 
 
 class Store(models.Model):
@@ -21,11 +22,13 @@ class Store(models.Model):
     name = models.CharField(max_length=100, default='')
     streetAvenue = models.CharField(max_length=200, null=True)
     postalCode = models.CharField(max_length=20, null=True)
+    # city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True)
+    country = models.CharField(max_length=3)
     website = models.CharField(max_length=100, null=True)
     storeStatus = models.IntegerField(default=0)
     openingTimes = models.JSONField(null=True)
     profilePicture = models.ForeignKey(File, on_delete=models.SET_NULL, null=True)
     categories = models.ManyToManyField(StoreCategories)
-    latitude = models.CharField(max_length=100)
-    longitude = models.CharField(max_length=100)
+    latitude = models.CharField(max_length=100, null=True)
+    longitude = models.CharField(max_length=100, null=True)
 

@@ -1,16 +1,23 @@
 from .models import Store, StoreCategories, Country, City
 from rest_framework import fields, serializers
+from .maps import fetch_localisation
 
 
 class StoreSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Store
+        fields = "__all__"
+        extra_kwargs = {'latitude': {'read_only': True}, 'longitude': {'read_only': True},
+                        'storeStatus': {'read_only': True}}
         # fields = ['id', 'name', 'url', 'votes', 'list']
 
     def create(self, validated_data):
         # todo a la cré&ation et a l'update, transformer adresse en coord géo
-        # todo ajouter une validation?
         store = Store(**validated_data)
+
+        # todo créer les city
+        coordinates = fetch_localisation(store)
+
         store.save()
         return store
 
@@ -30,13 +37,16 @@ class StoreSerializer(serializers.HyperlinkedModelSerializer):
 class StoreCategorySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = StoreCategories
+        fields = "__all__"
 
 
 class CountrySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Country
+        fields = "__all__"
 
 
 class CitySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = City
+        fields = "__all__"
