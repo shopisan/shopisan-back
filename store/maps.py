@@ -43,8 +43,6 @@ def haversine_distance(address: Address, user_coordinates):
 
 def get_shortest_distance(store: Store, user_coordinates):
     smallest = 999999
-    # print(store.addresses.all(), user_coordinates)
-    # if len(store.addresses):
     for address in store.addresses.all():
         print(address)
         if address.latitude is not None and address.longitude is not None:

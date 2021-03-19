@@ -18,7 +18,7 @@ class StoreViewSet(viewsets.ModelViewSet):
     serializer_class = StoreSerializer
     # todo définir permissions ==> permettre au store owners de créer
     # todo seulement les admins doivent avoir acces a tout les stores
-    permission_classes = [permissions.IsAdminUser]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
 class StoreCategoriesSet(viewsets.ModelViewSet):
@@ -63,7 +63,7 @@ class StoreCategoryGeoList(generics.ListAPIView):
         # if categories_str is None:
             # todo limiter le nombre de rows
 
-        # todo afficher uniquement les addresses qui nous interresse?
+        stores = stores[0:50]
 
         return stores
 
