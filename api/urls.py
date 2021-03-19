@@ -6,6 +6,7 @@ urlpatterns = [
     path('', views.get_url_names),
     path('', include('file_management.urls')),
     path('', include('store.urls')),
+    path('', include('feed.urls')),
     # path('', include('interaction.urls')),
     path(r'', include('user.urls')),
 ]

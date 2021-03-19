@@ -1,13 +1,10 @@
 from rest_framework import viewsets, generics
 from rest_framework import permissions
-from rest_framework.authentication import TokenAuthentication
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
 from functools import cmp_to_key
 
-from .models import Store, StoreCategories, Address
-from .serializers import StoreSerializer, StoreCategorySerializer, AddressSerializer
-from .maps import haversine_distance, get_shortest_distance
+from .models import Store, StoreCategories, Address, Evaluation
+from .serializers import StoreSerializer, StoreCategorySerializer, AddressSerializer, EvaluationSerializer
+from .maps import get_shortest_distance
 
 
 # todo dans le serializer de l'entité store, ajouter le call api pour chopper lat et long
@@ -33,6 +30,13 @@ class AddressViewSet(viewsets.ModelViewSet):
     serializer_class = AddressSerializer
     # todo faire une permission accès readOnly pour tout le monde, et edit uniquement pour les admis
     permission_classes = [permissions.IsAdminUser]
+
+
+class EvaluationViewSet(viewsets.ModelViewSet):
+    queryset = Evaluation.objects.all()
+    serializer_class = EvaluationSerializer
+    # todo faire une permission accès readOnly pour tout le monde, et edit uniquement pour les admis
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
 class StoreCategoryGeoList(generics.ListAPIView):
@@ -63,7 +67,7 @@ class StoreCategoryGeoList(generics.ListAPIView):
         # if categories_str is None:
             # todo limiter le nombre de rows
 
-        # todo afficher uniquement les addresses qui nous interresse?
+        stores = stores[0:50]
 
         return stores
 

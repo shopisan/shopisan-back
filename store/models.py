@@ -1,5 +1,6 @@
 from django.db import models
 from file_management.models import File
+from django.db.models import Avg
 
 
 class StoreCategories(models.Model):
@@ -16,6 +17,10 @@ class Store(models.Model):
     profilePicture = models.ForeignKey(File, on_delete=models.SET_NULL, null=True)
     categories = models.ManyToManyField(StoreCategories)
 
+    @property
+    def average_score(self):
+        return self.evaluations.all().aggregate(Avg('score'))
+
 
 class Address(models.Model):
     streetAvenue = models.CharField(max_length=200, null=True)
@@ -31,3 +36,4 @@ class Evaluation(models.Model):
     score = models.FloatField()
     store = models.ForeignKey(Store, related_name="evaluations", on_delete=models.CASCADE, null=False)
     profile = models.ForeignKey("user.Profile", related_name='evaluations', on_delete=models.CASCADE, null=False)
+

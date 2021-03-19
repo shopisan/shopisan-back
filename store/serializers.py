@@ -1,5 +1,5 @@
 from .models import Store, StoreCategories, Address, Evaluation
-from rest_framework import fields, serializers
+from rest_framework import serializers
 from .maps import fetch_localisation
 
 
@@ -13,6 +13,18 @@ class EvaluationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Evaluation
         fields = "__all__"
+        read_only_fields = ['profile']
+
+    def create(self, validated_data):
+        request = self.context.get("request")
+        if request and hasattr(request, "user"):
+            user = request.user
+            evaluation = Evaluation(**validated_data)
+            evaluation.profile = user.profile
+            evaluation.save()
+            return evaluation
+
+        raise ValueError()
 
 
 class StoreSerializer(serializers.HyperlinkedModelSerializer):
@@ -21,19 +33,22 @@ class StoreSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Store
-        # fields = "__all__"
         fields = ['id', 'name', 'url', 'website', 'storeStatus', 'openingTimes', 'profilePicture', 'categories',
-                  'addresses', 'evaluations']
-        extra_kwargs = {'storeStatus': {'read_only': True}}
+                  'addresses', 'evaluations', 'average_score']
+        read_only_fields = ('storeStatus',)
 
     def create(self, validated_data):
-        # todo a la cré&ation et a l'update, transformer adresse en coord géo
         store = Store(**validated_data)
-
-        # todo a revoir pour adapter avec les adresses multiples
-        coordinates = fetch_localisation(store)
-
         store.save()
+        addresses = validated_data.pop('addresses')
+
+        # todo a tester
+        for address in addresses:
+            address_obj = Address(**address)
+            fetch_localisation(address_obj)
+            address_obj.store = store
+            address_obj.save()
+
         return store
 
     def update(self, instance, validated_data):
@@ -45,8 +60,6 @@ class StoreSerializer(serializers.HyperlinkedModelSerializer):
         #         Faucet.objects.create(list=instance, **faucet_data)
 
         return super().update(instance, validated_data)
-
-# todo créer le serializer pour les catégories, countries, city
 
 
 class StoreCategorySerializer(serializers.HyperlinkedModelSerializer):
