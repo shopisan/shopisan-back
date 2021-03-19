@@ -76,3 +76,4 @@ class Profile(models.Model):
     name = models.CharField(max_length=200, null=False, blank=False)
     surname = models.CharField(max_length=200, null=False, blank=False)
 
+

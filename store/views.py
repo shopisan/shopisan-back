@@ -5,9 +5,10 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from functools import cmp_to_key
 
-from .models import Store, StoreCategories, City, Country
-from .serializers import StoreSerializer, StoreCategorySerializer, CountrySerializer, CitySerializer
-from .maps import haversine_distance
+from .models import Store, StoreCategories, Address
+from .serializers import StoreSerializer, StoreCategorySerializer, AddressSerializer
+from .maps import haversine_distance, get_shortest_distance
+
 
 # todo dans le serializer de l'entité store, ajouter le call api pour chopper lat et long
 
@@ -27,16 +28,9 @@ class StoreCategoriesSet(viewsets.ModelViewSet):
     permission_classes = [permissions.AllowAny]
 
 
-class CountrySet(viewsets.ModelViewSet):
-    queryset = Country.objects.all()
-    serializer_class = CountrySerializer
-    # todo faire une permission accès readOnly pour tout le monde, et edit uniquement pour les admis
-    permission_classes = [permissions.IsAdminUser]
-
-
-class CitySet(viewsets.ModelViewSet):
-    queryset = City.objects.all()
-    serializer_class = CitySerializer
+class AddressViewSet(viewsets.ModelViewSet):
+    queryset = Address.objects.all()
+    serializer_class = AddressSerializer
     # todo faire une permission accès readOnly pour tout le monde, et edit uniquement pour les admis
     permission_classes = [permissions.IsAdminUser]
 
@@ -49,7 +43,7 @@ class StoreCategoryGeoList(generics.ListAPIView):
         position = self.request.query_params.get('position', None)
 
         if categories_str is None:
-            stores = Store.objects.all()
+            stores = Store.objects.exclude(addresses=None)
         else:
             categories = categories_str.split(',')
             stores = Store.objects.filter(categories__in=categories)
@@ -62,19 +56,14 @@ class StoreCategoryGeoList(generics.ListAPIView):
             }
 
             def compare(item1: Store, item2: Store):
-                if item1.latitude is None or item1.longitude is None:
-                    return 1
-
-                if item2.latitude is None or item2.longitude is None:
-                    return -1
-                return haversine_distance(item1, user_coordinates) - haversine_distance(item2, user_coordinates)
+                return get_shortest_distance(item1, user_coordinates) - get_shortest_distance(item2, user_coordinates)
 
             sorted(stores, key=cmp_to_key(compare))
 
         # if categories_str is None:
             # todo limiter le nombre de rows
 
+        # todo afficher uniquement les addresses qui nous interresse?
+
         return stores
 
-# todo créer la vue pour voir les stores selon les catégories + géolocalisation (limiter a XX km)
-#       ==> empecher de venit-r pomper tout les stores

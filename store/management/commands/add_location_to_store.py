@@ -7,11 +7,12 @@ class Command(BaseCommand):
     help = 'Add coordinates to stores'
 
     def handle(self, *args, **options):
-        stores = Store.objects.filter(latitude=None).order_by('pk')[:15]
+        stores = Store.objects.filter(addresses__latitude=None).exclude(addresses=None).order_by('pk')[:2]
 
         for store in stores:
-            if store.latitude is None:
-                fetch_localisation(store)
-                store.save()
+            for address in store.addresses.all():
+                if address.latitude is None:
+                    fetch_localisation(address=address)
+                    address.save()
         # print(stores)
         self.stdout.write(self.style.SUCCESS("Yay"))
