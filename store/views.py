@@ -15,7 +15,7 @@ class StoreViewSet(viewsets.ModelViewSet):
     serializer_class = StoreSerializer
     # todo définir permissions ==> permettre au store owners de créer
     # todo seulement les admins doivent avoir acces a tout les stores
-    permission_classes = [permissions.IsAdminUser]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
 class StoreCategoriesSet(viewsets.ModelViewSet):
