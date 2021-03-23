@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages',
     'store',
     'user',
     'interaction',
@@ -43,7 +44,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'rest_framework',
     'rest_framework.authtoken',
-    'web'
+    'web',
 ]
 
 MIDDLEWARE = [
@@ -117,14 +118,25 @@ REST_FRAMEWORK = {
     'UNICODE_JSON': False,
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
     ],
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
     )
 }
+
+AWS_ACCESS_KEY_ID = 'AKIA25AXVH3UPFKB636P'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'shopisan'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+# AWS_S3_CUSTOM_DOMAIN = 'cdn.shopisan.com'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'  # todo décommenter pour utiliser les statics s3
+AWS_S3_REGION_NAME = "eu-west-3"
+AWS_S3_SIGNATURE_VERSION = "s3v4"
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/

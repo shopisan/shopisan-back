@@ -69,7 +69,7 @@ class User(AbstractBaseUser):
 
 
 class Profile(models.Model):
-    favourite_stores = models.ManyToManyField(Store, null=True, blank=True)
+    favourite_stores = models.ManyToManyField(Store, blank=True)
     date_of_birth = models.DateField()
     picture = models.OneToOneField(File, on_delete=models.CASCADE, null=True, blank=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=False)

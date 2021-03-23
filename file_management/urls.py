@@ -6,5 +6,6 @@ router = routers.DefaultRouter()
 router.register(r'files', views.FileViewSet)
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('', include(router.urls)),
+    # path('upload/', views.UploadViewSet)
 ]
