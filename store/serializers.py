@@ -27,9 +27,16 @@ class EvaluationSerializer(serializers.ModelSerializer):
         raise ValueError()
 
 
+class StoreCategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = StoreCategories
+        fields = ['id', 'url', 'en', 'fr']
+
+
 class StoreSerializer(serializers.HyperlinkedModelSerializer):
     addresses = AddressSerializer(many=True, read_only=True)
     evaluations = EvaluationSerializer(many=True, read_only=True)
+    categories = StoreCategorySerializer(many=True)
 
     class Meta:
         model = Store
@@ -61,9 +68,4 @@ class StoreSerializer(serializers.HyperlinkedModelSerializer):
 
         return super().update(instance, validated_data)
 
-
-class StoreCategorySerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = StoreCategories
-        fields = ['id', 'url', 'en', 'fr']
 
