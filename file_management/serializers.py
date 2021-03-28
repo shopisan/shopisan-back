@@ -10,7 +10,6 @@ class FileSerializer(serializers.HyperlinkedModelSerializer):
 
     def create(self, validated_data):
         file = File(**validated_data)
-        print(validated_data)
         # todo set le folder de destination selon le type?
         # todo set le content type?
         # file.content_type =

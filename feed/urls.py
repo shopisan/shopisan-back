@@ -4,6 +4,7 @@ from . import views
 
 router = routers.DefaultRouter()
 router.register(r'posts', views.PostViewSet)
+router.register(r'postMedias', views.PostMediaViewSet)
 # router.register(r'categories', views.PostMediaViewSet)
 
 urlpatterns = [
