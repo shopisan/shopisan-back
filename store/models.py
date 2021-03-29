@@ -16,6 +16,9 @@ class Store(models.Model):
     openingTimes = models.JSONField(null=True)
     profilePicture = models.ForeignKey(File, on_delete=models.SET_NULL, null=True)
     categories = models.ManyToManyField(StoreCategories)
+    owner = models.ForeignKey("user.Profile", related_name="owned_stores", on_delete=models.CASCADE, null=True)
+    appointmentOnly = models.BooleanField(default=False)
+    description = models.TextField(default="")
 
     @property
     def average_score(self):

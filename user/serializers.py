@@ -7,6 +7,7 @@ from store.serializers import StoreSerializer
 class ProfileSerializer(serializers.ModelSerializer):
     picture = FileSerializer(read_only=True)
     favourite_stores = StoreSerializer(many=True)
+    owned_stores = StoreSerializer(many=True)
 
     class Meta:
         model = Profile
@@ -20,7 +21,7 @@ class ProfileWriteSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Profile
         fields = '__all__'
-        read_only_fields = ["favourite_stores", "user"]
+        read_only_fields = ["favourite_stores", "user", "owned_stores"]
 
     def update(self, instance, validated_data):
         picture = validated_data.pop("picture")
