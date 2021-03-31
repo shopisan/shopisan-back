@@ -8,7 +8,7 @@ class PostMediaSerializer(serializers.HyperlinkedModelSerializer):
         model = PostMedia
         fields = ["id", "media", "description", "price", "post"]
         read_only_fields = ["post"]
-        extra_kwargs = {'id': {'read_only': False, 'required': True}}
+        extra_kwargs = {'id': {'read_only': True, 'required': True}}
 
 
 class PostMediaReadSerializer(serializers.ModelSerializer):
@@ -25,7 +25,8 @@ class PostSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Post
-        fields = "__all__"
+        fields = ["id", "url", "post_media", "created", "store"]
+        read_only_fields = ["id", "created"]
 
     def create(self, validated_data):
         post_media = validated_data.pop("post_media")
