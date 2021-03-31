@@ -45,8 +45,6 @@ class PostSerializer(serializers.HyperlinkedModelSerializer):
         instance.save()
 
         for media in post_media:
-            print(media)
-            print("id" in media)
             if "id" in media and media["id"] is not None:
                 post_media_obj = post_media_dict.pop(media['id'])
                 post_media_obj.description = media['description']

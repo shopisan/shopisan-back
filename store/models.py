@@ -7,6 +7,8 @@ class StoreCategories(models.Model):
     en = models.CharField(max_length=100, null=False)
     fr = models.CharField(max_length=100, null=False)
 
+    objects = models.Manager()
+
 
 class Store(models.Model):
     id = models.AutoField(primary_key=True)
@@ -20,12 +22,15 @@ class Store(models.Model):
     appointmentOnly = models.BooleanField(default=False)
     description = models.TextField(default="")
 
+    objects = models.Manager()
+
     @property
     def average_score(self):
         return self.evaluations.all().aggregate(Avg('score'))
 
 
 class Address(models.Model):
+    # id = models.AutoField(primary_key=True)
     streetAvenue = models.CharField(max_length=200, null=True)
     postalCode = models.CharField(max_length=20, null=True)
     city = models.CharField(max_length=200)
@@ -34,9 +39,13 @@ class Address(models.Model):
     longitude = models.CharField(max_length=100, null=True)
     store = models.ForeignKey(Store, on_delete=models.CASCADE, null=False, related_name="addresses")
 
+    objects = models.Manager()
+
 
 class Evaluation(models.Model):
     score = models.FloatField()
     store = models.ForeignKey(Store, related_name="evaluations", on_delete=models.CASCADE, null=False)
     profile = models.ForeignKey("user.Profile", related_name='evaluations', on_delete=models.CASCADE, null=False)
+
+    objects = models.Manager()
 

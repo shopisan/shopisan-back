@@ -1,12 +1,16 @@
+from user.models import User
 from .models import Store, StoreCategories, Address, Evaluation
 from rest_framework import serializers
 from .maps import fetch_localisation
+from file_management.serializers import FileSerializer
 
 
 class AddressSerializer(serializers.ModelSerializer):
     class Meta:
         model = Address
-        fields = "__all__"
+        fields = ["id", "streetAvenue", "postalCode", "city", "country", 'latitude', 'longitude', 'store']
+        read_only_fields = ['latitude', 'longitude', 'store']
+        extra_kwargs = {"id": {'read_only': False, 'required': False}}
 
 
 class EvaluationSerializer(serializers.ModelSerializer):
@@ -34,37 +38,93 @@ class StoreCategorySerializer(serializers.ModelSerializer):
 
 
 class StoreSerializer(serializers.HyperlinkedModelSerializer):
-    addresses = AddressSerializer(many=True, read_only=True)
+    addresses = AddressSerializer(many=True)
     evaluations = EvaluationSerializer(many=True, read_only=True)
     categories = StoreCategorySerializer(many=True)
+    profilePicture = FileSerializer()
 
     class Meta:
         model = Store
-        fields = ['id', 'name', 'url', 'website', 'storeStatus', 'openingTimes', 'profilePicture', 'categories',
-                  'addresses', 'evaluations', 'average_score']
+        fields = ['id', 'name', 'description', 'url', 'website', 'storeStatus', 'openingTimes', 'profilePicture',
+                  'categories', 'addresses', 'evaluations', 'average_score', 'appointmentOnly']
+        read_only_fields = ('storeStatus',)
+
+
+class StoreWriteSerializer(serializers.HyperlinkedModelSerializer):
+    addresses = AddressSerializer(many=True)
+    evaluations = EvaluationSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Store
+        fields = ['id', 'name', 'description', 'url', 'website', 'storeStatus', 'openingTimes', 'profilePicture',
+                  'categories', 'addresses', 'evaluations', 'average_score', 'appointmentOnly']
         read_only_fields = ('storeStatus',)
 
     def create(self, validated_data):
+        addresses = validated_data.pop('addresses')
+        categories = validated_data.pop('categories')
         store = Store(**validated_data)
         store.save()
-        addresses = validated_data.pop('addresses')
 
-        # todo a tester
+        for category in categories:
+            store.categories.add(category)
+
         for address in addresses:
             address_obj = Address(**address)
             fetch_localisation(address_obj)
             address_obj.store = store
             address_obj.save()
 
+        request = self.context.get("request")
+        store.owner = request.user.profile
+        store.save()
+
         return store
 
     def update(self, instance, validated_data):
-        # todo à l'update, transformer adresse en coord géo (possible d'ajouter check si modif? comparer instance avec validated data?
-        # if 'faucets' in validated_data:
-        #     faucets_data = validated_data.pop('faucets')
-        #     for faucet_data in faucets_data:
-        #         # Attention n'envoyer que les faucets a uploader
-        #         Faucet.objects.create(list=instance, **faucet_data)
+        addresses = validated_data.pop('addresses')
+        # categories = validated_data.pop('categories')
+        # categories_dict = dict((i.id, i) for i in instance.categories.all())
+        addresses_dict = dict((i.id, i) for i in instance.addresses.all())
+        instance.save()
+
+        for address in addresses:
+            if "id" in address and address["id"] != 0:
+                address_obj = addresses_dict.pop(address['id'])
+                get_location = False
+                if (address_obj.streetAvenue != address['streetAvenue'] or
+                        address_obj.postalCode != address['postalCode'] or
+                        address_obj.city != address['city'] or address_obj.country != address['country']):
+                    get_location = True
+                address_obj.streetAvenue = address['streetAvenue']
+                address_obj.postalCode = address['postalCode']
+                address_obj.city = address['city']
+                address_obj.country = address['country']
+
+                if get_location:
+                    fetch_localisation(address_obj)
+
+                address_obj.save()
+            else:
+                address['id'] = None
+                address_obj = Address.objects.create(store=instance, **address)
+                fetch_localisation(address_obj)
+                address_obj.save()
+
+        if len(addresses_dict) > 0:
+            for item in addresses_dict.values():
+                item.delete()
+
+        # for cat in categories:
+        #     if "id" in cat and cat["id"] is not None:
+        #         category = categories_dict.pop(cat['id'])
+        #         category.save()
+        #     else:
+        #         StoreCategories.objects.create(store=instance, **cat)
+        #
+        # if len(categories_dict) > 0:
+        #     for item in categories_dict.values():
+        #         item.delete()
 
         return super().update(instance, validated_data)
 

@@ -3,7 +3,8 @@ from rest_framework import permissions
 from functools import cmp_to_key
 
 from .models import Store, StoreCategories, Address, Evaluation
-from .serializers import StoreSerializer, StoreCategorySerializer, AddressSerializer, EvaluationSerializer
+from .serializers import StoreSerializer, StoreWriteSerializer, StoreCategorySerializer, AddressSerializer, \
+    EvaluationSerializer
 from .maps import get_shortest_distance
 
 
@@ -16,6 +17,14 @@ class StoreViewSet(viewsets.ModelViewSet):
     # todo définir permissions ==> permettre au store owners de créer
     # todo seulement les admins doivent avoir acces a tout les stores
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return StoreSerializer
+        if self.action == 'retrieve':
+            return StoreSerializer
+
+        return StoreWriteSerializer
 
 
 class StoreCategoriesSet(viewsets.ModelViewSet):
@@ -53,6 +62,7 @@ class StoreCategoryGeoList(generics.ListAPIView):
             stores = Store.objects.filter(categories__in=categories)
 
         if position is not None:
+            print(position)
             pos = position.split(',')
             user_coordinates = {
                 'lat':  pos[0],
@@ -62,7 +72,7 @@ class StoreCategoryGeoList(generics.ListAPIView):
             def compare(item1: Store, item2: Store):
                 return get_shortest_distance(item1, user_coordinates) - get_shortest_distance(item2, user_coordinates)
 
-            sorted(stores, key=cmp_to_key(compare))
+            stores = sorted(stores, key=cmp_to_key(compare))
 
         # if categories_str is None:
             # todo limiter le nombre de rows

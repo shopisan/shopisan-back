@@ -69,7 +69,6 @@ class UserWriteSerializer(serializers.HyperlinkedModelSerializer):
         profile = validated_data.pop("profile")
         print(profile)
         profile_obj = instance.profile
-        # print("picture" + profile['picture'])
         profile_obj.picture = profile['picture']
         profile_obj.name = profile['name']
         profile_obj.surname = profile['surname']
