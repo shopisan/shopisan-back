@@ -22,9 +22,12 @@ class EvaluationSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         request = self.context.get("request")
         if request and hasattr(request, "user"):
-            user = request.user
+            profile = request.user.profile
+            previous = Evaluation.objects.filter(profile=profile.id, store=validated_data["store"])
+            for eval in previous:
+                eval.delete()
             evaluation = Evaluation(**validated_data)
-            evaluation.profile = user.profile
+            evaluation.profile = profile
             evaluation.save()
             return evaluation
 

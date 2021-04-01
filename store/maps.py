@@ -1,3 +1,4 @@
+import pycountry
 import requests
 import json
 import math
@@ -5,7 +6,14 @@ from .models import Store, Address
 
 
 def fetch_localisation(address):
-    address_str = "%s, %s" % (address.streetAvenue, address.postalCode)
+    address_str = address.streetAvenue + ", " + address.postalCode
+    if address.city != "" or address.city is not None:
+        address_str = address_str + " " + address.city
+
+    country = pycountry.countries.get(alpha_2=address.country)
+    address_str = address_str + " " + country.name
+
+    print("generated address" + address_str)
     params = {
         "address": address_str,
         "key": "AIzaSyCegSUW6N1wYgRONnn_4kOZXUzFu7w2Drs"

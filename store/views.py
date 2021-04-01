@@ -62,7 +62,6 @@ class StoreCategoryGeoList(generics.ListAPIView):
             stores = Store.objects.filter(categories__in=categories)
 
         if position is not None:
-            print(position)
             pos = position.split(',')
             user_coordinates = {
                 'lat':  pos[0],
@@ -73,9 +72,6 @@ class StoreCategoryGeoList(generics.ListAPIView):
                 return get_shortest_distance(item1, user_coordinates) - get_shortest_distance(item2, user_coordinates)
 
             stores = sorted(stores, key=cmp_to_key(compare))
-
-        # if categories_str is None:
-            # todo limiter le nombre de rows
 
         stores = stores[0:50]
 
