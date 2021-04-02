@@ -6,7 +6,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from store.models import Store
 
-from .serializers import UserSerializer, ProfileSerializer, UserWriteSerializer
+from .serializers import UserSerializer, ProfileSerializer, UserWriteSerializer, UserRegistrationSerializer
 
 
 @api_view(["GET"])
@@ -35,7 +35,7 @@ def handle_favourite_store(request):
 
 class CreateNewUser(generics.CreateAPIView):
     queryset = User.objects.all()
-    serializer_class = UserSerializer
+    serializer_class = UserRegistrationSerializer
     permission_classes = [permissions.AllowAny]
 
 

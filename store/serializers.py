@@ -1,4 +1,3 @@
-from user.models import User
 from .models import Store, StoreCategories, Address, Evaluation
 from rest_framework import serializers
 from .maps import fetch_localisation
@@ -86,8 +85,6 @@ class StoreWriteSerializer(serializers.HyperlinkedModelSerializer):
 
     def update(self, instance, validated_data):
         addresses = validated_data.pop('addresses')
-        # categories = validated_data.pop('categories')
-        # categories_dict = dict((i.id, i) for i in instance.categories.all())
         addresses_dict = dict((i.id, i) for i in instance.addresses.all())
         instance.save()
 
@@ -117,17 +114,6 @@ class StoreWriteSerializer(serializers.HyperlinkedModelSerializer):
         if len(addresses_dict) > 0:
             for item in addresses_dict.values():
                 item.delete()
-
-        # for cat in categories:
-        #     if "id" in cat and cat["id"] is not None:
-        #         category = categories_dict.pop(cat['id'])
-        #         category.save()
-        #     else:
-        #         StoreCategories.objects.create(store=instance, **cat)
-        #
-        # if len(categories_dict) > 0:
-        #     for item in categories_dict.values():
-        #         item.delete()
 
         return super().update(instance, validated_data)
 

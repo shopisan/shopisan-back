@@ -23,3 +23,11 @@ class PostMediaViewSet(viewsets.ModelViewSet):
     queryset = PostMedia.objects.all()
     serializer_class = PostMediaSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+
+class PostByStore(generics.ListAPIView):
+    serializer_class = PostReadSerializer
+
+    def get_queryset(self):
+        store = self.kwargs['store']
+        return Post.objects.filter(store=store)

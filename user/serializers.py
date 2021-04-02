@@ -42,6 +42,25 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         extra_kwargs = {'password': {'write_only': True}, 'stores': {'read_only': True}}
 
 
+class UserRegistrationSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'url', 'profile', 'last_login', 'email', 'username', 'password', 'is_active', 'is_admin',
+                  'created', 'is_owner']
+        read_only_fields = ["profile", "created", "last_login", "url", "is_active", "is_admin", "is_owner"]
+        write_only_fields = ['password']
+
+    def create(self, validated_data):
+        user = User(**validated_data)
+        user.save()
+
+        profile = Profile()
+        profile.user = user
+        profile.save()
+        # todo envoyer un mail de confirmation?
+        return user
+
+
 class UserWriteSerializer(serializers.HyperlinkedModelSerializer):
     profile = ProfileWriteSerializer()
 

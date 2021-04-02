@@ -8,14 +8,9 @@ from .serializers import StoreSerializer, StoreWriteSerializer, StoreCategorySer
 from .maps import get_shortest_distance
 
 
-# todo dans le serializer de l'entité store, ajouter le call api pour chopper lat et long
-
-
 class StoreViewSet(viewsets.ModelViewSet):
     queryset = Store.objects.all()
     serializer_class = StoreSerializer
-    # todo définir permissions ==> permettre au store owners de créer
-    # todo seulement les admins doivent avoir acces a tout les stores
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def get_serializer_class(self):
