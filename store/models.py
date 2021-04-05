@@ -49,3 +49,7 @@ class Evaluation(models.Model):
 
     objects = models.Manager()
 
+
+# class StoreRegistrationRequest:
+
+

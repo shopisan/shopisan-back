@@ -42,6 +42,8 @@ class User(AbstractBaseUser):
     is_admin = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     is_owner = models.BooleanField(default=False)
+    reset_password_token = models.CharField(max_length=50, null=True, blank=True)
+    reset_password_validity = models.DateTimeField(null=True)
 
     objects = UserManager()
 
