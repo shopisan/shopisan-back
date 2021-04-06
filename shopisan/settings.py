@@ -29,7 +29,9 @@ ALLOWED_HOSTS = ["10.0.2.2", "127.0.0.1"]
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    'material.admin',
+    'material.admin.default',
+    # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -44,7 +46,8 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'rest_framework',
     'rest_framework.authtoken',
-    'web'
+    'web',
+    'contact'
 ]
 
 MIDDLEWARE = [
@@ -125,6 +128,28 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
     )
+}
+
+MATERIAL_ADMIN_SITE = {
+    'HEADER': 'Shopisan',  # Admin site header
+    'TITLE': 'Shopisan',  # Admin site title
+    'FAVICON':  'images/FAVICON.png',  # Admin site favicon (path to static should be specified)
+    'MAIN_BG_COLOR':  '#FA3C3C',  # Admin site main color, css color should be specified
+    'MAIN_HOVER_COLOR':  '#FA3C3C',  # Admin site main hover color, css color should be specified
+    # 'PROFILE_PICTURE':  'path/to/image',  # Admin site profile picture (path to static should be specified)
+    # 'PROFILE_BG':  'images/FAVICON.png',  # Admin site profile background (path to static should be specified)
+    # 'LOGIN_LOGO':  'path/to/image',  # Admin site logo on login page (path to static should be specified)
+    # 'LOGOUT_BG':  'path/to/image',  # Admin site background on login/logout pages (path to static should be specified)
+    'SHOW_THEMES':  True,  #  Show default admin themes button
+    # 'TRAY_REVERSE': True,  # Hide object-tools and additional-submit-line by default
+    # 'NAVBAR_REVERSE': True,  # Hide side navbar by default
+    'SHOW_COUNTS': True,  # Show instances counts for each model
+    # 'APP_ICONS': {
+    #     'sites': 'send',
+    # },
+    # 'MODEL_ICONS': {
+    #     'site': 'contact_mail',
+    # }
 }
 
 AWS_ACCESS_KEY_ID = 'AKIA25AXVH3UPFKB636P'

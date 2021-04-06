@@ -9,6 +9,9 @@ class StoreCategories(models.Model):
 
     objects = models.Manager()
 
+    def __str__(self):
+        return self.fr
+
 
 class Store(models.Model):
     id = models.AutoField(primary_key=True)
@@ -23,6 +26,9 @@ class Store(models.Model):
     description = models.TextField(default="")
 
     objects = models.Manager()
+
+    def __str__(self):
+        return self.name
 
     @property
     def average_score(self):
@@ -48,8 +54,5 @@ class Evaluation(models.Model):
     profile = models.ForeignKey("user.Profile", related_name='evaluations', on_delete=models.CASCADE, null=False)
 
     objects = models.Manager()
-
-
-# class StoreRegistrationRequest:
 
 
