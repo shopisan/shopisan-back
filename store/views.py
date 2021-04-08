@@ -1,7 +1,7 @@
 from rest_framework import viewsets, generics
 from rest_framework import permissions
 from functools import cmp_to_key
-
+from django.db.models import Q
 from .models import Store, StoreCategories, Address, Evaluation
 from .serializers import StoreSerializer, StoreWriteSerializer, StoreCategorySerializer, AddressSerializer, \
     EvaluationSerializer
@@ -51,10 +51,10 @@ class StoreCategoryGeoList(generics.ListAPIView):
         position = self.request.query_params.get('position', None)
 
         if categories_str is None:
-            stores = Store.objects.exclude(addresses=None)
+            stores = Store.objects.exclude(storeStatus=2, addresses=None)
         else:
             categories = categories_str.split(',')
-            stores = Store.objects.filter(categories__in=categories)
+            stores = Store.objects.filter(categories__in=categories).exclude(storeStatus=2, addresses=None)
 
         if position is not None:
             pos = position.split(',')
@@ -68,7 +68,7 @@ class StoreCategoryGeoList(generics.ListAPIView):
 
             stores = sorted(stores, key=cmp_to_key(compare))
 
-        stores = stores[0:50]
+        # stores = stores[0:50]
 
         return stores
 

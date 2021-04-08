@@ -14,7 +14,7 @@ class ProfileInline(admin.TabularInline):
 class UserAdmin(admin.ModelAdmin):
     icon_name = 'person'
     exclude = ('password',)
-    list_display = ['username', 'email', 'profile']
+    list_display = ['email', 'username', 'profile']
 
     inlines = [
         ProfileInline

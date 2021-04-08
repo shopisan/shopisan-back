@@ -43,7 +43,7 @@ class User(AbstractBaseUser):
     created = models.DateTimeField(auto_now_add=True)
     is_owner = models.BooleanField(default=False)
     reset_password_token = models.CharField(max_length=50, null=True, blank=True)
-    reset_password_validity = models.DateTimeField(null=True)
+    reset_password_validity = models.DateTimeField(null=True, blank=True)
 
     objects = UserManager()
 

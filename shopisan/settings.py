@@ -75,10 +75,6 @@ WSGI_APPLICATION = 'shopisan.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'shopisan',
@@ -88,6 +84,17 @@ DATABASES = {
         'PORT': '',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'dc73p6lmn8mogi',
+#         'USER': 'voivvuejgrtlxv',
+#         'PASSWORD': '283d3d1038b83c2d85fc83d00d8d2bcadcbc901d25bc3f38c20540b8816afc09',
+#         'HOST': 'ec2-54-74-77-126.eu-west-1.compute.amazonaws.com',
+#         'PORT': '5432',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -149,7 +156,7 @@ AWS_S3_FILE_OVERWRITE = True
 AWS_DEFAULT_ACL = None
 # AWS_S3_CUSTOM_DOMAIN = 'cdn.shopisan.com'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'  # todo décommenter pour utiliser les statics s3
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'  # todo décommenter pour utiliser les statics s3
 AWS_S3_REGION_NAME = "eu-west-3"
 AWS_S3_SIGNATURE_VERSION = "s3v4"
 

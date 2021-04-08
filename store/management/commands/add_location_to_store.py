@@ -14,5 +14,5 @@ class Command(BaseCommand):
                 if address.latitude is None:
                     fetch_localisation(address=address)
                     address.save()
-        # print(stores)
+
         self.stdout.write(self.style.SUCCESS("Yay"))

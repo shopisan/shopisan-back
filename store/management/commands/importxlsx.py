@@ -10,7 +10,13 @@ def create_store_from_row(row, activities, cities):
     store.name = row[0]
     store.website = row[4]
     if row[5] is not None:
-        store.openingTimes = json.loads(row[5])
+        opening_hours = json.loads(row[5])
+        if "all" in opening_hours:
+            store.appointmentOnly = True
+        else:
+            store.openingTimes = opening_hours
+    else:
+        store.appointmentOnly = True
     store.save()
 
     add_address_to_store(store, row, cities=cities)
@@ -48,12 +54,12 @@ class Command(BaseCommand):
         self.stdout.write(self.style.SUCCESS(print(filename)))
         wb = load_workbook(filename=filename)
         cities = self.parse_cities(workbook=wb)
-        # activities = self.parse_activities(workbook=wb)
+        activities = self.parse_activities(workbook=wb)
 
-        activities = {}
-        activities_entity = StoreCategories.objects.all()
-        for cat in activities_entity:
-            activities[cat.pk] = cat
+        # activities = {}
+        # activities_entity = StoreCategories.objects.all()
+        # for cat in activities_entity:
+        #     activities[cat.pk] = cat
 
         self.parse_stores(workbook=wb, activities=activities, cities=cities)
         self.stdout.write(self.style.SUCCESS(""))
@@ -85,8 +91,7 @@ class Command(BaseCommand):
         ws = workbook['Boutiques']
 
         last_store = None
-        for index, row in enumerate(ws.iter_rows(min_row=2, max_col=9, values_only=True)):
-            # print(index+2)
+        for index, row in enumerate(ws.iter_rows(min_row=2, max_col=9, max_row=101, values_only=True)):
             if last_store is None or last_store.name != row[0]:
                 store = create_store_from_row(row, activities, cities=cities)
                 last_store = store
