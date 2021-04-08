@@ -1,5 +1,8 @@
 from .models import File
 from rest_framework import serializers
+from PIL import Image
+from django.core.files.storage import default_storage
+from io import BytesIO
 
 
 class FileSerializer(serializers.HyperlinkedModelSerializer):
@@ -10,10 +13,15 @@ class FileSerializer(serializers.HyperlinkedModelSerializer):
 
     def create(self, validated_data):
         file = File(**validated_data)
-        # todo set le folder de destination selon le type?
-        # todo set le content type?
-        # file.content_type =
-        # file.file_type = "test"
         file.save()
+
+        mem_file = BytesIO()
+        thumbnail_image = Image.open(file.file)
+        thumbnail_image.thumbnail((1200, 1200))
+        thumbnail_image.save(mem_file, 'JPEG')
+        default_storage.save(file.file.name, mem_file)
+
+        mem_file.close()
+        thumbnail_image.close()
 
         return file

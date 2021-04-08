@@ -23,5 +23,4 @@ class UserAdmin(admin.ModelAdmin):
 
 admin.site.register(User, UserAdmin)
 admin.site.unregister(Group)
-# admin.site.unregister(TokenProxy)
 

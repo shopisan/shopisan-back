@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'web',
-    'contact'
+    'contact',
+    'emails'
 ]
 
 MIDDLEWARE = [
@@ -134,8 +135,8 @@ MATERIAL_ADMIN_SITE = {
     'HEADER': 'Shopisan',  # Admin site header
     'TITLE': 'Shopisan',  # Admin site title
     'FAVICON':  'images/FAVICON.png',  # Admin site favicon (path to static should be specified)
-    'MAIN_BG_COLOR':  '#FA3C3C',  # Admin site main color, css color should be specified
-    'MAIN_HOVER_COLOR':  '#FA3C3C',  # Admin site main hover color, css color should be specified
+    'MAIN_BG_COLOR':  '#FF6565',  # Admin site main color, css color should be specified
+    'MAIN_HOVER_COLOR':  '#FF6565',  # Admin site main hover color, css color should be specified
     # 'PROFILE_PICTURE':  'path/to/image',  # Admin site profile picture (path to static should be specified)
     # 'PROFILE_BG':  'images/FAVICON.png',  # Admin site profile background (path to static should be specified)
     # 'LOGIN_LOGO':  'path/to/image',  # Admin site logo on login page (path to static should be specified)
@@ -155,7 +156,7 @@ MATERIAL_ADMIN_SITE = {
 AWS_ACCESS_KEY_ID = 'AKIA25AXVH3UPFKB636P'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'shopisan'
-AWS_S3_FILE_OVERWRITE = False
+AWS_S3_FILE_OVERWRITE = True
 AWS_DEFAULT_ACL = None
 # AWS_S3_CUSTOM_DOMAIN = 'cdn.shopisan.com'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

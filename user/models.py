@@ -53,6 +53,11 @@ class User(AbstractBaseUser):
     def __str__(self):
         return self.email
 
+    def set_avatar(self):
+        _avatar = self.profile.picture
+        if not _avatar:
+            self.avatar = "path/to/default/avatar.png"
+
     @staticmethod
     def has_module_perms(app_label):
         # todo mettre le store management dans une app et gérer comme ca?

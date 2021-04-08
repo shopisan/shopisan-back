@@ -1,0 +1,13 @@
+{% extends "emails/base.html" %}
+
+{% block subject %}
+    {{ subject }}
+{% endblock %}
+
+{% block body %}
+<tr>
+    <td class="text-phone mp30" style="padding-bottom: 10px; color:#41455c; font-family: 'Poppins', sans-serif; font-size:1rem; line-height:1.5rem; text-align:center;">
+        {{ body|linebreaks }}
+    </td>
+</tr>
+{% endblock %}

@@ -4,7 +4,7 @@ import datetime
 from pytz import timezone
 import pytz
 
-from django.core.mail import send_mail
+from emails import send_mail
 from .models import User, Profile
 from rest_framework import viewsets, generics
 from rest_framework import permissions
@@ -60,12 +60,10 @@ def forgot_password(request):
     user.reset_password_validity = brussels.localize(datetime.datetime.now() + datetime.timedelta(hours=1))
     user.save()
 
-    message = "Votre token est le \" " + token + " \" "
-    html_message = "<h1>Le titre html</h1>Votre token est le \" " + token + \
-                   " \" merci de bien vouloir suivre la procédure sur votre application"
-
-    send_mail(subject="Réinitialisation de votre mot de passe", from_email='"Shopisan" <info@jh8.dev>',
-              recipient_list=[email], message=message, html_message=html_message)
+    send_mail(subject="Réinitialisation de votre mot de passe", recipient_list=[email],
+              template="emails/includes/reset_password_token.html", variables={"token": token})
+    # send_mail(subject="Réinitialisation de votre mot de passe", from_email='"Shopisan" <info@jh8.dev>',
+    #           recipient_list=[email], message=message, html_message=html_message)
 
     return Response({"success": True})
 
