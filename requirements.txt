@@ -4,17 +4,19 @@ boto3==1.17.33
 botocore==1.20.33
 certifi==2020.12.5
 chardet==4.0.0
+dj-database-url==0.5.0
 Django==3.1.7
 django-debug-toolbar==3.2
+django-heroku==0.3.1
 django-material-admin==1.7.16
 django-storages==1.11.1
 djangorestframework==3.12.2
 et-xmlfile==1.0.1
+gunicorn==20.1.0
 idna==2.10
 jmespath==0.10.0
 openpyxl==3.0.7
 Pillow==8.2.0
-pkg-resources==0.0.0
 psycopg2==2.8.6
 pycountry==20.7.3
 python-dateutil==2.8.1
@@ -24,3 +26,4 @@ s3transfer==0.3.6
 six==1.15.0
 sqlparse==0.4.1
 urllib3==1.26.4
+whitenoise==5.2.0
