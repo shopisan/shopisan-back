@@ -114,7 +114,7 @@
                                                                     <tr>
                                                                         <td class="img m-center" style="font-size:0pt; line-height:0pt; text-align:center;">
                                                                             <a href="https://shopisan.com">
-<!--                                                                                <img src="{% static 'images/LOGO_ROSE_SHOPISAN.png' %}" width="173" border="0" alt="Logo shopisanapp" />-->
+                                                                                <img src="https://shopisan.herokuapp.com{% static 'images/LOGO_ROSE_SHOPISAN.png' %}" width="173" border="0" alt="Logo shopisanapp" />
 <!--                                                                                <img src="https://jh8.dev/front/img/500X500_WHITE.png" width="173" border="0" alt="Logo shopisanapp" />-->
 
                                                                             </a>
@@ -172,14 +172,16 @@
                                                         </tr>
                                                     </table>
                                                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                        <tr style="display: flex; flex-direction: column">
-                                                            <td class="text-phone mp30" style=" margin-top: 3rem; padding-bottom: 10px; color:#41455c; font-family: 'Poppins', sans-serif; font-size:1rem; line-height:1.5rem; text-align:center;">
-                                                                <img src="{% static 'web/static/images/mail.png' %}" width="15" border="0" alt="mail" />
+                                                        <tr>
+                                                            <td class="text-phone mp30" style=" padding-top: 20px; padding-bottom: 10px; color:#41455c; font-family: 'Poppins', sans-serif; font-size:1rem; line-height:1.5rem; text-align:center;">
+                                                                <img src="https://shopisan.herokuapp.com{% static 'images/mail.png' %}" width="15" border="0" alt="mail" />
 <!--                                                                <img style="width: 15px; margin-right: 5px;" src="data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZm9jdXNhYmxlPSJmYWxzZSIgZGF0YS1wcmVmaXg9ImZhcyIgZGF0YS1pY29uPSJlbnZlbG9wZSIgY2xhc3M9InN2Zy1pbmxpbmUtLWZhIGZhLWVudmVsb3BlIGZhLXctMTYiIHJvbGU9ImltZyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNNTAyLjMgMTkwLjhjMy45LTMuMSA5LjctLjIgOS43IDQuN1Y0MDBjMCAyNi41LTIxLjUgNDgtNDggNDhINDhjLTI2LjUgMC00OC0yMS41LTQ4LTQ4VjE5NS42YzAtNSA1LjctNy44IDkuNy00LjcgMjIuNCAxNy40IDUyLjEgMzkuNSAxNTQuMSAxMTMuNiAyMS4xIDE1LjQgNTYuNyA0Ny44IDkyLjIgNDcuNiAzNS43LjMgNzItMzIuOCA5Mi4zLTQ3LjYgMTAyLTc0LjEgMTMxLjYtOTYuMyAxNTQtMTEzLjd6TTI1NiAzMjBjMjMuMi40IDU2LjYtMjkuMiA3My40LTQxLjQgMTMyLjctOTYuMyAxNDIuOC0xMDQuNyAxNzMuNC0xMjguNyA1LjgtNC41IDkuMi0xMS41IDkuMi0xOC45di0xOWMwLTI2LjUtMjEuNS00OC00OC00OEg0OEMyMS41IDY0IDAgODUuNSAwIDExMnYxOWMwIDcuNCAzLjQgMTQuMyA5LjIgMTguOSAzMC42IDIzLjkgNDAuNyAzMi40IDE3My40IDEyOC43IDE2LjggMTIuMiA1MC4yIDQxLjggNzMuNCA0MS40eiI+PC9wYXRoPjwvc3ZnPg==" alt="email"/>-->
                                                                 <a href="mailto:info@shopisan.com" target="_blank" class="link-grey" style="color:#41455c; text-decoration:none;"><span class="link-grey" style="color:#41455c; text-decoration:none;">info@shopisan.com</span></a>
                                                             </td>
+                                                        </tr>
+                                                        <tr>
                                                             <td class="text-phone mp30" style="padding-bottom: 50px; color:#41455c; font-family: 'Poppins', sans-serif; font-size:1rem; line-height:1.5rem; text-align:center;">
-                                                                <img src="{% static 'web/static/images/mouse-pointer-solid.png' %}" width="10" border="0" alt="site" />
+                                                                <img src="https://shopisan.herokuapp.com{% static 'images/mouse-pointer-solid.png' %}" width="10" border="0" alt="site" />
 <!--                                                                <img style="width: 10px; margin-right: 5px;" src="data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZm9jdXNhYmxlPSJmYWxzZSIgZGF0YS1wcmVmaXg9ImZhcyIgZGF0YS1pY29uPSJtb3VzZS1wb2ludGVyIiBjbGFzcz0ic3ZnLWlubGluZS0tZmEgZmEtbW91c2UtcG9pbnRlciBmYS13LTEwIiByb2xlPSJpbWciIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDMyMCA1MTIiPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTMwMi4xODkgMzI5LjEyNkgxOTYuMTA1bDU1LjgzMSAxMzUuOTkzYzMuODg5IDkuNDI4LS41NTUgMTkuOTk5LTkuNDQ0IDIzLjk5OWwtNDkuMTY1IDIxLjQyN2MtOS4xNjUgNC0xOS40NDMtLjU3MS0yMy4zMzItOS43MTRsLTUzLjA1My0xMjkuMTM2LTg2LjY2NCA4OS4xMzhDMTguNzI5IDQ3Mi43MSAwIDQ2My41NTQgMCA0NDcuOTc3VjE4LjI5OUMwIDEuODk5IDE5LjkyMS02LjA5NiAzMC4yNzcgNS40NDNsMjg0LjQxMiAyOTIuNTQyYzExLjQ3MiAxMS4xNzkgMy4wMDcgMzEuMTQxLTEyLjUgMzEuMTQxeiI+PC9wYXRoPjwvc3ZnPg==" alt="site"/>-->
                                                                 <a href="https://shopisan.com" target="_blank" class="link-grey" style="color:#000000; text-decoration:none;"><span class="link-grey" style="color:#41455c; text-decoration:none;">shopisan.com</span></a>
                                                             </td>
