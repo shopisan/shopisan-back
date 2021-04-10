@@ -51,7 +51,9 @@ class UserRegistrationSerializer(serializers.HyperlinkedModelSerializer):
         write_only_fields = ['password']
 
     def create(self, validated_data):
+        password = validated_data.pop('password')
         user = User(**validated_data)
+        user.set_password(password)
         user.save()
 
         profile = Profile()
@@ -86,7 +88,6 @@ class UserWriteSerializer(serializers.HyperlinkedModelSerializer):
 
     def update(self, instance, validated_data):
         profile = validated_data.pop("profile")
-        print(profile)
         profile_obj = instance.profile
         profile_obj.picture = profile['picture']
         profile_obj.name = profile['name']
