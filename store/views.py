@@ -1,7 +1,8 @@
 from rest_framework import viewsets, generics
 from rest_framework import permissions
+from .permissions import IsOwnerOrAdminOrReadOnly
+from api.permissions import IsAdminOrReadOnly
 from functools import cmp_to_key
-from django.db.models import Q
 from .models import Store, StoreCategories, Address, Evaluation
 from .serializers import StoreSerializer, StoreWriteSerializer, StoreCategorySerializer, AddressSerializer, \
     EvaluationSerializer
@@ -11,7 +12,7 @@ from .maps import get_shortest_distance
 class StoreViewSet(viewsets.ModelViewSet):
     queryset = Store.objects.all()
     serializer_class = StoreSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [IsOwnerOrAdminOrReadOnly]
 
     def get_serializer_class(self):
         if self.action == 'list':
@@ -25,21 +26,20 @@ class StoreViewSet(viewsets.ModelViewSet):
 class StoreCategoriesSet(viewsets.ModelViewSet):
     queryset = StoreCategories.objects.all()
     serializer_class = StoreCategorySerializer
-    # todo faire une permission accès readOnly pour tout le monde, et edit uniquement pour les admis
-    permission_classes = [permissions.AllowAny]
+    # todo faire une permission accès readOnly pour tout le monde, et edit uniquement pour les admins
+    # todo store ca dans API comme ca risque d'être utilisé a plusieurs endroits
+    permission_classes = [IsAdminOrReadOnly]
 
 
 class AddressViewSet(viewsets.ModelViewSet):
     queryset = Address.objects.all()
     serializer_class = AddressSerializer
-    # todo faire une permission accès readOnly pour tout le monde, et edit uniquement pour les admis
     permission_classes = [permissions.IsAdminUser]
 
 
 class EvaluationViewSet(viewsets.ModelViewSet):
     queryset = Evaluation.objects.all()
     serializer_class = EvaluationSerializer
-    # todo faire une permission accès readOnly pour tout le monde, et edit uniquement pour les admis
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 

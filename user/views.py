@@ -8,6 +8,7 @@ from emails import send_mail
 from .models import User, Profile
 from rest_framework import viewsets, generics
 from rest_framework import permissions
+from .permissions import IsUserOrAdminOrReadOnly
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -101,7 +102,7 @@ def reset_password(request):
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [permissions.IsAdminUser]
+    permission_classes = [IsUserOrAdminOrReadOnly]
 
     def get_serializer_class(self):
         if self.action == 'list':
