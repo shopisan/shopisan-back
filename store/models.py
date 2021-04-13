@@ -16,12 +16,12 @@ class StoreCategories(models.Model):
 class Store(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100, default='')
-    website = models.CharField(max_length=100, null=True)
+    website = models.CharField(max_length=100, null=True, blank=True)
     # 0 => Waiting approval, 1 => Published, 2 => Banned
     storeStatus = models.IntegerField(default=0)
     openingTimes = models.JSONField(null=True)
     profilePicture = models.ForeignKey(File, on_delete=models.SET_NULL, null=True)
-    categories = models.ManyToManyField(StoreCategories)
+    categories = models.ManyToManyField(StoreCategories, blank=True)
     owner = models.ForeignKey("user.Profile", related_name="owned_stores", on_delete=models.CASCADE, null=True)
     appointmentOnly = models.BooleanField(default=False)
     description = models.TextField(default="")
