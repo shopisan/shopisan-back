@@ -9,6 +9,8 @@ class Post(models.Model):
     store = models.ForeignKey(Store, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
 
+    objects = models.Manager()
+
 
 class PostMedia(models.Model):
     # id = models.AutoField(primary_key=True)

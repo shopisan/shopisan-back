@@ -8,5 +8,6 @@ router.register(r'postMedias', views.PostMediaViewSet)
 
 urlpatterns = [
     path('posts/', include(router.urls)),
+    path('posts_by_owned_stores/', views.get_posts_by_owned_stores),
     re_path('posts/by_store/(?P<store>.+)/$', views.PostByStore.as_view()),
 ]
