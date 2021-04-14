@@ -13,6 +13,7 @@ import {
     Switch,
     Route,
   } from "react-router-dom";
+import ProjectIdea from "./components/LandingComponent/ProjectIdea";
 
 
 
@@ -29,7 +30,7 @@ const theme = createMuiTheme({
         }
     },
     typography: {
-        fontFamily: 'Robotto',
+        fontFamily: "Poppins",
         h1: {
             fontWeight: "bold",
             color: "#41455c",
@@ -52,12 +53,10 @@ render(
             <ThemeProvider theme={theme}>
            <MenuHeader/>
            <Switch>
-           <Route exact path='/' component={Landing}/>
-            <Route exact path='/contact' component={Contact}/>
-               <Route exact path='/signin' component={SignIn}/>
-                
+            <Route exact path='/' component={Landing}/>
+            <Route path='/signin' component={SignIn}/>
+            <Route path='/contact' component={Contact}/>
            </Switch>
-
             <Footer/>
     </ThemeProvider> 
         </Router>
