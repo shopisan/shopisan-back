@@ -75,27 +75,27 @@ WSGI_APPLICATION = 'shopisan.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'shopisan',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'dc73p6lmn8mogi',
-#         'USER': 'voivvuejgrtlxv',
-#         'PASSWORD': '283d3d1038b83c2d85fc83d00d8d2bcadcbc901d25bc3f38c20540b8816afc09',
-#         'HOST': 'ec2-54-74-77-126.eu-west-1.compute.amazonaws.com',
-#         'PORT': '5432',
+#         'NAME': 'shopisan',
+#         'USER': 'root',
+#         'PASSWORD': 'root',
+#         'HOST': 'localhost',
+#         'PORT': '',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dc73p6lmn8mogi',
+        'USER': 'voivvuejgrtlxv',
+        'PASSWORD': '283d3d1038b83c2d85fc83d00d8d2bcadcbc901d25bc3f38c20540b8816afc09',
+        'HOST': 'ec2-54-74-77-126.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
