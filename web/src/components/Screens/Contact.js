@@ -60,7 +60,7 @@ const useStyles = makeStyles(theme => ({
     body2:{
         fontFamily: "Poppins",
         margin: "1rem 0 0 0",
-        fontSize: "0.7rem", 
+        fontSize: "0.9rem", 
         color: "#41455c",
         lineHeight: "1rem",
     },
@@ -68,8 +68,7 @@ const useStyles = makeStyles(theme => ({
         borderRadius: "0.5rem",
         padding: "1.5rem 1rem",
         marginTop: "5px",
-        fontSize:"10px",
-        color: "#FAFAFA",
+        fontSize:"12px",
         [theme.breakpoints.up('md')]:{
             padding: '2rem 1rem',
             borderRadius:"1rem"
@@ -156,7 +155,7 @@ return(
                         <Form.Label className={classes.body2}>Vote message</Form.Label>
                         <Form.Control className={classes.formControl} as="textarea" rows={5} placeholder="Entrez vote message..." required/>
                     </Form.Group>
-                    <Button className={classes.submit} type="submit">
+                    <Button className={classes.submit} type="submit" >
                     Envoyer
                     </Button>
                 

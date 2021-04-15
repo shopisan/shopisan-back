@@ -2,9 +2,14 @@ import React, { useState, useEffect } from "react";
 import { makeStyles, Typography } from "@material-ui/core";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
+import { getErrors, notEmpty, isValidEmail } from '../Utils/FormsUtils';
+import setAxiosDefaults from '../Utils/Common';
+import axios from "axios";
 import MuiAlert from '@material-ui/lab/Alert';
-import { getErrors } from '../Utils/FormsUtils';
+import Snackbar from '@material-ui/core/Snackbar';
 
+
+setAxiosDefaults(axios);
 
 const useStyles = makeStyles(theme => ({
     brand:{
@@ -65,7 +70,7 @@ const useStyles = makeStyles(theme => ({
     body2:{
         fontFamily: "Poppins",
         margin: "1rem 0 0 0",
-        fontSize: "0.7rem", 
+        fontSize: "0.9rem", 
         color: "#41455c",
         lineHeight: "1rem",
     },
@@ -92,8 +97,7 @@ const useStyles = makeStyles(theme => ({
         borderRadius: "0.5rem",
         padding: "1.5rem 1rem",
         marginTop: "5px",
-        fontSize:"10px",
-        color: "#FAFAFA"
+        fontSize:"12px",
     }, 
     submit:{
         fontFamily: "Poppins",
@@ -143,37 +147,46 @@ const useStyles = makeStyles(theme => ({
 let errors = {};
 
 function useForceUpdate() {
-    const [value, setValue] = useState(0); // integer state
-    return () => setValue(value => value + 1); // update the state to force render
+    const [value, setValue] = useState(0);
+    return () => setValue(value => value + 1);
 }
 
+function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 export default function SignIn(){
     const classes = useStyles();
 
-    const [store, setStore] = useState("");
-    const [firstname, setFirstname] = useState("");
-    const [lastname, setLastname] = useState("");
+    // const [brand , setBrand ] = useState("");
+    // const [firstname, setFirstname] = useState("");
+    // const [lastname, setLastname] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [repeatPassword, setRepeatPassword] = useState("");
-    const [mobile, setMobile] = useState("");
+    // const [mobile, setMobile] = useState("");
     const forceUpdate = useForceUpdate();
+    const [showSuccess, setShowSuccess] = useState(false)
+
+
+
 
     function submit() {
+        // faire la validation de chaque feild selon les conditions
+        console.log("okayyy");
         if (checkPassword()) {
-            axios.post("/api/register/", {
-                store,
-                firstname,
-                lastname,
+            axios.post("api/register/", {
+                // brand ,
+                // firstname,
+                // lastname,
                 email,
                 password,
-                repeatPassword,
-                mobile
+                // repeatPassword,
+                // mobile
             }).then((response, error) => {
                 if (response.success) {
                     errors = {}
-                    setShowSuccess(true)
+                    setShowSuccess(true);
                     return(
                         <Typography>Merci de votre inscription !</Typography>
                     )
@@ -181,7 +194,6 @@ export default function SignIn(){
                     errors = response.data;
                     forceUpdate();
                 }
-                // console.log(response);
             });
         }
     }
@@ -208,6 +220,9 @@ export default function SignIn(){
         }
     }, [repeatPassword])
 
+    function handleClose() {
+        setShowSuccess(false)
+    }
     
      return(
         <>
@@ -222,7 +237,7 @@ franchir le seuil de votre boutique qu’elle soit en ligne ou pas.</Typography>
             </div>
                 
             <div className= "d-flex justify-content-center" >
-            <img className={classes.img} src= "static/images/Iphone_Mockup .png"></img>
+            <img className={classes.img} src= "/static/images/Iphone_Mockup .png"></img>
         </div>
         </div> 
         
@@ -233,43 +248,51 @@ franchir le seuil de votre boutique qu’elle soit en ligne ou pas.</Typography>
             </div>
             <div className="column">
                 <Form className={classes.form} >
- <div className={classes.formContent}>
+                <Snackbar open={showSuccess} autoHideDuration={10000} onClose={handleClose}>
+                    <Alert onClose={handleClose} severity="success">
+                        This is a success message!
+                    </Alert>
+                </Snackbar>
+                    <div className={classes.formContent}>
                         <Form.Group className= {classes.group}>
                         <Form.Label className={classes.body2} >Nom de votre boutique / marque</Form.Label>
-                        <Form.Control className={classes.formControl} placeholder="Exemple: Shopisan" required onChange={(event) => {setStore(event.target.value)}} {...getErrors("store")}/>
+                        <Form.Control className={classes.formControl} placeholder="Exemple: Shopisan" required/>
                     </Form.Group>
                     <Form.Group className= {classes.group}>
                         <Form.Label className={classes.body2}>Prénom</Form.Label>
-                        <Form.Control className={classes.formControl} placeholder="Exemple: Nicolas" required onChange={(event) => {setFirstname(event.target.value)}} {...getErrors("firstname")} />
+                        <Form.Control className={classes.formControl} placeholder="Exemple: Nicolas" required />
                     </Form.Group>
                     </div>
                     
                     <div className={classes.formContent}>
                        <Form.Group className= {classes.group}>
                         <Form.Label className={classes.body2}>Nom</Form.Label>
-                        <Form.Control className={classes.formControl} placeholder="Exemple: Goffard" required onChange={(event) => {setLastname(event.target.value)}} {...getErrors("lastname")}/>
+                        <Form.Control className={classes.formControl} placeholder="Exemple: Goffard" required/>
                     </Form.Group>
-                    <Form.Group className= {classes.group} controlId="formGridEmail">
+                    <Form.Group className= {classes.group} >
                         <Form.Label className={classes.body2}>Voter addresse E-mail</Form.Label>
-                        <Form.Control className={classes.formControl} type="email" placeholder="Exemple: info@shopisan.be" required onChange={(event) => {setEmail(event.target.value)}} {...getErrors("email")}/>
+                        <Form.Control className={classes.formControl} id="email" type="email" placeholder="Exemple: info@shopisan.be" required 
+                        onChange={(event) => {setEmail(event.target.value)}} {...getErrors("email", errors)}/>
                     </Form.Group> 
                     </div>
                     
                     <div className={classes.formContent}>
                          <Form.Group className= {classes.group}>
                         <Form.Label className={classes.body2}>Votre numéro de téléphone</Form.Label>
-                        <Form.Control className={classes.formControl} placeholder="Exemple: +32 411 22 33 44" required onChange={(event) => {setMobile(event.target.value)}} {...getErrors("mobile")}/>
+                        <Form.Control className={classes.formControl} placeholder="Exemple: +32 411 22 33 44" required />
                     </Form.Group>
-                    <Form.Group className= {classes.group} controlId="formPlaintextPassword">
+                    <Form.Group className= {classes.group} >
                         <Form.Label className={classes.body2}>Mot de passe</Form.Label>
-                        <Form.Control className={classes.formControl} type="password" placeholder="Introduisez votre mot de passe" required onChange={(event) => {setPassword(event.target.value)}} {...getErrors("password")}/>
+                        <Form.Control className={classes.formControl} type="password" placeholder="Introduisez votre mot de passe" required 
+                        onChange={(event) => {setPassword(event.target.value)}} {...getErrors("password", errors)}/>
                     </Form.Group>
-                 
+                
                     </div>
                    
                     <Form.Group className= {classes.group} >
                         <Form.Label className={classes.body2}>Confirmation du mot de passe</Form.Label>
-                        <Form.Control className={classes.formControl} type="password" placeholder="Réintroduisez votre mot de passe"  required onChange={(event) => {setRepeatPassword(event.target.value)}} {...getErrors("repeat_password")}/>
+                        <Form.Control className={classes.formControl} type="password" placeholder="Réintroduisez votre mot de passe"  required onBlur={checkPassword} 
+                          onChange={(event) => { setRepeatPassword(event.target.value); }} {...getErrors("repeat_password", errors)}/>
                     </Form.Group>
                     <Form.Group controlId="exampleForm.ControlTextarea1">
                         <Form.Label className={classes.body2}>Voter secteur d'activité</Form.Label>

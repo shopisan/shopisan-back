@@ -30,6 +30,9 @@ const useStyles = makeStyles(theme => ({
         justifyContent: 'space-between',
         [theme.breakpoints.up('sm')]:{
              width: '45%',
+        },
+        [theme.breakpoints.up('md')]:{
+            width: '30%'
         }
     },
     rowHeader:{
@@ -85,14 +88,12 @@ const useStyles = makeStyles(theme => ({
         fontSize: "1.2rem",
         color: "#FFFFFF !important", 
         listStyle: "none !important",
-        '&:focus':{
-            fontWeight: 'bold' 
-        },
+        
         [theme.breakpoints.up("sm")]:{
             padding: '0.3rem 1.5rem !important',
             color: "#41455c !important",
             listStyle: "none !important",
-            fontSize: '0.6rem',
+            fontSize: '1rem',
             '&:hover' : {
                 background: "#FF6565",
                 borderRadius: '1rem',
@@ -121,9 +122,9 @@ export default function MenuHeader() {
                         <div className={"row pl-4 " + classes.rowHeader}>
                             <Link to="concept" smooth={true}>
                                 {!menuExpanded ?
-                                <img src={"static/images/logo.png"} alt={"logo shopisan"} width={"65px"}/>
+                                <img src={"/static/images/logo.png"} alt={"logo shopisan"} width={"65px"}/>
                                 :
-                                <img src="static/images/LOGO_BLANC_SHOPISAN.png" width="65px" alt={"logo shopisan"}/>
+                                <img src="/static/images/LOGO_BLANC_SHOPISAN.png" width="65px" alt={"logo shopisan"}/>
                             }
                             </Link>
                             <div className={classes.title}>
