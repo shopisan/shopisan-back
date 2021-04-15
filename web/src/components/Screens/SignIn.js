@@ -240,36 +240,36 @@ franchir le seuil de votre boutique qu’elle soit en ligne ou pas.</Typography>
                     </Form.Group>
                     <Form.Group className= {classes.group}>
                         <Form.Label className={classes.body2}>Prénom</Form.Label>
-                        <Form.Control className={classes.formControl} placeholder="Exemple: Nicolas" required onChange={(event) => {setFirstname(event.target.value)}} {...getErrors("store")} />
+                        <Form.Control className={classes.formControl} placeholder="Exemple: Nicolas" required onChange={(event) => {setFirstname(event.target.value)}} {...getErrors("firstname")} />
                     </Form.Group>
                     </div>
                     
                     <div className={classes.formContent}>
                        <Form.Group className= {classes.group}>
                         <Form.Label className={classes.body2}>Nom</Form.Label>
-                        <Form.Control className={classes.formControl} placeholder="Exemple: Goffard" required onChange={(event) => {setLastname(event.target.value)}} {...getErrors("store")}/>
+                        <Form.Control className={classes.formControl} placeholder="Exemple: Goffard" required onChange={(event) => {setLastname(event.target.value)}} {...getErrors("lastname")}/>
                     </Form.Group>
                     <Form.Group className= {classes.group} controlId="formGridEmail">
                         <Form.Label className={classes.body2}>Voter addresse E-mail</Form.Label>
-                        <Form.Control className={classes.formControl} type="email" placeholder="Exemple: info@shopisan.be" required onChange={(event) => {setEmail(event.target.value)}} {...getErrors("store")}/>
+                        <Form.Control className={classes.formControl} type="email" placeholder="Exemple: info@shopisan.be" required onChange={(event) => {setEmail(event.target.value)}} {...getErrors("email")}/>
                     </Form.Group> 
                     </div>
                     
                     <div className={classes.formContent}>
                          <Form.Group className= {classes.group}>
                         <Form.Label className={classes.body2}>Votre numéro de téléphone</Form.Label>
-                        <Form.Control className={classes.formControl} placeholder="Exemple: +32 411 22 33 44" required onChange={(event) => {setMobile(event.target.value)}} {...getErrors("store")}/>
+                        <Form.Control className={classes.formControl} placeholder="Exemple: +32 411 22 33 44" required onChange={(event) => {setMobile(event.target.value)}} {...getErrors("mobile")}/>
                     </Form.Group>
                     <Form.Group className= {classes.group} controlId="formPlaintextPassword">
                         <Form.Label className={classes.body2}>Mot de passe</Form.Label>
-                        <Form.Control className={classes.formControl} type="password" placeholder="Introduisez votre mot de passe" required onChange={(event) => {setPassword(event.target.value)}} {...getErrors("store")}/>
+                        <Form.Control className={classes.formControl} type="password" placeholder="Introduisez votre mot de passe" required onChange={(event) => {setPassword(event.target.value)}} {...getErrors("password")}/>
                     </Form.Group>
                  
                     </div>
                    
                     <Form.Group className= {classes.group} >
                         <Form.Label className={classes.body2}>Confirmation du mot de passe</Form.Label>
-                        <Form.Control className={classes.formControl} type="password" placeholder="Réintroduisez votre mot de passe"  required onChange={(event) => {setRepeatPassword(event.target.value)}} {...getErrors("store")}/>
+                        <Form.Control className={classes.formControl} type="password" placeholder="Réintroduisez votre mot de passe"  required onChange={(event) => {setRepeatPassword(event.target.value)}} {...getErrors("repeat_password")}/>
                     </Form.Group>
                     <Form.Group controlId="exampleForm.ControlTextarea1">
                         <Form.Label className={classes.body2}>Voter secteur d'activité</Form.Label>
