@@ -2,7 +2,7 @@ import React from "react";
 import {render} from "react-dom"
 import './css/index.scss'
 import Landing from "./components/Screens/Landing"
-import { createMuiTheme } from "@material-ui/core";
+import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "react-bootstrap";
 import MenuHeader from "./components/Utils/Menu";
 import SignIn from "./components/Screens/SignIn";
@@ -13,7 +13,8 @@ import {
     Switch,
     Route,
   } from "react-router-dom";
-import ProjectIdea from "./components/LandingComponent/ProjectIdea";
+import PolitiqueConfidentialte from "./components/Screens/PolitiqueConfidentialite";
+import ConditionsGenerales from "./components/Screens/ConditionsGenerales";
 
 
 
@@ -49,13 +50,15 @@ const theme = createMuiTheme({
 
 render(
     <React.StrictMode>
-        <Router>
+        <Router >
             <ThemeProvider theme={theme}>
            <MenuHeader/>
            <Switch>
-            <Route exact path='/' component={Landing}/>
-            <Route path='/signin' component={SignIn}/>
-            <Route path='/contact' component={Contact}/>
+            <Route exact path='/'   component={Landing}/>
+            <Route path='/signin'   component={SignIn}/>
+            <Route path='/contact'   component={Contact}/>
+            <Route path='/confidPol'   component={PolitiqueConfidentialte}/>
+            <Route path='/generalCond'   component={ConditionsGenerales}/>
            </Switch>
             <Footer/>
     </ThemeProvider> 
