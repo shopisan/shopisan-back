@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles, Typography } from "@material-ui/core";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
+import MuiAlert from '@material-ui/lab/Alert';
+import Snackbar from '@material-ui/core/Snackbar';
+import { getErrors } from '../Utils/FormsUtils';
+
 
 const useStyles = makeStyles(theme => ({
     brand:{
-        padding: "20vh 40px 0 40px",
+        padding: "25vh 40px 0 40px",
         backgroundColor: "#FAFAFA",
         [theme.breakpoints.up('sm')]:{
             display: "flex",
@@ -17,6 +21,9 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.up('md')]:{
             padding: "15rem 10rem 0 10rem",
             marginTop: "0vh",
+        },
+        [theme.breakpoints.up('xl')]:{
+            padding: "10rem 20rem"
         }
     },
     contact:{
@@ -27,6 +34,9 @@ const useStyles = makeStyles(theme => ({
         },
         [theme.breakpoints.up('md')]:{
             padding: "5rem 10rem 10rem 10rem"
+        },
+        [theme.breakpoints.up('xl')]:{
+            padding: "0rem 20rem 10rem 20rem"
         }
     },
     h1: {
@@ -103,20 +113,18 @@ const useStyles = makeStyles(theme => ({
         color: "#FFFFFF",
         fontSize:"0.8rem",
         fontWeight: "bold",
-        [theme.breakpoints.up('sm')]:{
-            '&:hover' :{
-                backgroundColor: "#FF6565 !important",
-                color: '#41455c',
-                border: 'none',
-                outline:'none',
-            },
-            '&:focus' :{
-                backgroundColor: "#FF6565 !important",
-                color: '#41455c',
-                border: 'none',  
-                outline: 'none',
-                boxShadow: 'none'
-            }
+        '&:focus' :{
+            backgroundColor: "#FF6565 !important",
+            color: '#41455c',
+            border: 'none',  
+            outline: 'none',
+            boxShadow: 'none'
+        },
+        '&:hover' :{
+            backgroundColor: "#FF6565 !important",
+            color: '#41455c',
+            border: 'none',
+            outline:'none',
         },
         [theme.breakpoints.up('md')]:{
             width: '40%',
@@ -127,9 +135,51 @@ const useStyles = makeStyles(theme => ({
     },
 }))
 
+let errors = {};
+
+function useForceUpdate() {
+    const [value, setValue] = useState(0);
+    return () => setValue(value => value + 1);
+}
+
+function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
 export default function Contact(){
 
     const classes = useStyles();
+
+    const [message, setMessage] = useState("");
+    const [showSuccess, setShowSuccess] = useState(false);
+    const forceUpdate = useForceUpdate();
+
+
+    function submit() {
+        
+        if (setMessage()) {
+            axios.post("/api/contact/", {
+                message,
+            }).then((response, error) => {
+                if (response.success) {
+                    errors = {}
+                    setShowSuccess(true);
+                    console.log("okayyy");
+                    return(
+                        <Typography>Merci pour votre message !</Typography>
+                    )
+                } else {
+                    errors = response.data;
+                    forceUpdate();
+                }
+            });
+        }
+    }
+
+    function handleClose() {
+        setShowSuccess(false)
+    }
+   
 return(
 <>
     <div className={classes.brand} id="contact">
@@ -141,6 +191,11 @@ return(
             <div className={classes.contact}>
             <Form className={classes.form}>
             <div className={classes.formContent}>
+            <Snackbar open={showSuccess} autoHideDuration={10000} onClose={handleClose}>
+                    <Alert onClose={handleClose} severity="success">
+                        This is a success message!
+                    </Alert>
+                </Snackbar>
                 <Form.Group  className= {classes.group}>
                         <Form.Label className={classes.body2}>Prénom</Form.Label>
                         <Form.Control className={classes.formControl} placeholder="Exemple: Nicolas" required />
@@ -153,9 +208,10 @@ return(
                     
                     <Form.Group controlId="exampleForm.ControlTextarea1">
                         <Form.Label className={classes.body2}>Vote message</Form.Label>
-                        <Form.Control className={classes.formControl} as="textarea" rows={5} placeholder="Entrez vote message..." required/>
+                        <Form.Control className={classes.formControl} as="textarea" rows={5} placeholder="Entrez vote message..." required
+                        onChange={(event) => { setMessage(event.target.value); }} {...getErrors("message", errors)}/>
                     </Form.Group>
-                    <Button className={classes.submit} type="submit" >
+                    <Button className={classes.submit} type="submit" onClick={submit} >
                     Envoyer
                     </Button>
                 

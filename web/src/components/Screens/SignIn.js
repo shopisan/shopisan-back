@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { makeStyles, Typography } from "@material-ui/core";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import { getErrors, notEmpty, isValidEmail } from '../Utils/FormsUtils';
+import { getErrors } from '../Utils/FormsUtils';
 import setAxiosDefaults from '../Utils/Common';
 import axios from "axios";
 import MuiAlert from '@material-ui/lab/Alert';
@@ -13,7 +13,7 @@ setAxiosDefaults(axios);
 
 const useStyles = makeStyles(theme => ({
     brand:{
-        padding: "20vh 40px 0 40px",
+        padding: "25vh 40px 0 40px",
         backgroundColor: "#FAFAFA",
         [theme.breakpoints.up('sm')]:{
             display: "flex",
@@ -25,6 +25,9 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.up('md')]:{
             padding: "10rem",
             marginTop: "0vh",
+        },
+        [theme.breakpoints.up('xl')]:{
+            padding: "10rem 20rem"
         }
     },
     signIn:{
@@ -35,6 +38,9 @@ const useStyles = makeStyles(theme => ({
         },
         [theme.breakpoints.up('md')]:{
             padding: "10rem"
+        },
+        [theme.breakpoints.up('xl')]:{
+            padding: "10rem 20rem"
         }
     },
     h1: {
@@ -110,20 +116,18 @@ const useStyles = makeStyles(theme => ({
         color: "#FFFFFF",
         fontSize:"0.8rem",
         fontWeight: "bold",
-        [theme.breakpoints.up('sm')]:{
-            '&:hover' :{
-                backgroundColor: "#FF6565 !important",
-                color: '#41455c',
-                border: 'none',
-                outline:'none',
-            },
-            '&:focus' :{
-                backgroundColor: "#FF6565 !important",
-                color: '#41455c',
-                border: 'none',  
-                outline: 'none',
-                boxShadow: 'none'
-            }
+        '&:focus' :{
+            backgroundColor: "#FF6565 !important",
+            color: '#41455c',
+            border: 'none',  
+            outline: 'none',
+            boxShadow: 'none'
+        },
+        '&:hover' :{
+            backgroundColor: "#FF6565 !important",
+            color: '#41455c',
+            border: 'none',
+            outline:'none',
         },
         [theme.breakpoints.up('md')]:{
             width: '40%',
@@ -173,9 +177,9 @@ export default function SignIn(){
 
     function submit() {
         // faire la validation de chaque feild selon les conditions
-        console.log("okayyy");
         if (checkPassword()) {
-            axios.post("api/register/", {
+            
+            axios.post("/api/register/", {
                 // brand ,
                 // firstname,
                 // lastname,
@@ -187,6 +191,7 @@ export default function SignIn(){
                 if (response.success) {
                     errors = {}
                     setShowSuccess(true);
+                    console.log("okayyy");
                     return(
                         <Typography>Merci de votre inscription !</Typography>
                     )
