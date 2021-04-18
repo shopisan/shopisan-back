@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Store, StoreCategories
+from .models import Store, StoreCategories, Countries
 
 
 class StoreAdmin(admin.ModelAdmin):
@@ -13,3 +13,4 @@ class StoreCategoriesAdmin(admin.ModelAdmin):
 
 admin.site.register(Store, StoreAdmin)
 admin.site.register(StoreCategories, StoreCategoriesAdmin)
+# admin.site.register(Countries)

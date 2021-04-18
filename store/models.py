@@ -57,3 +57,11 @@ class Evaluation(models.Model):
     objects = models.Manager()
 
 
+class Countries(models.Model):
+    iso = models.CharField(max_length=3)
+
+    objects = models.Manager()
+
+    def __str__(self):
+        return self.iso
+

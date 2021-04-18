@@ -1,4 +1,4 @@
-from .models import Store, StoreCategories, Address, Evaluation
+from .models import Store, StoreCategories, Address, Evaluation, Countries
 from rest_framework import serializers
 from .maps import fetch_localisation
 from file_management.serializers import FileSerializer
@@ -118,3 +118,7 @@ class StoreWriteSerializer(serializers.HyperlinkedModelSerializer):
         return super().update(instance, validated_data)
 
 
+class CountrySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Countries
+        fields = "__all__"

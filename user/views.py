@@ -2,14 +2,12 @@ import secrets
 import string
 import datetime
 from pytz import timezone
-import pytz
 
 from emails import send_mail
 from .models import User, Profile
 from rest_framework import viewsets, generics
 from rest_framework import permissions
 from .permissions import IsUserOrAdminOrReadOnly
-from rest_framework.authentication import TokenAuthentication
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from store.models import Store
@@ -63,8 +61,6 @@ def forgot_password(request):
 
     send_mail(subject="Réinitialisation de votre mot de passe", recipient_list=[email],
               template="emails/includes/reset_password_token.html", variables={"token": token})
-    # send_mail(subject="Réinitialisation de votre mot de passe", from_email='"Shopisan" <info@jh8.dev>',
-    #           recipient_list=[email], message=message, html_message=html_message)
 
     return Response({"success": True})
 
@@ -79,16 +75,12 @@ def reset_password(request):
         return Response({"success": False})
 
     now = datetime.datetime.now()
-    now = brussels.localize(now) # todo rendre le datetime timezone aware
+    now = brussels.localize(now)
 
     if now > user.reset_password_validity:
-        print("datetime fail")
-
         return Response({"success": False})
 
     if token != user.reset_password_token:
-        print("token fail")
-
         return Response({"success": False})
 
     user.set_password(password)

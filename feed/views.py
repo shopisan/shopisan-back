@@ -4,6 +4,7 @@ from rest_framework import permissions
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+from .permissions import IsPostOwnerOrAdminOrReadOnly
 from .models import Post, PostMedia
 from .serializers import PostSerializer, PostMediaSerializer, PostReadSerializer
 
@@ -11,7 +12,7 @@ from .serializers import PostSerializer, PostMediaSerializer, PostReadSerializer
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [IsPostOwnerOrAdminOrReadOnly]
 
     def get_serializer_class(self):
         if self.action == 'list':

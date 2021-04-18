@@ -8,11 +8,11 @@ from .serializers import ContactTicketSerializer, StoreContactTicketSerializer
 class ContactTicketViewSet(generics.CreateAPIView):
     queryset = ContactTicket.objects.all()
     serializer_class = ContactTicketSerializer
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [permissions.IsAdminUser]
 
 
 class StoreContactTicketViewSet(generics.CreateAPIView):
     queryset = StoreContactTicket.objects.all()
     serializer_class = StoreContactTicketSerializer
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [permissions.IsAdminUser]
 

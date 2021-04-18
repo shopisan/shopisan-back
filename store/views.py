@@ -3,9 +3,9 @@ from rest_framework import permissions
 from .permissions import IsOwnerOrAdminOrReadOnly
 from api.permissions import IsAdminOrReadOnly
 from functools import cmp_to_key
-from .models import Store, StoreCategories, Address, Evaluation
+from .models import Store, StoreCategories, Address, Evaluation, Countries
 from .serializers import StoreSerializer, StoreWriteSerializer, StoreCategorySerializer, AddressSerializer, \
-    EvaluationSerializer
+    EvaluationSerializer, CountrySerializer
 from .maps import get_shortest_distance
 
 
@@ -26,8 +26,6 @@ class StoreViewSet(viewsets.ModelViewSet):
 class StoreCategoriesSet(viewsets.ModelViewSet):
     queryset = StoreCategories.objects.all()
     serializer_class = StoreCategorySerializer
-    # todo faire une permission accès readOnly pour tout le monde, et edit uniquement pour les admins
-    # todo store ca dans API comme ca risque d'être utilisé a plusieurs endroits
     permission_classes = [IsAdminOrReadOnly]
 
 
@@ -43,18 +41,27 @@ class EvaluationViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
+class CountryList(generics.ListAPIView):
+    serializer_class = CountrySerializer
+    queryset = Countries.objects.all()
+
+
 class StoreCategoryGeoList(generics.ListAPIView):
     serializer_class = StoreSerializer
 
     def get_queryset(self):
         categories_str = self.request.query_params.get('categories', None)
+        countries_str = self.request.query_params.get('countries', None)
         position = self.request.query_params.get('position', None)
+        countries = countries_str.split(',')
 
         if categories_str is None:
-            stores = Store.objects.exclude(storeStatus=2, addresses=None)
+            stores = Store.objects.filter(addresses__country__in=countries).exclude(storeStatus=2, addresses=None)\
+                .distinct()
         else:
             categories = categories_str.split(',')
-            stores = Store.objects.filter(categories__in=categories).exclude(storeStatus=2, addresses=None)
+            stores = Store.objects.filter(addresses__country__in=countries).filter(categories__in=categories)\
+                .exclude(storeStatus=2, addresses=None).distinct()
 
         if position is not None:
             pos = position.split(',')
