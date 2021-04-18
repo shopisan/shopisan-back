@@ -1,22 +1,37 @@
 import { makeStyles, Typography } from "@material-ui/core";
 import React from "react";
+import LocalShopping from '../LandingComponent/LocalShopping'
+import Discover from '../LandingComponent/Discover'
+import ProjectIdea from '../LandingComponent/ProjectIdea'
 
 
 
 const useStyles = makeStyles(theme => ({
-    concept:{
-        padding: '15vh 40px',
+    container:{
         backgroundColor: "#FAFAFA",
+        display: 'flex',
+        flexDirection: 'column',
         [theme.breakpoints.up('sm')]:{
-            display: "flex",
-            flexDirection: "row",
-            padding: "10rem 5rem",
             alignItems: "center",
             marginTop: "10vh",
         },
         [theme.breakpoints.up('md')]:{
-            padding: "10rem",
             marginTop: "0vh",
+         
+        }
+    },
+    concept:{
+        padding: "15vh 40px",
+        [theme.breakpoints.up('sm')]:{
+            padding: "0 5rem",
+            display: "flex",
+            alignItems: 'center'
+        },
+        [theme.breakpoints.up('md')]:{
+            padding: "10rem"
+        },
+        [theme.breakpoints.up('xl')]:{
+            padding: "10rem 20rem"
         }
     },
     h1: {
@@ -65,19 +80,21 @@ export default function Concept() {
 
     return(
         
-            <div className={classes.concept} id="concept">
-                <div>
-                    <Typography  className={classes.h1}>Le concept</Typography>
+            <div className={classes.container} id="concept">
+                <div className={classes.concept}>
+                    <div>
+                         <Typography  className={classes.h1}>Le concept</Typography>
                     <Typography className={classes.body1}>(Re)découvrez les boutiques de proximité à grande échelle locale!</Typography>
                     <Typography className={classes.body1}>Vous êtes à la recherche de produits durables Made in France - Made in Belgium, d' articles vintage, de mode, de bijoux ou de cosmétiques et biens d'autres choses ?</Typography>
+                    </div>
+                   <div className= "d-flex justify-content-center" >
+                    <img className={classes.img} src= "static/images/Iphone_Mockup .png"></img>
                 </div>
-       
-        
-        <div className= "d-flex justify-content-center" >
-            <img className={classes.img} src= "static/images/Iphone_Mockup .png"></img>
-        </div>
-        
-      
+                </div>
+                
+                <LocalShopping/>
+      <Discover/>
+      <ProjectIdea/>
         </div> 
        
     )

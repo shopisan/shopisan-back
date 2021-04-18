@@ -15,6 +15,7 @@ import {
   } from "react-router-dom";
 import PolitiqueConfidentialte from "./components/Screens/PolitiqueConfidentialite";
 import ConditionsGenerales from "./components/Screens/ConditionsGenerales";
+import ScrollToTop from "./components/Utils/ScrollToTop";
 
 
 
@@ -52,13 +53,14 @@ render(
     <React.StrictMode>
         <Router >
             <ThemeProvider theme={theme}>
+                <ScrollToTop/>
            <MenuHeader/>
            <Switch>
-            <Route exact path='/'   component={Landing}/>
-            <Route path='/signin'   component={SignIn}/>
-            <Route path='/contact'   component={Contact}/>
-            <Route path='/confidPol'   component={PolitiqueConfidentialte}/>
-            <Route path='/generalCond'   component={ConditionsGenerales}/>
+            <Route exact path='/' component={Landing}/>
+            <Route path='/signin' component={SignIn}/>
+            <Route path='/contact' component={Contact}/>
+            <Route path='/confidPol' component={PolitiqueConfidentialte}/>
+            <Route path='/generalCond' component={ConditionsGenerales}/>
            </Switch>
             <Footer/>
     </ThemeProvider> 

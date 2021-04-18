@@ -8,11 +8,14 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.up('sm')]:{
             display: "flex",
             flexDirection: "row-reverse",
-            padding: "10rem 5rem",
+            padding: " 5rem",
             alignItems: "center"
         },
         [theme.breakpoints.up('md')]:{
             padding: "10rem"
+        },
+        [theme.breakpoints.up('xl')]:{
+            padding: "10rem 20rem"
         }
     },
     h1: {
