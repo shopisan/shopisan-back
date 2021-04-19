@@ -11,9 +11,11 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: "#FAFAFA",
         display: 'flex',
         flexDirection: 'column',
+        paddingTop: "5rem",
         [theme.breakpoints.up('sm')]:{
             alignItems: "center",
             marginTop: "10vh",
+            paddingTop: "0",
         },
         [theme.breakpoints.up('md')]:{
             marginTop: "0vh",
@@ -28,7 +30,7 @@ const useStyles = makeStyles(theme => ({
             alignItems: 'center'
         },
         [theme.breakpoints.up('md')]:{
-            padding: "10rem"
+            padding: "10rem 15rem"
         },
         [theme.breakpoints.up('xl')]:{
             padding: "10rem 20rem"
@@ -91,10 +93,9 @@ export default function Concept() {
                     <img className={classes.img} src= "static/images/Iphone_Mockup .png"></img>
                 </div>
                 </div>
-                
                 <LocalShopping/>
-      <Discover/>
-      <ProjectIdea/>
+                <Discover/>
+                <ProjectIdea/>
         </div> 
        
     )

@@ -1,5 +1,6 @@
 import { makeStyles, Typography } from '@material-ui/core';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { NavLink, useLocation } from 'react-router-dom';
 import { Link } from 'react-scroll';
 import Hamburger from '../svg/Hamburger';
@@ -132,6 +133,7 @@ export default function MenuHeader() {
     const [menuExpanded, setMenuExpanded] = useState(false);
     const location = useLocation();
 
+
     console.log(location.pathname);
 
     return (
@@ -170,7 +172,9 @@ export default function MenuHeader() {
                         <li className="nav-item">
                             {location.pathname === "/" ?
                                 <Link activeClass={classes.active} spy={true} className={"nav-link " + classes.li} to={"concept"}
-                                    smooth={true} onClick={() => setMenuExpanded()}>Notre concept</Link>
+                                    smooth={true} onClick={() => setMenuExpanded()}>
+                                        Notre concept
+                                    </Link>
                                 :
                                 <NavLink activeClassName={classes.active} className={"nav-link " + classes.li} to="/" exact
                                     onClick={() => setMenuExpanded()} >Notre concept</NavLink>

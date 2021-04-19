@@ -11,6 +11,7 @@ class IsPostOwnerOrAdminOrReadOnly(permissions.BasePermission):
             return True
         if isinstance(request_user, AnonymousUser):
             return False
+        return True
 
     def has_object_permission(self, request, view, obj):
         if isinstance(obj, Post):
@@ -18,8 +19,7 @@ class IsPostOwnerOrAdminOrReadOnly(permissions.BasePermission):
                 return True
             request_user = request.user
             if isinstance(request_user, AnonymousUser):
-                print("nope!!!")
                 return False
             if request_user.is_admin:
                 return True
-            return obj.store in request_user.profile.owned_stores
+            return obj.store in request_user.profile.owned_stores.all()

@@ -54,12 +54,12 @@ const classes = useStyles();
         <div className={classes.footer}>
             <div className={classes.row}>
             <NavLink to="/" className="nav-link">
-                  <Typography variant={'body1'} className={classes.body1}>2021 Shopisan</Typography>
+                  <Typography variant={'body1'} className={classes.body1}>© 2021 Shopisan</Typography>
                 </NavLink> 
-            <NavLink to="/generalCond" className="nav-link">
+            <NavLink to="/generals_conditions" className="nav-link">
             <Typography variant={'body1'} className={classes.body1}>Conditions générales</Typography>
             </NavLink>
-            <NavLink to="/confidPol" className="nav-link">
+            <NavLink to="/privacy_policy" className="nav-link">
             <Typography variant={'body1'} className={classes.body1}>Politique de confidentialité</Typography>
             </NavLink>
             </div>

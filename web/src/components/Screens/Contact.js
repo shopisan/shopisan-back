@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
             marginTop: "10vh",
         },
         [theme.breakpoints.up('md')]:{
-            padding: "15rem 10rem 0 10rem",
+            padding: "15rem 15rem 0 15rem",
             marginTop: "0vh",
         },
         [theme.breakpoints.up('xl')]:{
@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
             padding: '5rem',
         },
         [theme.breakpoints.up('md')]:{
-            padding: "5rem 10rem 10rem 10rem"
+            padding: "5rem 15rem 10rem 15rem"
         },
         [theme.breakpoints.up('xl')]:{
             padding: "0rem 20rem 10rem 20rem"
@@ -207,8 +207,8 @@ return(
                 </div>
                     
                     <Form.Group controlId="exampleForm.ControlTextarea1">
-                        <Form.Label className={classes.body2}>Vote message</Form.Label>
-                        <Form.Control className={classes.formControl} as="textarea" rows={5} placeholder="Entrez vote message..." required
+                        <Form.Label className={classes.body2}>Votre message</Form.Label>
+                        <Form.Control className={classes.formControl} as="textarea" rows={5} placeholder="Entrez votre message..." required
                         onChange={(event) => { setMessage(event.target.value); }} {...getErrors("message", errors)}/>
                     </Form.Group>
                     <Button className={classes.submit} type="submit" onClick={submit} >
