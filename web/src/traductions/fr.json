@@ -1,0 +1,79 @@
+{
+    "nav": {
+        "concept": "Notre concept",
+        "idea": "De l'idée au projet",
+        "signIn": "Inscription",
+        "contact": "Contact"
+    },
+    "concept": {
+        "title": "Le concept",
+        "text": "(Re)découvrez les boutiques de proximité à grande échelle locale !",
+        "text2": "Vous êtes à la recherche de produits durables Made in France - Made in Belgium, des articles vintage, de mode, des bijoux ou des cosmétiques et biens d’autres choses ?"
+    },
+    "local":{
+        "title": "Envie d'un shopping local ?",
+        "text": "Envie d’acheter local ? En quête d’authenticité ?",
+        "text1": "Vous êtes au bon endroit ! ( a mettre en strong )",
+        "text2" : "Sélectionnez la catégories de boutiques que vous souhaitez et géolocalisez-les sur une carte. Vous avez un coup de coeur pour une boutique que vous voulez voir sur l'appli ? Informez-nous en."
+    },
+    "discovery": {
+        "title": "Découverte",
+        "text": "Prêts pour une expérience shopping découverte ? Nous vous faisons découvrir d'abord les boutiques de Belgique et de France. Nous poursuivrons avec l' Italie, la GB etc... Suivez le guide ",
+        "text1" : "ici c'est Shiposan ( a mettre en italique )"
+    },
+    "idea": {
+        "title": "De l'idée au projet",
+        "text": "Il y a quelques temps, nous étions à la recherche d'un cadeau. Nous promenant au centre de Bruxelles, nous sommes passés devant la vitrine de la boutique Azur Elle. Nous avons franchi la porte et nous avons été chaleureusement acceuillis par le propriétaire. Il était à notre écoute de ce que nous recherchions. Il nous a déniché LA PÉPITE !.",
+        "text1" : "Ce qui nous a frappé lors de notre passage chez Azur Elle: la petite taille de la boutique mais une grande originalité, un choix et un accueil personnalisé !",
+        "text2": "Du constat que nous ne connaissions pas les petits commerces même ceux qui sont situés à proximité, est né le projet de l'application Shopisan."
+    },
+    "signIn": {
+        "title": "Boutiques, marques, créateurs",
+        "text": "Nos objectifs :",
+        "text1": "- Booster votre visibilité !",
+        "text2": "- Vous permettre de faire connaître votre savoir-faire aux utilisateurs et les inviter à franchir le seuil de votre boutique qu’elle soit en ligne ou pas.",
+        "text3": "Shopisan permet aux boutiques, marques, créateurs de toutes catégories d'être mises en lumière.",
+        "form" : {
+            "title": "S'inscrire",
+            "text": "Vous souhaitez vous inscrie ? L'inscription est gratuite.",
+            "store": "Nom de votre boutique / marque",
+            "storeLabel": "Exemple: Shopisan",
+            "firstname": "Prénom",
+            "firstnameLabel": "Exemple: Nicolas",
+            "lastname": "Nom",
+            "lastnameLabel": "Exemple: Goffard",
+            "email": "Votre addresse e-mail",
+            "emailLabel": "Exemple: info@shopisan.be",
+            "mobile": "Votre numéro de téléphone",
+            "mobileLabel": "Exemple : +32 411 23 33 44",
+            "mdp": "Mot de passe",
+            "mdpLabel": "Introduisez votre mot de passe",
+            "mdpCheck": "Confirmation du mot de passe",
+            "mdpCheckLabel": "Réintroduisez votre mot de passe",
+            "sector": "Votre secteur d'activité",
+            "sectorLabel": "Expliquez-nous votre activité"
+        }
+    },
+    "contact":{
+        "title": "Nous contacter",
+        "text": "Vous avez une question, une suggestion ou souhaitez simplement nous adresser un message ?",
+        "firstname": "Prénom",
+        "firstnameLabel": "Exemple: Nicolas",
+        "lastname": "Nom",
+        "lastnameLabel": "Exemple: Goffard",
+        "message": "Votre message",
+        "messageLabel": "Entrez votre message..."
+    },
+    "send" : "Envoyer",
+    "userApp": "Plus de 5000 utilisateurs sur l'application mobile",
+    "discoverApp": "Découvrez l'application",
+    "generalsConditions": "Condition générales",
+    "PrivacyPolicy": {
+        "title": "Politique de confidentialité",
+        "date": "Mise à jour le 15/04/2021"
+
+        }
+
+
+
+}

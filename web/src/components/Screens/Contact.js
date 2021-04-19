@@ -207,8 +207,8 @@ return(
                 </div>
                     
                     <Form.Group controlId="exampleForm.ControlTextarea1">
-                        <Form.Label className={classes.body2}>Vote message</Form.Label>
-                        <Form.Control className={classes.formControl} as="textarea" rows={5} placeholder="Entrez vote message..." required
+                        <Form.Label className={classes.body2}>Votre message</Form.Label>
+                        <Form.Control className={classes.formControl} as="textarea" rows={5} placeholder="Entrez votre message..." required
                         onChange={(event) => { setMessage(event.target.value); }} {...getErrors("message", errors)}/>
                     </Form.Group>
                     <Button className={classes.submit} type="submit" onClick={submit} >
