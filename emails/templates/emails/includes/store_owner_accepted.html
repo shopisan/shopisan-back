@@ -1,0 +1,16 @@
+{% extends "emails/base.html" %}
+
+{% block subject %}
+{{ subject }}
+{% endblock %}
+
+{% block body %}
+<tr>
+    <td class="text-phone mp30"
+        style="padding-bottom: 10px; color:#41455c; font-family: 'Poppins', sans-serif; font-size:1rem; line-height:1.5rem; text-align:center;">
+        Votre demande de compte propriétaire de boutique à été acceptée.
+        Vous pouvez dès maintenant vous connecter à votre compte depuis l'application en utilisant les identifiants créés
+        lors de votre demande d'inscription.
+    </td>
+</tr>
+{% endblock %}

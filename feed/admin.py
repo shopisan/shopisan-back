@@ -4,7 +4,8 @@ from .models import Post, PostMedia
 
 
 class PostMediaInline(admin.TabularInline):
-    exclude = ('favourite_stores', 'picture')
+    readonly_fields = ['media_tag']
+    exclude = ('favourite_stores',)
     model = PostMedia
     extra = 0
 

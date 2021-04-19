@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models.manager import BaseManager
+from django.utils.safestring import mark_safe
 
 from store.models import Store
 from file_management.models import File
@@ -13,10 +14,13 @@ class Post(models.Model):
 
 
 class PostMedia(models.Model):
-    # id = models.AutoField(primary_key=True)
     post = models.ForeignKey(Post, related_name="post_media", on_delete=models.CASCADE)
     description = models.CharField(max_length=200)
     price = models.FloatField(null=True, blank=True)
     media = models.ForeignKey(File, on_delete=models.CASCADE)
 
     objects = models.Manager()
+
+    @property
+    def media_tag(self):
+        return mark_safe('<img src="%s" width="150" height="150" />' % self.media.file.url)
