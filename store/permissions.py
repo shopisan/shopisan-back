@@ -11,6 +11,7 @@ class IsOwnerOrAdminOrReadOnly(permissions.BasePermission):
             return True
         if isinstance(request_user, AnonymousUser):
             return False
+        return True
 
     def has_object_permission(self, request, view, obj):
         if isinstance(obj, Store):

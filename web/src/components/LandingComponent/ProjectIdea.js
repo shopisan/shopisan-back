@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
             alignItems: "center"
         },
         [theme.breakpoints.up('md')]:{
-            padding: "10rem"
+            padding: "10rem 15rem"
         },
         [theme.breakpoints.up('xl')]:{
             padding: "10rem 20rem"
