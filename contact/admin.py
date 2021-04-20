@@ -7,7 +7,7 @@ from emails import send_mail
 
 from user.models import User, Profile
 from .models import ContactTicket, StoreContactTicket
-from .forms import StoreContactTicketForm
+from .forms import StoreContactTicketForm, ContactTicketForm
 
 
 @register.inclusion_tag('admin/custom_submit_line.html', takes_context=True)
@@ -58,7 +58,13 @@ def accept_and_send_email(store_contact_ticket):
 
 
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ['subject', 'name', 'surname']
+    list_display = ['subject', 'name', 'surname', 'processed']
+    form = ContactTicketForm
+    list_filter = ('processed',)
+    fields = ('subject', ('name', 'surname'), 'email', 'message', 'answer')
+    exclude = ('processed',)
+    readonly_fields = ('subject', 'name', 'surname', 'email', 'message')
+    actions = ["accept"]
 
 
 class StoreContactAdmin(admin.ModelAdmin):
