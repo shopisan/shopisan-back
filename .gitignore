@@ -1,3 +1,8 @@
 /web/yarn.lock
-**/migrations
+**/migrations/
 **/migrations/*.py
+/file_management/migrations/
+/env
+**/node_modules/
+/venv/
+/.idea
