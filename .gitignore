@@ -1,2 +1,3 @@
 /web/yarn.lock
 **/migrations
+/env
