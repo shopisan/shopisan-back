@@ -205,7 +205,12 @@ return(
                         <Form.Control className={classes.formControl} placeholder="Exemple: Goffard" required/>
                     </Form.Group>
                 </div>
-                    
+
+                    <Form.Group className= {classes.group} >
+                        <Form.Label className={classes.body2}>Voter addresse E-mail</Form.Label>
+                        <Form.Control className={classes.formControl} id="email" type="email" placeholder="Exemple: info@shopisan.be" required 
+                        onChange={(event) => {setEmail(event.target.value)}} {...getErrors("email", errors)}/>
+                    </Form.Group> 
                     <Form.Group controlId="exampleForm.ControlTextarea1">
                         <Form.Label className={classes.body2}>Votre message</Form.Label>
                         <Form.Control className={classes.formControl} as="textarea" rows={5} placeholder="Entrez votre message..." required

@@ -56,18 +56,16 @@ render(
     <React.StrictMode>
         <Suspense fallback={<div>Loading...</div>}>
              <CookieBanner
-                message="Ce site web utilise des Cookies"
-                message="Certains sont utilisés à des fins statistiques et d’autres sont mis en place par des services tiers. En cliquant sur ‘Accept all ‘, vous acceptez l’utilisation de cookies"
+                message="Ce site web utilise des Cookies. Certains sont utilisés à des fins statistiques et d’autres sont mis en place par des services tiers. En cliquant sur ‘Accept all ‘, vous acceptez l’utilisation de cookies"
                 privacyPolicyLinkText="Cookies policy"
-                onAcceptStatistics = {() => {"thks"}}
-                onDeclineStatistics = {() => {"fuck you"}}
-                showStatisticsOption="true"
+                policyLink="/privacy_policy"
                 statisticsOptionText="Statistics"
+                managePreferencesButtonText="Manage my cookies"
                 showPreferencesOption={false}
                 showMarketingOption={false}
+                statisticsDefaultChecked = {true}
                 styles={{
                 dialog:{
-
                 background: "white",
                 position: "fixed",
                 bottom: '0px',
@@ -76,37 +74,38 @@ render(
                 zIndex: "100000",
                 padding: "1rem",
                 borderTop: '1px solid #FFCFCF'
-             },
-             container:{
-                 padding: '1rem'
-             },
-             message:{
-                 fontSize: "2rem",
-                 fontWeight: 'bold',
-                 marginBottom : '1rem'
-             },
-             policy: {
+                },
+                container:{
+                    padding: '1rem'
+                },
+                message:{
+                    fontSize: "1rem",
+                    fontWeight: 'bold',
+                    marginBottom : '1rem',
+                },
+                policy: {
                 fontsize: '1rem' ,
                 color: '#black !important',
-             },
-             optionWrapper:{
+                },
+                
+                optionWrapper:{
                 display: 'inline-flex',
                 position:"relative",
                 margin: '0 7px',
                 float: 'left'
-             },
-             optionLabel:{
+                },
+                optionLabel:{
                 color: 'black',
                 fontSize:'15px',
                 marginLeft: '20px',
                 marginBottom: "0px"
-             },
-             buttonWrapper:{
-                marginTop: '1rem',
-                display: "flex",
-                justifyContent:  "flex-end"
-             },
-             button:{
+                },
+                // buttonWrapper:{
+                //     marginTop: "-3rem",
+                // display: "flex",
+                // justifyContent:  "flex-end"
+                // },
+                button:{
                 padding: "0.5rem 1rem",
                 borderRadius: "1rem",
                 border: "none",
@@ -114,23 +113,27 @@ render(
                 marginRight: '1rem',
                 marginTop: "10px",
                 color: "black"
-             },
+                },
+                manageButton:{
+                    content: "Manage my cookies"
+                }
+            
             
          }}
         />
         <Router >
             <ThemeProvider theme={theme}>
                 <ScrollToTop/>
-           <MenuHeader/>
-           <Switch>
-            <Route exact path='/' component={Landing}/>
-            <Route path='/signin' component={SignIn}/>
-            <Route path='/contact' component={Contact}/>
-            <Route path='/privacy_policy' component={PrivacyPolicy}/>
-            <Route path='/generals_conditions' component={GeneralsConditions}/>
-           </Switch>
-            <Footer/>
-    </ThemeProvider> 
+                <MenuHeader/>
+                <Switch>
+                    <Route exact path='/' component={Landing}/>
+                    <Route path='/signin' component={SignIn}/>
+                    <Route path='/contact' component={Contact}/>
+                    <Route path='/privacy_policy' component={PrivacyPolicy}/>
+                    <Route path='/generals_conditions' component={GeneralsConditions}/>
+                </Switch>
+                <Footer/>
+            </ThemeProvider> 
         </Router>
         </Suspense>
        </React.StrictMode>,
