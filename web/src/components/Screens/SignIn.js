@@ -301,7 +301,7 @@ franchir le seuil de votre boutique qu’elle soit en ligne ou pas.</Typography>
                     </Form.Group>
                     <Form.Group controlId="exampleForm.ControlTextarea1">
                         <Form.Label className={classes.body2}>Voter secteur d'activité</Form.Label>
-                        <Form.Control className={classes.formControl} as="textarea" rows={5} placeholder="Expliquez-nous votre activité" />
+                        <Form.Control className={classes.formControl} as="textarea" rows={5} placeholder="Expliquez-nous votre activité" required/>
                     </Form.Group>
                    
                     

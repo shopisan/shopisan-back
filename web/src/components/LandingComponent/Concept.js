@@ -2,7 +2,7 @@ import { makeStyles, Typography } from "@material-ui/core";
 import React from "react";
 import LocalShopping from '../LandingComponent/LocalShopping'
 import Discover from '../LandingComponent/Discover'
-import ProjectIdea from '../LandingComponent/ProjectIdea'
+
 
 
 
@@ -95,7 +95,7 @@ export default function Concept() {
                 </div>
                 <LocalShopping/>
                 <Discover/>
-                <ProjectIdea/>
+                
         </div> 
        
     )

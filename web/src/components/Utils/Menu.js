@@ -98,6 +98,7 @@ const useStyles = makeStyles(theme => ({
             color: "#41455c !important",
             listStyle: "none !important",
             fontSize: '0.7rem',
+            cursor: 'pointer',
             '&:hover': {
                 background: "#FF6565",
                 borderRadius: '1rem',

@@ -35,9 +35,9 @@ const useStyles = makeStyles(theme => ({
         fontWeight: "bold",
         color: "#41455c",
         fontSize: "0.8rem",
-        marginTop: "1rem",
+        marginTop: "5rem",
         [theme.breakpoints.up('sm')]:{
-            fontSize: "1.2rem"
+            fontSize: "1.2rem",
         },
         [theme.breakpoints.up('md')]:{
             fontSize: "2rem"
@@ -52,7 +52,6 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.up('sm')]:{
             fontSize: "0.8rem",
             lineHeight: "1rem",
-            width: '80%',
         },
         [theme.breakpoints.up('md')]: {
             fontSize: "0.9rem",
@@ -72,28 +71,28 @@ export default function PrivacyPolicy(){
             <Typography className={classes.h1}>Politique de confidentialité</Typography>
             <Typography className={classes.body1}>Mise à jour le 15/04/2021</Typography>
             <Typography className={classes.h2}>1. Parties et Objets</Typography>
-            <Typography className={classes.body1}>SHOPISAN (ci-après <strong>"shopisan"</strong> ou le <strong>" Responsable du Traitement "</strong>)
+            <Typography className={classes.body1}>Shopisan (ci-après <strong>"Shopisan"</strong> ou le <strong>" Responsable du Traitement "</strong>)
             <br></br>
             // AJOUTER UNE ADDRESSE
             <br></br>
-            Mail : 
+            Mail : //AJOUTER UN MAIL
             <br></br>
-            Téléphone :
+            Téléphone : //AJOUTER UN TEL
             <br></br>
             <br></br>
-            shopisan établit la présente Politique de confidentialité dont l'objet est d'informer en toute transparence les Utilisateurs du site internet hébergé à l'adresse suivante : shopisan.dev, (ci-après le <strong>" Site "</strong> ), de la manière dont les données personnelles sont récoltées et traitées par shopisan.
+            Shopisan établit la présente Politique de confidentialité dont l'objet est d'informer en toute transparence les Utilisateurs du site internet hébergé à l'adresse suivante : Shopisan.com, (ci-après le <strong>" Site "</strong> ), de la manière dont les données personnelles sont récoltées et traitées par Shopisan.
             <br></br>
             Le terme <strong>" Utilisateur "</strong> fait référence à tout utilisateur, soit toute personne physique ou morale, qui visite ou interagit d'une quelconque manière avec le Site.
             <br></br>
-            A ce titre, shopisan détermine tous les moyens et finalités techniques, juridiques et organisationnelles du traitement des données personnelles des Utilisateurs. shopisan s'engage à cet effet à prendre toutes les mesures nécessaires pour garantir un traitement des données personnelles conforme à la loi du 30 juillet 2018, relative à la protection des personnes physiques à l'égard des traitements des données à caractère personnel (ci-après, <strong>" la Loi "</strong>) et au Règlement européen du 26 avril 2016 relatif à la protection des données des personnes physiques à l'égard du traitement des données à caractère personnel et à la libre circulation de ces données (ci-après le <strong>" Règlement "</strong>).
+            A ce titre, Shopisan détermine tous les moyens et finalités techniques, juridiques et organisationnelles du traitement des données personnelles des Utilisateurs. Shopisan s'engage à cet effet à prendre toutes les mesures nécessaires pour garantir un traitement des données personnelles conforme à la loi du 30 juillet 2018, relative à la protection des personnes physiques à l'égard des traitements des données à caractère personnel (ci-après, <strong>" la Loi "</strong>) et au Règlement européen du 26 avril 2016 relatif à la protection des données des personnes physiques à l'égard du traitement des données à caractère personnel et à la libre circulation de ces données (ci-après le <strong>" Règlement "</strong>).
             <br></br>
-            shopisan est libre de choisir toute personne physique ou morale qui traite les données personnelles des utilisateurs à sa demande et pour son compte (ci-après le <strong>" Sous-traitant "</strong>). Le cas échéant, shopisan s'engage à sélectionner un Sous-traitant offrant des garanties suffisantes quant aux mesures de sécurité techniques et organisationnelles du traitement des données personnelles, au regard de la Loi et du Règlement.
+            Shopisan est libre de choisir toute personne physique ou morale qui traite les données personnelles des utilisateurs à sa demande et pour son compte (ci-après le <strong>" Sous-traitant "</strong>). Le cas échéant, Shopisan s'engage à sélectionner un Sous-traitant offrant des garanties suffisantes quant aux mesures de sécurité techniques et organisationnelles du traitement des données personnelles, au regard de la Loi et du Règlement.
             </Typography>
 
             <Typography className={classes.h2}>2. Traitement des données personnelles</Typography>
-            <Typography className={classes.body1}>L'utilisation du Site par les Utilisateurs pourra entraîner la communication de données personnelles. Le traitement de ces données par shopisan, en sa qualité de Responsable du traitement, ou par les prestataires agissant au nom et pour le compte de shopisan, sera conforme à la Loi et au Règlement.)
+            <Typography className={classes.body1}>L'utilisation du Site par les Utilisateurs pourra entraîner la communication de données personnelles. Le traitement de ces données par Shopisan, en sa qualité de Responsable du traitement, ou par les prestataires agissant au nom et pour le compte de Shopisan, sera conforme à la Loi et au Règlement.)
             <br></br>
-            Les données à caractère personnel seront traitées par shopisan, conformément aux finalités citées plus bas, via :
+            Les données à caractère personnel seront traitées par Shopisan, conformément aux finalités citées plus bas, via :
             <br></br>
             - Les demandes de contact
             <br></br>
@@ -108,8 +107,8 @@ export default function PrivacyPolicy(){
             - Afin de pouvoir assurer les commandes et les réservations      
             </Typography>
 
-            <Typography className={classes.h2}>4. Données personelles usceptibles d'ête traitées</Typography>
-            <Typography className={classes.body1}>L'Utilisateur consent, lors de la visite et lors de l'utilisation du Site, que shopisan recueille et traite, selon les modalités et principes décrits dans la présente Politique de confidentialité, les données à caractère personnel suivantes :
+            <Typography className={classes.h2}>4. Données personelles susceptibles d'ête traitées</Typography>
+            <Typography className={classes.body1}>L'Utilisateur consent, lors de la visite et lors de l'utilisation du Site, que Shopisan recueille et traite, selon les modalités et principes décrits dans la présente Politique de confidentialité, les données à caractère personnel suivantes :
             <br></br>
             - L'identité des utilisateurs qui envoient les formulaires assurant le fonctionnement du site.
             </Typography>
@@ -117,9 +116,9 @@ export default function PrivacyPolicy(){
             <Typography className={classes.h2}>5. Consentement</Typography>
             <Typography className={classes.body1}>En accédant au Site et en l'utilisant, l'Utilisateur déclare avoir pris connaissance et marqué son accord de façon libre, spécifique, éclairée et univoque au traitement des données à caractère personnel la concernant. Cet accord porte sur le contenu de la présente Politique de confidentialité.
             <br></br>
-            Le consentement est donné par l'acte positif par lequel l'Utilisateur a coché la case proposant la Politique de confidentialité en lien hypertexte. Ce consentement est une condition indispensable pour effectuer certaines opérations sur le Site ou pour permettre à l'Utilisateur d'entrer en relation contractuelle avec shopisan. Tout contrat liant shopisan et un Utilisateur portant sur les services et biens proposés sur le Site est subordonné à l'acceptation de la Politique de confidentialité par l'Utilisateur.
+            Le consentement est donné par l'acte positif par lequel l'Utilisateur a coché la case proposant la Politique de confidentialité en lien hypertexte. Ce consentement est une condition indispensable pour effectuer certaines opérations sur le Site ou pour permettre à l'Utilisateur d'entrer en relation contractuelle avec Shopisan. Tout contrat liant Shopisan et un Utilisateur portant sur les services et biens proposés sur le Site est subordonné à l'acceptation de la Politique de confidentialité par l'Utilisateur.
             <br></br>
-            L'Utilisateur consent à ce que le Responsable du Traitement traite et recueille, conformément aux modalités et principes compris dans la présente Politique de confidentialité, ses données à caractère personnel qu'il communique sur le Site ou à l'occasion des services proposés par shopisan, pour les finalités indiquées plus haut.
+            L'Utilisateur consent à ce que le Responsable du Traitement traite et recueille, conformément aux modalités et principes compris dans la présente Politique de confidentialité, ses données à caractère personnel qu'il communique sur le Site ou à l'occasion des services proposés par Shopisan, pour les finalités indiquées plus haut.
             <br></br>
             L'Utilisateur a le droit de retirer son consentement à tout moment. Le retrait du consentement ne compromet pas la licéité du traitement fondé sur le consentement préalablement donné.
             </Typography>
@@ -131,20 +130,20 @@ export default function PrivacyPolicy(){
             </Typography>
 
             <Typography className={classes.h2}>7. Destinataires des données et divulgations à des tiers</Typography>
-            <Typography className={classes.body1}>Les données personnelles peuvent être transmises aux préposés, collaborateurs, sous-traitants ou fournisseurs de shopisan qui offrent des garanties de sécurité des données adéquates, et qui collaborent avec le shopisan dans le cadre de la commercialisation de produits ou de la fourniture de services. Ils agissent sous l'autorité directe de shopisan, et sont notamment responsables de recueillir, de traiter ou de sous-traiter ces données.
+            <Typography className={classes.body1}>Les données personnelles peuvent être transmises aux préposés, collaborateurs, sous-traitants ou fournisseurs de Shopisan qui offrent des garanties de sécurité des données adéquates, et qui collaborent avec le Shopisan dans le cadre de la commercialisation de produits ou de la fourniture de services. Ils agissent sous l'autorité directe de Shopisan, et sont notamment responsables de recueillir, de traiter ou de sous-traiter ces données.
             <br></br>
-            Dans tous les cas, les destinataires des données et ceux à qui ces données ont été divulguées respectent le contenu de la présente Politique de confidentialité. shopisan assure qu'ils traiteront ces données aux seules finalités prévues, de façon discrète et sécurisée.
+            Dans tous les cas, les destinataires des données et ceux à qui ces données ont été divulguées respectent le contenu de la présente Politique de confidentialité. Shopisan assure qu'ils traiteront ces données aux seules finalités prévues, de façon discrète et sécurisée.
             <br></br>
             Dans l'hypothèse où les données seraient divulguées à des tiers à des fins de marketing direct ou de prospection, l'Utilisateur en sera préalablement informé pour qu'il exprime son consentement à l'utilisation de ces données personnels.
             </Typography>
 
             <Typography className={classes.h2}>8. Droits des utilisateurs</Typography>
-            <Typography className={classes.body1}>A tout moment, l'Utilisateur peut exercer ses droits en envoyant un message par courrier électronique à l'adresse suivante : info@shopisan.dev, ou une lettre par voie postale adressée, en joignant une copie de sa carte d'identité à l'adresse suivante : //AJOUTER UNE ADDRESSE
+            <Typography className={classes.body1}>A tout moment, l'Utilisateur peut exercer ses droits en envoyant un message par courrier électronique à l'adresse suivante : info@shopisan.be, ou une lettre par voie postale adressée, en joignant une copie de sa carte d'identité à l'adresse suivante : //AJOUTER UNE ADDRESSE
             <br></br>
             <br></br>
             a. Droit d'accès
             <br></br>
-            Conformément à l'article 15 du Règlement, shopisan garantit le droit d'accès à l'Utilisateur à ses données personnelles. L'Utilisateur a le droit d'obtenir l'accès auxdites données à caractère personnel ainsi que les informations suivantes:            
+            Conformément à l'article 15 du Règlement, Shopisan garantit le droit d'accès à l'Utilisateur à ses données personnelles. L'Utilisateur a le droit d'obtenir l'accès auxdites données à caractère personnel ainsi que les informations suivantes:            
             <br></br>
             - Les finalités du traitement ;
             <br></br>
@@ -165,9 +164,9 @@ export default function PrivacyPolicy(){
             <br></br>
             b. Droit de rectification
             <br></br>
-            shopisan garantit le droit de rectification et d'effacement des données personnelles à l'utilisateur.
+            Shopisan garantit le droit de rectification et d'effacement des données personnelles à l'utilisateur.
             <br></br>
-            Conformément à l'article 16 du Règlement, les données incorrectes, inexactes ou non-pertinentes peuvent être corrigées ou effacées à tout moment. L'Utilisateur procède d'abord lui-même aux modifications nécessaires depuis son compte utilisateur/autre, sauf si celles-ci ne peuvent être effectuées de manière autonome, dans quel cas la demande peut en être faite auprès de shopisan.
+            Conformément à l'article 16 du Règlement, les données incorrectes, inexactes ou non-pertinentes peuvent être corrigées ou effacées à tout moment. L'Utilisateur procède d'abord lui-même aux modifications nécessaires depuis son compte utilisateur/autre, sauf si celles-ci ne peuvent être effectuées de manière autonome, dans quel cas la demande peut en être faite auprès de Shopisan.
             <br></br>
             Conformément à l'article 19 du Règlement, le Responsable du traitement notifie à chaque destinataire auquel les données à caractère personnel ont été communiquées toute rectification des données à caractère personnel, à moins qu'une telle communication se révèle impossible ou exige des efforts disproportionnés. Le responsable du traitement fournit à la personne concernée des informations sur ces destinataires si celle-ci en fait la demande.
             <br></br>
@@ -198,7 +197,7 @@ export default function PrivacyPolicy(){
             <br></br>
             e. Droit de portabilité des données
             <br></br>
-            Conformément à l'article 20 du Règlement, les Utilisateurs ont le droit de recevoir de shopisan les données à caractère personnel les concernant dans un format structuré, couramment utilisé et lisible par machine. Les Utilisateurs ont le droit de transmettre ces données à un autre responsable du traitement sans que shopisan y fasse obstacle dans les cas prévus par le Règlement.
+            Conformément à l'article 20 du Règlement, les Utilisateurs ont le droit de recevoir de Shopisan les données à caractère personnel les concernant dans un format structuré, couramment utilisé et lisible par machine. Les Utilisateurs ont le droit de transmettre ces données à un autre responsable du traitement sans que Shopisan y fasse obstacle dans les cas prévus par le Règlement.
             <br></br>
             Lorsque l'Utilisateur exerce son droit à la portabilité des données en application du paragraphe précédent, elle a le droit d'obtenir que les données à caractère personnel soient transmises directement d'un responsable du traitement à un autre, lorsque cela est techniquement possible.
             <br></br>
@@ -209,7 +208,7 @@ export default function PrivacyPolicy(){
             <br></br>
             f. Droit d'opposition et prise de décision individuelle automatisée
             <br></br>
-            L'Utilisateur dispose à tout moment du droit de s'opposer au traitement de ses données personnelles en raison de sa situation particulière, y compris l'automatisation des données effectuée par shopisan. Conformément à l'article 21 du Règlement, shopisan ne traitera plus les données à caractère personnel, à moins qu'il existe des motifs légitimes et impérieux pour le traitement qui prévalent sur les intérêts et les droits et libertés de l'Utilisateur, ou pour la constatation, l'exercice ou la défense de droits en justice.
+            L'Utilisateur dispose à tout moment du droit de s'opposer au traitement de ses données personnelles en raison de sa situation particulière, y compris l'automatisation des données effectuée par Shopisan. Conformément à l'article 21 du Règlement, Shopisan ne traitera plus les données à caractère personnel, à moins qu'il existe des motifs légitimes et impérieux pour le traitement qui prévalent sur les intérêts et les droits et libertés de l'Utilisateur, ou pour la constatation, l'exercice ou la défense de droits en justice.
             <br></br>
             Lorsque les données à caractère personnel sont traitées à des fins de prospection, l'Utilisateur a le droit de s'opposer à tout moment au traitement des données à caractère personnel la concernant à de telles fins de prospection, y compris au profilage dans la mesure où il est lié à une telle prospection.
             <br></br>
@@ -218,7 +217,7 @@ export default function PrivacyPolicy(){
             <br></br>
             g. Droit de plainte  
             <br></br>
-            L'Utilisateur dispose du droit d'introduire une plainte concernant le traitement de ses données personnelles par shopisan auprès de l'Autorité de Protection des Données, compétente pour le territoire belge. De plus amples informations peuvent être trouvées sur le site internet: https://www.autoriteprotectiondonnees.be.
+            L'Utilisateur dispose du droit d'introduire une plainte concernant le traitement de ses données personnelles par Shopisan auprès de l'Autorité de Protection des Données, compétente pour le territoire belge. De plus amples informations peuvent être trouvées sur le site internet: https://www.autoriteprotectiondonnees.be.
             <br></br>
             <br></br>
             L'introduction d'une plainte se fait aux adresses suivantes:
@@ -245,9 +244,9 @@ export default function PrivacyPolicy(){
             <br></br>
             Un "Cookie" est un fichier déposé temporairement ou de façon permanente sur le disque dur de l'Utilisateur lors de la consultation du Site Internet, en vue d'une connexion ultérieure. Grâce aux cookies, le serveur reconnaît l'ordinateur de l'Utilisateur.
             <br></br>
-            Les cookies peuvent aussi être installés par des tiers avec lesquels shopisan collabore.
+            Les cookies peuvent aussi être installés par des tiers avec lesquels Shopisan collabore.
             <br></br>
-            Certains des cookies utilisés par shopisan sont nécessaires au bon fonctionnement du Site, d'autres permettent d'améliorer l'expérience de l'Utilisateur.
+            Certains des cookies utilisés par Shopisan sont nécessaires au bon fonctionnement du Site, d'autres permettent d'améliorer l'expérience de l'Utilisateur.
             <br></br>
             L'Utilisateur peut personnaliser ou désactiver les cookies en paramétrant son navigateur.
             <br></br>
@@ -256,15 +255,15 @@ export default function PrivacyPolicy(){
             <br></br>
             b. Type de cookies et finalités poursuivies
             <br></br>
-            Différents types de cookies sont utilisés par shopisan sur le Site :
+            Différents types de cookies sont utilisés par Shopisan sur le Site :
             <br></br>
             Les cookies techniques : ils sont nécessaires à l'exploitation du Site Internet, permettent la communication des données introduites et sont destinés à faciliter la navigation de l'Utilisateur ;
             <br></br>
-            Les cookies de mesures statistiques et d'audience : ces cookies permettent la reconnaissance de l'Utilisateur et sont utilisés afin de comptabiliser le nombre d'Utilisateurs du Site Internet sur une certaine période. Dès lors qu'ils indiquent aussi le comportement de navigation, ils sont un moyen efficace pour améliorer la navigation de l'Utilisateur, en lui affichant des propositions et offres susceptibles de l'intéresser. Ils permettent aussi à shopisan de repérer les possibles bugs sur le Site Internet et de les corriger.
+            Les cookies de mesures statistiques et d'audience : ces cookies permettent la reconnaissance de l'Utilisateur et sont utilisés afin de comptabiliser le nombre d'Utilisateurs du Site Internet sur une certaine période. Dès lors qu'ils indiquent aussi le comportement de navigation, ils sont un moyen efficace pour améliorer la navigation de l'Utilisateur, en lui affichant des propositions et offres susceptibles de l'intéresser. Ils permettent aussi à Shopisan de repérer les possibles bugs sur le Site Internet et de les corriger.
             <br></br>
             Les cookies fonctionnels : ces cookies facilitent l'utilisation du Site Internet en retenant certains choix introduits (par exemple, le nom d'utilisateur ou la langue) ;
             <br></br>
-            Les cookies de traçage : shopisan utilise des cookies de traçage via Google Analytics, pour mesurer l'interaction des Utilisateurs avec le contenu du Site et produire des statistiques anonymes. Ces statistiques permettent à shopisan de perfectionner le Site Internet. Google étaye l'explication de ces cookies à l'adresse suivante: http://www.google.nl/intl/en_uk/policies/privacy/
+            Les cookies de traçage : Shopisan utilise des cookies de traçage via Google Analytics, pour mesurer l'interaction des Utilisateurs avec le contenu du Site et produire des statistiques anonymes. Ces statistiques permettent à Shopisan de perfectionner le Site Internet. Google étaye l'explication de ces cookies à l'adresse suivante: http://www.google.nl/intl/en_uk/policies/privacy/
             <br></br>
             <br></br>
             c.  Délai de conservation des cookies
@@ -298,11 +297,11 @@ export default function PrivacyPolicy(){
             </Typography>
 
             <Typography className={classes.h2}>10. Limitation de responsabilité du responsable de traitement</Typography>
-            <Typography className={classes.body1}>Le site Internet peut contenir des liens vers d'autres sites internet détenus par des tiers non liés à shopisan. Le contenu de ces sites et le respect de ceux-ci au regard de la Loi et du Règlement ne relèvent pas de la responsabilité de shopisan.
+            <Typography className={classes.body1}>Le site Internet peut contenir des liens vers d'autres sites internet détenus par des tiers non liés à Shopisan. Le contenu de ces sites et le respect de ceux-ci au regard de la Loi et du Règlement ne relèvent pas de la responsabilité de Shopisan.
             <br></br>
-            Le titulaire de l'autorité parentale doit donner son consentement exprès pour que le mineur de moins de 16 ans puisse divulguer des informations ou données personnelles sur le site Internet. shopisan conseille vivement aux personnes exerçant l'autorité parentale sur des mineurs de promouvoir une utilisation responsable et sécurisée d'Internet. Le Responsable de traitement ne peut être tenu responsable pour avoir collecté et traité des informations et données personnelles de mineurs de moins de 16 ans dont le consentement n'est pas effectivement couvert par celui de leurs parents légaux ou pour des données incorrectes -notamment concernant l'âge- introduites par des mineurs. En aucun cas, des données personnelles ne seront traitées par le Responsable de traitement si l'Utilisateur précise qu'il est âgé de moins de 16 ans.
+            Le titulaire de l'autorité parentale doit donner son consentement exprès pour que le mineur de moins de 16 ans puisse divulguer des informations ou données personnelles sur le site Internet. Shopisan conseille vivement aux personnes exerçant l'autorité parentale sur des mineurs de promouvoir une utilisation responsable et sécurisée d'Internet. Le Responsable de traitement ne peut être tenu responsable pour avoir collecté et traité des informations et données personnelles de mineurs de moins de 16 ans dont le consentement n'est pas effectivement couvert par celui de leurs parents légaux ou pour des données incorrectes -notamment concernant l'âge- introduites par des mineurs. En aucun cas, des données personnelles ne seront traitées par le Responsable de traitement si l'Utilisateur précise qu'il est âgé de moins de 16 ans.
             <br></br>
-            shopisan n'est pas responsable de la perte, de la corruption ou du vol de données personnelles causés notamment par la présence de virus ou suite à des attaques informatiques.
+            Shopisan n'est pas responsable de la perte, de la corruption ou du vol de données personnelles causés notamment par la présence de virus ou suite à des attaques informatiques.
             </Typography>
 
             <Typography className={classes.h2}>11. Sécurité</Typography>
@@ -312,15 +311,15 @@ export default function PrivacyPolicy(){
             </Typography>    
 
             <Typography className={classes.h2}>12. Modification de la politique de confidentialité</Typography>
-            <Typography className={classes.body1}>shopisan se réserve le droit de modifier la présente Politique de confidentialité afin de se conformer aux obligations légales en la matière. L'utilisateur est dès lors invité à consulter régulièrement la Politique de confidentialité afin de prendre connaissance des modifications et adaptations. Une telle modification sera affichée sur le Site ou envoyée par mail à des fins d'opposabilité.
+            <Typography className={classes.body1}>Shopisan se réserve le droit de modifier la présente Politique de confidentialité afin de se conformer aux obligations légales en la matière. L'utilisateur est dès lors invité à consulter régulièrement la Politique de confidentialité afin de prendre connaissance des modifications et adaptations. Une telle modification sera affichée sur le Site ou envoyée par mail à des fins d'opposabilité.
             </Typography>   
 
             <Typography className={classes.h2}>13. Droit applicable et juridiction compétente</Typography>
-            <Typography className={classes.body1}>La présente Politique de confidentialité est exclusivement régie par le droit belge. Tout litige sera porté devant les tribunaux de l'arrondissement judiciaire du siège social de shopisan.
+            <Typography className={classes.body1}>La présente Politique de confidentialité est exclusivement régie par le droit belge. Tout litige sera porté devant les tribunaux de l'arrondissement judiciaire du siège social de Shopisan.
             </Typography>  
 
             <Typography className={classes.h2}>14. Contact</Typography>
-            <Typography className={classes.body1}>Pour toute question ou réclamation relative à la présente Politique de confidentialité, l'Utilisateur peut contacter le Responsable du traitement via l'adresse suivante : info@shopisan.dev
+            <Typography className={classes.body1}>Pour toute question ou réclamation relative à la présente Politique de confidentialité, l'Utilisateur peut contacter le Responsable du traitement via l'adresse suivante : info@shopisan.be
             </Typography>  
        
         </div>

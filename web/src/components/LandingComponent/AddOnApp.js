@@ -61,7 +61,7 @@ const classes = useStyles();
         <div className={classes.addonapp}>
             <div className={classes.row}>
                 <div className={classes.iconApp}>
-                    <img src={"static/images/LOGO_ROSE_SHOPISAN.png"} alt={"logo shopisan"} width="50px"/>
+                    <img src={"static/images/LOGO_ROUGE_SHOPISAN.png"} alt={"logo shopisan"} width={"50px"}/>
                 </div>
                 <div className="column">
                     <div>
