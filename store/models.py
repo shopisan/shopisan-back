@@ -24,7 +24,8 @@ class Store(models.Model):
     categories = models.ManyToManyField(StoreCategories, blank=True)
     owner = models.ForeignKey("user.Profile", related_name="owned_stores", on_delete=models.CASCADE, null=True)
     appointmentOnly = models.BooleanField(default=False)
-    description = models.TextField(default="")
+    description_fr = models.TextField(default="", null=True, blank=True)
+    description_en = models.TextField(default="", null=True, blank=True)
 
     objects = models.Manager()
 

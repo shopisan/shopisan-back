@@ -1,5 +1,4 @@
 from django.db import models
-from django.db.models.manager import BaseManager
 from django.utils.safestring import mark_safe
 
 from store.models import Store
@@ -15,7 +14,8 @@ class Post(models.Model):
 
 class PostMedia(models.Model):
     post = models.ForeignKey(Post, related_name="post_media", on_delete=models.CASCADE)
-    description = models.CharField(max_length=200)
+    description_fr = models.CharField(max_length=200, blank=True, null=True)
+    description_en = models.CharField(max_length=200, blank=True, null=True)
     price = models.FloatField(null=True, blank=True)
     media = models.ForeignKey(File, on_delete=models.CASCADE)
 

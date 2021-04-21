@@ -1,5 +1,5 @@
 from openpyxl import load_workbook
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
 from django.conf import settings
 from store.models import StoreCategories, Store, Address
 import json

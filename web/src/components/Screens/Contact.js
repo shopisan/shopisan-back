@@ -207,10 +207,15 @@ return(
                 </div>
 
                     <Form.Group className= {classes.group} >
-                        <Form.Label className={classes.body2}>Voter addresse E-mail</Form.Label>
+                        <Form.Label className={classes.body2}>Votre addresse E-mail</Form.Label>
                         <Form.Control className={classes.formControl} id="email" type="email" placeholder="Exemple: info@shopisan.be" required 
                         onChange={(event) => {setEmail(event.target.value)}} {...getErrors("email", errors)}/>
-                    </Form.Group> 
+                    </Form.Group>
+                    <Form.Group className= {classes.group} >
+                        <Form.Label className={classes.body2}>Sujet</Form.Label>
+                        <Form.Control className={classes.formControl} id="subject" type="subject" placeholder="L'object de votre demande" required
+                        onChange={(event) => {setEmail(event.target.value)}} {...getErrors("subject", errors)}/>
+                    </Form.Group>
                     <Form.Group controlId="exampleForm.ControlTextarea1">
                         <Form.Label className={classes.body2}>Votre message</Form.Label>
                         <Form.Control className={classes.formControl} as="textarea" rows={5} placeholder="Entrez votre message..." required

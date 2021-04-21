@@ -38,5 +38,5 @@ class StoreForm(forms.ModelForm):
 
     class Meta:
         model = Store
-        fields = ('name', 'description', 'website', 'storeStatus', 'appointmentOnly', 'openingTimes', 'profilePicture',
-                  'categories', 'owner')
+        fields = ('name', 'description_fr', 'description_en', 'website', 'storeStatus', 'appointmentOnly',
+                  'openingTimes', 'profilePicture', 'categories', 'owner')

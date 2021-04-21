@@ -47,8 +47,8 @@ class StoreSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Store
-        fields = ['id', 'name', 'description', 'url', 'website', 'storeStatus', 'openingTimes', 'profilePicture',
-                  'categories', 'addresses', 'evaluations', 'average_score', 'appointmentOnly']
+        fields = ['id', 'name', 'description_fr', 'description_en', 'url', 'website', 'storeStatus', 'openingTimes',
+                  'profilePicture', 'categories', 'addresses', 'evaluations', 'average_score', 'appointmentOnly']
         read_only_fields = ('storeStatus',)
 
 
@@ -58,7 +58,7 @@ class StoreWriteSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Store
-        fields = ['id', 'name', 'description', 'url', 'website', 'storeStatus', 'openingTimes', 'profilePicture',
+        fields = ['id', 'name', 'description_fr', 'description_en', 'url', 'website', 'storeStatus', 'openingTimes', 'profilePicture',
                   'categories', 'addresses', 'evaluations', 'average_score', 'appointmentOnly']
         read_only_fields = ('storeStatus',)
 

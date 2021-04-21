@@ -13,7 +13,7 @@ def fetch_localisation(address):
     country = pycountry.countries.get(alpha_2=address.country)
     address_str = address_str + " " + country.name
 
-    print("generated address" + address_str)
+    print("generated address " + address_str)
     params = {
         "address": address_str,
         "key": "AIzaSyCegSUW6N1wYgRONnn_4kOZXUzFu7w2Drs"

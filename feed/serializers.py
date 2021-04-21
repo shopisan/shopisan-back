@@ -6,7 +6,7 @@ from file_management.serializers import FileSerializer
 class PostMediaSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = PostMedia
-        fields = ["id", "media", "description", "price", "post"]
+        fields = ["id", "media", "description_fr", "description_en", "price", "post"]
         read_only_fields = ["post"]
         extra_kwargs = {'id': {'read_only': True, 'required': True}}
 
@@ -48,7 +48,8 @@ class PostSerializer(serializers.HyperlinkedModelSerializer):
         for media in post_media:
             if "id" in media and media["id"] is not None:
                 post_media_obj = post_media_dict.pop(media['id'])
-                post_media_obj.description = media['description']
+                post_media_obj.description_fr = media['description_fr']
+                post_media_obj.description_en = media['description_en']
                 post_media_obj.price = media['price']
                 post_media_obj.media = media['media']
                 post_media_obj.save()

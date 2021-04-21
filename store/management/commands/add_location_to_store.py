@@ -7,7 +7,7 @@ class Command(BaseCommand):
     help = 'Add coordinates to stores'
 
     def handle(self, *args, **options):
-        stores = Store.objects.filter(addresses__latitude=None).exclude(addresses=None).order_by('pk')[:20]
+        stores = Store.objects.filter(addresses__latitude=None).exclude(addresses=None).order_by('pk')[:50]
 
         for store in stores:
             for address in store.addresses.all():
