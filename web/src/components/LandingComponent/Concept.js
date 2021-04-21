@@ -1,10 +1,8 @@
 import { makeStyles, Typography } from "@material-ui/core";
 import React from "react";
-import LocalShopping from '../LandingComponent/LocalShopping'
-import Discover from '../LandingComponent/Discover'
-
-
-
+import LocalShopping from '../LandingComponent/LocalShopping';
+import Discover from '../LandingComponent/Discover';
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles(theme => ({
     container:{
@@ -78,6 +76,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Concept() {
 
+    const {t, i18n} = useTranslation();
     const classes = useStyles();
 
     return(
@@ -85,9 +84,9 @@ export default function Concept() {
             <div className={classes.container} id="concept">
                 <div className={classes.concept}>
                     <div>
-                         <Typography  className={classes.h1}>Le concept</Typography>
-                    <Typography className={classes.body1}>(Re)découvrez les boutiques de proximité à grande échelle locale!</Typography>
-                    <Typography className={classes.body1}>Vous êtes à la recherche de produits durables Made in France - Made in Belgium, d' articles vintage, de mode, de bijoux ou de cosmétiques et biens d'autres choses ?</Typography>
+                        <Typography  className={classes.h1}>{t('concept.title')}</Typography>
+                        <Typography className={classes.body1}>{t('concept.text')}</Typography>
+                        <Typography className={classes.body1}>{t('concept.text1')}</Typography>
                     </div>
                    <div className= "d-flex justify-content-center" >
                     <img className={classes.img} src= "static/images/Iphone_Mockup .png"></img>

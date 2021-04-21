@@ -17,10 +17,7 @@ import PrivacyPolicy from "./components/Screens/PrivacyPolicy";
 import GeneralsConditions from "./components/Screens/GeneralsConditions";
 import ScrollToTop from "./components/Utils/ScrollToTop";
 import { CookieBanner } from '@palmabit/react-cookie-law';
-import './i18n'
-
-
-
+import './i18n';
 
 const theme = createMuiTheme({
     palette: {
@@ -54,7 +51,7 @@ const theme = createMuiTheme({
 
 render(
     <React.StrictMode>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={(<div>Loading...</div>)}>
              <CookieBanner
                 message="Ce site web utilise des Cookies. Certains sont utilisés à des fins statistiques et d’autres sont mis en place par des services tiers. En cliquant sur ‘Accept all ‘, vous acceptez l’utilisation de cookies"
                 privacyPolicyLinkText="Cookies policy"

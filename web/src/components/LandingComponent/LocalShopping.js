@@ -1,5 +1,7 @@
 import React from 'react';
-import {makeStyles, Typography} from '@material-ui/core'
+import {makeStyles, Typography} from '@material-ui/core';
+import { useTranslation } from "react-i18next";
+
 
 const useStyles = makeStyles(theme => ({
     localShopping:{
@@ -63,13 +65,17 @@ export default function LocalShopping() {
 
     const classes = useStyles();
 
+    const {t, i18n} = useTranslation();
+
+
     return(
         
             <div className={classes.localShopping}>
                 <div className="ml-md-5">
-                     <Typography variant="h1" className={classes.h1}>Envie d'un shopping local ?</Typography>
-        <Typography variant="body1" className={classes.body1}>En quête d'authenticité ? <strong> Vous êtes au bon endroit !</strong></Typography>
-        <Typography variant="body1" className={classes.body1}> Sélectionnez la catégories de boutiques que vous souhaitez et géolocalisez-les sur une carte. Vous avez un coup de coeur pour une boutique que vous voulez voir sur l'appli ? Informez-nous en.</Typography>
+                     <Typography variant="h1" className={classes.h1}>{t('local.title')}</Typography>
+        <Typography variant="body1" className={classes.body1}>{t('local.text')} <strong> {t('local.text1')}</strong></Typography>
+        <Typography variant="body1" className={classes.body1}> {t('local.text2')}</Typography>
+        <Typography variant="body1" className={classes.body1}> {t('local.text3')}</Typography>
                 </div>
        
                 <div className= "d-flex justify-content-center" >

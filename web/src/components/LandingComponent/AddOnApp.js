@@ -1,5 +1,6 @@
 import { makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import AppStoreBtn from '../../components/svg/AppStoreBtn';
 import StarIcon from '../../components/svg/StarIcon';
 
@@ -54,7 +55,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function AddOnApp() {
 
-const classes = useStyles();
+    const {t, i18n} = useTranslation();
+    const classes = useStyles();
 
     return(
         
@@ -71,10 +73,10 @@ const classes = useStyles();
                         <StarIcon/>
                         <StarIcon/>
                     </div>
-                    <Typography variant={'body1'} className={classes.body1}>Plus de 5000 utilisateurs sur l'application mobile</Typography>
+                    <Typography variant={'body1'} className={classes.body1}>{t('userApp')}</Typography>
                 </div>
             </div>
-            <Typography variant="h1" className={classes.h1}>Découvrez l'application</Typography>
+            <Typography variant="h1" className={classes.h1}>{t('discoverApp')}</Typography>
             <div className={classes.row}>
                 <a href="/">
                     <AppStoreBtn />

@@ -134,6 +134,9 @@ export default function MenuHeader() {
     const [menuExpanded, setMenuExpanded] = useState(false);
     const location = useLocation();
 
+    const {t, i18n} = useTranslation();
+
+
 
     console.log(location.pathname);
 
@@ -158,10 +161,8 @@ export default function MenuHeader() {
                         aria-label="Toggle navigation" onClick={() => { setMenuExpanded(!menuExpanded) }}>
 
                         {!menuExpanded ?
-                            // <img src="static/images/hamburgerClose.png" width="40px" alt="burger"/>
                             <Hamburger />
                             :
-                            // <img src="static/images/hamburgerOpen.png" width="40px" alt="burger"/>
                             <Hamburger2 />
                         }
 
@@ -174,32 +175,32 @@ export default function MenuHeader() {
                             {location.pathname === "/" ?
                                 <Link activeClass={classes.active} spy={true} className={"nav-link " + classes.li} to={"concept"}
                                     smooth={true} onClick={() => setMenuExpanded()}>
-                                        Notre concept
+                                        {t('nav.concept')}
                                     </Link>
                                 :
                                 <NavLink activeClassName={classes.active} className={"nav-link " + classes.li} to="/" exact
-                                    onClick={() => setMenuExpanded()} >Notre concept</NavLink>
+                                    onClick={() => setMenuExpanded()} >{t('nav.concept')}</NavLink>
                             }
                         </li>
 
                         <li className={"nav-item"}>
                         {location.pathname === "/" ?
                                 <Link activeClass={classes.active} spy={true} className={"nav-link " + classes.li} to={"idea"}
-                                smooth={true} onClick={() => setMenuExpanded()}>De l'idée au projet</Link>
+                                smooth={true} onClick={() => setMenuExpanded()}>{t('nav.idea')}</Link>
                                 :
                                 <NavLink activeClassName={classes.active} className={"nav-link " + classes.li} to="/" exact
-                                    onClick={() => setMenuExpanded()} >De l'idée au projet</NavLink>
+                                    onClick={() => setMenuExpanded()} >{t('nav.idea')}</NavLink>
                             }
                         </li>
 
                         <li className={"nav-item"}>
                             <NavLink activeClassName={classes.active} className={"nav-link " + classes.li} to={"/signin"}
-                                onClick={() => setMenuExpanded()} >Inscription</NavLink>
+                                onClick={() => setMenuExpanded()} >{t('nav.signIn')}</NavLink>
                         </li>
 
                         <li className="nav-item">
                             <NavLink activeClassName={classes.active} className={"nav-link " + classes.li} to="/contact"
-                                onClick={() => setMenuExpanded()} >Contact</NavLink>
+                                onClick={() => setMenuExpanded()} >{t('nav.contact')}</NavLink>
                         </li>
                     </ul>
                 </div>

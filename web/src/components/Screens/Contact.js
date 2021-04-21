@@ -5,6 +5,7 @@ import { Button } from "react-bootstrap";
 import MuiAlert from '@material-ui/lab/Alert';
 import Snackbar from '@material-ui/core/Snackbar';
 import { getErrors } from '../Utils/FormsUtils';
+import { useTranslation } from 'react-i18next';
 
 
 const useStyles = makeStyles(theme => ({
@@ -79,10 +80,6 @@ const useStyles = makeStyles(theme => ({
         padding: "1.5rem 1rem",
         marginTop: "5px",
         fontSize:"12px",
-        [theme.breakpoints.up('md')]:{
-            padding: '2rem 1rem',
-            borderRadius:"1rem"
-        }
     }, 
     form:{
         [theme.breakpoints.up('md')]:{
@@ -148,8 +145,12 @@ function Alert(props) {
 
 export default function Contact(){
 
+    const {t, i18n} = useTranslation();
     const classes = useStyles();
-
+    const [name, setName] = useState("");
+    const [surname, setSurname] = useState("");
+    const [email, setEmail] = useState("");
+    const [subject, setSubject] = useState("");
     const [message, setMessage] = useState("");
     const [showSuccess, setShowSuccess] = useState(false);
     const forceUpdate = useForceUpdate();
@@ -159,6 +160,10 @@ export default function Contact(){
         
         if (setMessage()) {
             axios.post("/api/contact/", {
+                name, 
+                surname,
+                email,
+                subject,
                 message,
             }).then((response, error) => {
                 if (response.success) {
@@ -184,40 +189,50 @@ return(
 <>
     <div className={classes.brand} id="contact">
             <div>
-                <Typography variant="h1" className={classes.h1}>Nous contacter</Typography>
-                <Typography variant="body1" className={classes.body1}>Vous avez une question, une suggestion ou souhaitez simplement nous adresser un message ?</Typography>
+                <Typography variant="h1" className={classes.h1}>{t('contact.title')}</Typography>
+                <Typography variant="body1" className={classes.body1}>{t('contact.text')}</Typography>
             </div>
     </div>
             <div className={classes.contact}>
             <Form className={classes.form}>
-            <div className={classes.formContent}>
             <Snackbar open={showSuccess} autoHideDuration={10000} onClose={handleClose}>
                     <Alert onClose={handleClose} severity="success">
                         This is a success message!
                     </Alert>
                 </Snackbar>
-                <Form.Group  className= {classes.group}>
-                        <Form.Label className={classes.body2}>Prénom</Form.Label>
-                        <Form.Control className={classes.formControl} placeholder="Exemple: Nicolas" required />
+                    <div className={classes.formContent}>
+                       <Form.Group  className= {classes.group}>
+                        <Form.Label className={classes.body2}>{t('contact.firstname')}</Form.Label>
+                        <Form.Control className={classes.formControl} placeholder={t('contact.firstnameLabel')} required 
+                        onChange={(event) => {setName(event.target.value)}} {...getErrors("name", errors)}/>
                     </Form.Group>
                     <Form.Group className= {classes.group}>
-                        <Form.Label className={classes.body2}>Nom</Form.Label>
-                        <Form.Control className={classes.formControl} placeholder="Exemple: Goffard" required/>
-                    </Form.Group>
-                </div>
-
+                        <Form.Label className={classes.body2}>{t('contact.lastname')}</Form.Label>
+                        <Form.Control className={classes.formControl} placeholder={t('contact.lastnameLabel')} required
+                        onChange={(event) => {setSurname(event.target.value)}} {...getErrors("surname", errors)}/>
+                    </Form.Group> 
+                    </div>
+                    
+                <div className={classes.formContent}>
                     <Form.Group className= {classes.group} >
-                        <Form.Label className={classes.body2}>Voter addresse E-mail</Form.Label>
-                        <Form.Control className={classes.formControl} id="email" type="email" placeholder="Exemple: info@shopisan.be" required 
+                        <Form.Label className={classes.body2}>{t('contact.email')}</Form.Label>
+                        <Form.Control className={classes.formControl} id="email" type="email" placeholder={t('contact.emailLabel')} required 
                         onChange={(event) => {setEmail(event.target.value)}} {...getErrors("email", errors)}/>
                     </Form.Group> 
+                    <Form.Group className= {classes.group} >
+                        <Form.Label className={classes.body2}>{t('contact.subject')}</Form.Label>
+                        <Form.Control className={classes.formControl} placeholder={t('contact.subjectLabel')} required 
+                        onChange={(event) => {setSubject(event.target.value)}} {...getErrors("subject", errors)}/>
+                    </Form.Group> 
+                </div>
+                
                     <Form.Group controlId="exampleForm.ControlTextarea1">
-                        <Form.Label className={classes.body2}>Votre message</Form.Label>
-                        <Form.Control className={classes.formControl} as="textarea" rows={5} placeholder="Entrez votre message..." required
+                        <Form.Label className={classes.body2}>{t('contact.message')}</Form.Label>
+                        <Form.Control className={classes.formControl} as="textarea" rows={5} placeholder={t('contact.messageLabel')} required
                         onChange={(event) => { setMessage(event.target.value); }} {...getErrors("message", errors)}/>
                     </Form.Group>
                     <Button className={classes.submit} type="submit" onClick={submit} >
-                    Envoyer
+                    {t('send')}
                     </Button>
                 
                 </Form>

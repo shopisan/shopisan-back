@@ -1,5 +1,6 @@
 import React from 'react';
 import {makeStyles, Typography} from '@material-ui/core'
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles(theme => ({
     discover:{
@@ -64,14 +65,15 @@ const useStyles = makeStyles(theme => ({
 
 export default function Discover(){
 
+    const {t, i18n} = useTranslation();
     const classes = useStyles();
 
     return(
         <>
             <div className={classes.discover}>
                 <div>
-                    <Typography variant="h1" className={classes.h1}>Découvertes</Typography>
-                    <Typography variant="body1" className={classes.body1}>Prêts pour une expérience shopping découverte ? Nous vous faisons découvrir d'abord les boutiques de Belgique et de France. Nous poursuivrons avec l' Italie, la GB etc... Suivez le guide<i> ici c'est Shiposan</i> </Typography>
+                    <Typography variant="h1" className={classes.h1}>{t('discovery.title')}</Typography>
+                    <Typography variant="body1" className={classes.body1}>{t('discovery.text')}<i>{t('discovery.text1')}</i> </Typography>
                 </div>
         
                 <div className= "d-flex justify-content-center" >
