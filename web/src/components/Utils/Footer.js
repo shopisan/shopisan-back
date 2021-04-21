@@ -1,5 +1,6 @@
 import { makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import {NavLink} from 'react-router-dom';
 import InstagramIcon from '../svg/Instagram';
 
@@ -48,6 +49,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Footer(){
 
+    const {t, i18n} = useTranslation();
 const classes = useStyles();
 
     return(
@@ -57,10 +59,10 @@ const classes = useStyles();
                   <Typography variant={'body1'} className={classes.body1}>© 2021 Shopisan</Typography>
                 </NavLink> 
             <NavLink to="/generals_conditions" className="nav-link">
-            <Typography variant={'body1'} className={classes.body1}>Conditions générales</Typography>
+            <Typography variant={'body1'} className={classes.body1}>{t('gc.title')}</Typography>
             </NavLink>
             <NavLink to="/privacy_policy" className="nav-link">
-            <Typography variant={'body1'} className={classes.body1}>Politique de confidentialité</Typography>
+            <Typography variant={'body1'} className={classes.body1}>{t('pp.title')}</Typography>
             </NavLink>
             </div>
             <div className={classes.rowMedia}>

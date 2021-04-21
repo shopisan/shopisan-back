@@ -1,5 +1,6 @@
 import React from 'react';
 import {makeStyles, Typography} from '@material-ui/core'
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles(theme => ({
     projectIdea:{
@@ -63,17 +64,18 @@ const useStyles = makeStyles(theme => ({
 
 export default function ProjectIdea(){
 
+    const {t, i18n } = useTranslation();
     const classes = useStyles();
 
     return(
         <>
             <div className={classes.projectIdea} id="idea">
                 <div>
-                    <Typography variant="h1" className={classes.h1}>De l'idée au projet</Typography>
+                    <Typography variant="h1" className={classes.h1}>{t('idea.title')}</Typography>
     
-                    <Typography variant="body1" className={classes.body1}>Il y a quelques temps, nous étions à la recherche d'un cadeau. Nous promenant au centre de Bruxelles, nous sommes passés devant la vitrine de la boutique Azur Elle. Nous avons franchi la porte et nous avons été chaleureusement acceuillis par le propriétaire. Il était à notre écoute de ce que nous recherchions. Il nous a déniché LA PÉPITE !.</Typography>
-                    <Typography variant="body1" className={classes.body1}>Ce qui nous a frappé lors de notre passage chez Azur Elle: la petite taille de la boutique mais une grande originalité, un choix et un accueil personnalisé ! </Typography>
-                    <Typography variant="body1" className={classes.body1}>Du constat que nous ne connaissions pas les petits commerces même ceux qui sont situés à proximité, est né le projet de l'application Shopisan.</Typography>
+                    <Typography variant="body1" className={classes.body1}>{t('idea.text')}</Typography>
+                    <Typography variant="body1" className={classes.body1}>{t('idea.text1')}</Typography>
+                    <Typography variant="body1" className={classes.body1}>{t('idea.text2')}</Typography>
                 </div>
        
                 <div className= "d-flex justify-content-center" >

@@ -7,6 +7,7 @@ import setAxiosDefaults from '../Utils/Common';
 import axios from "axios";
 import MuiAlert from '@material-ui/lab/Alert';
 import Snackbar from '@material-ui/core/Snackbar';
+import { useTranslation } from "react-i18next";
 
 
 setAxiosDefaults(axios);
@@ -160,33 +161,31 @@ function Alert(props) {
 }
 
 export default function SignIn(){
+    const {t, i18n} = useTranslation();
     const classes = useStyles();
 
-    // const [brand , setBrand ] = useState("");
-    // const [firstname, setFirstname] = useState("");
-    // const [lastname, setLastname] = useState("");
+    const [brand , setBrand ] = useState("");
+    const [name, setName] = useState("");
+    const [surname, setSurname] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [repeatPassword, setRepeatPassword] = useState("");
-    // const [mobile, setMobile] = useState("");
+    const [phone, setPhone] = useState("");
+    const [message, setMessage] = useState("");
     const forceUpdate = useForceUpdate();
     const [showSuccess, setShowSuccess] = useState(false)
-
-
-
 
     function submit() {
         // faire la validation de chaque feild selon les conditions
         if (checkPassword()) {
-            
             axios.post("/api/register/", {
-                // brand ,
-                // firstname,
-                // lastname,
+                brand ,
+                name,
+                surname,
+                phone,
+                message,
                 email,
                 password,
-                // repeatPassword,
-                // mobile
             }).then((response, error) => {
                 if (response.success) {
                     errors = {}
@@ -217,6 +216,7 @@ export default function SignIn(){
         return true;
     }
 
+
     useEffect(() => {
         checkPassword();
         forceUpdate();
@@ -233,12 +233,11 @@ export default function SignIn(){
         <>
         <div className={classes.brand} id="signin">
             <div>
-            <Typography variant="h1" className={classes.h1}>Boutiques, marques, créateurs</Typography>
-        <Typography variant="body1" className={classes.body1}>Nos objectifs : </Typography>
-        <Typography variant="body1" className={classes.body1}>- Booster votre visibilité !</Typography>
-        <Typography variant="body1" className={classes.body1}>- Vous permettre de faire connaître votre savoir-faire aux utilisateurs et les inviter à
-franchir le seuil de votre boutique qu’elle soit en ligne ou pas.</Typography>
-        <Typography variant="body1" className={classes.body1}>Shopisan permet aux boutiques, marques, créateurs de toutes catégories d'être mises en lumière.</Typography>
+            <Typography variant="h1" className={classes.h1}>{t('signUp.title')}</Typography>
+        <Typography variant="body1" className={classes.body1}>{t('signUp.text')} </Typography>
+        <Typography variant="body1" className={classes.body1}>{t('signUp.text1')}</Typography>
+        <Typography variant="body1" className={classes.body1}>{t('signUp.text2')}</Typography>
+        <Typography variant="body1" className={classes.body1}>{t('signUp.text3')}</Typography>
             </div>
                 
             <div className= "d-flex justify-content-center" >
@@ -248,8 +247,8 @@ franchir le seuil de votre boutique qu’elle soit en ligne ou pas.</Typography>
         
         <div className={classes.signIn}>
             <div className="column">
-                <Typography variant="h1" className={classes.h1}>S'inscrire</Typography>
-                <Typography variant="body1" className={classes.body1}>Vous souhaitez vous inscrie ? L'inscription est gratuite.</Typography>
+                <Typography variant="h1" className={classes.h1}>{t('signUp.form.title')}</Typography>
+                <Typography variant="body1" className={classes.body1}>{t('signUp.form.text')}</Typography>
             </div>
             <div className="column">
                 <Form className={classes.form} >
@@ -260,53 +259,59 @@ franchir le seuil de votre boutique qu’elle soit en ligne ou pas.</Typography>
                 </Snackbar>
                     <div className={classes.formContent}>
                         <Form.Group className= {classes.group}>
-                        <Form.Label className={classes.body2} >Nom de votre boutique / marque</Form.Label>
-                        <Form.Control className={classes.formControl} placeholder="Exemple: Shopisan" required/>
+                        <Form.Label className={classes.body2} >{t('signUp.form.store')}</Form.Label>
+                        <Form.Control className={classes.formControl} placeholder={t('signUp.form.storeLabel')} required
+                        onChange={(event) => {setBrand(event.target.value)}} {...getErrors("brand", errors)}/>
                     </Form.Group>
-                    <Form.Group className= {classes.group}>
-                        <Form.Label className={classes.body2}>Prénom</Form.Label>
-                        <Form.Control className={classes.formControl} placeholder="Exemple: Nicolas" required />
-                    </Form.Group>
+                    <Form.Group className= {classes.group} >
+                        <Form.Label className={classes.body2} >{t('signUp.form.email')}</Form.Label>
+                        <Form.Control className={classes.formControl} id="email" type="email" placeholder={t('signUp.form.emailLabel')} required 
+                        onChange={(event) => {setEmail(event.target.value)}} {...getErrors("email", errors)} />
+                       
+                    </Form.Group> 
+                    
                     </div>
                     
                     <div className={classes.formContent}>
                        <Form.Group className= {classes.group}>
-                        <Form.Label className={classes.body2}>Nom</Form.Label>
-                        <Form.Control className={classes.formControl} placeholder="Exemple: Goffard" required/>
+                        <Form.Label className={classes.body2}>{t('signUp.form.firstname')}</Form.Label>
+                        <Form.Control className={classes.formControl} placeholder={t('signUp.form.firstnameLabel')} required
+                        onChange={(event) => {setSurname(event.target.value)}} {...getErrors("surname", errors)}/>
                     </Form.Group>
-                    <Form.Group className= {classes.group} >
-                        <Form.Label className={classes.body2}>Voter addresse E-mail</Form.Label>
-                        <Form.Control className={classes.formControl} id="email" type="email" placeholder="Exemple: info@shopisan.be" required 
-                        onChange={(event) => {setEmail(event.target.value)}} {...getErrors("email", errors)}/>
-                    </Form.Group> 
+                    <Form.Group className= {classes.group}>
+                        <Form.Label className={classes.body2}>{t('signUp.form.lastname')}</Form.Label>
+                        <Form.Control className={classes.formControl} placeholder={t('signUp.form.lastnameLabel')} required 
+                        onChange={(event) => {setName(event.target.value)}} {...getErrors("name", errors)}/>
+                    </Form.Group>
                     </div>
                     
                     <div className={classes.formContent}>
                          <Form.Group className= {classes.group}>
-                        <Form.Label className={classes.body2}>Votre numéro de téléphone</Form.Label>
-                        <Form.Control className={classes.formControl} placeholder="Exemple: +32 411 22 33 44" required />
+                        <Form.Label className={classes.body2}>{t('signUp.form.mobile')}</Form.Label>
+                        <Form.Control className={classes.formControl} placeholder={t('signUp.form.mobileLabel')} required 
+                        onChange={(event) => {setPhone(event.target.value)}} {...getErrors("phone", errors)}/>
                     </Form.Group>
                     <Form.Group className= {classes.group} >
-                        <Form.Label className={classes.body2}>Mot de passe</Form.Label>
-                        <Form.Control className={classes.formControl} type="password" placeholder="Introduisez votre mot de passe" required 
+                        <Form.Label className={classes.body2}>{t('signUp.form.mdp')}</Form.Label>
+                        <Form.Control className={classes.formControl} type="password" placeholder={t('signUp.form.mdpLabel')} required 
                         onChange={(event) => {setPassword(event.target.value)}} {...getErrors("password", errors)}/>
                     </Form.Group>
-                
                     </div>
                    
                     <Form.Group className= {classes.group} >
-                        <Form.Label className={classes.body2}>Confirmation du mot de passe</Form.Label>
-                        <Form.Control className={classes.formControl} type="password" placeholder="Réintroduisez votre mot de passe"  required onBlur={checkPassword} 
+                        <Form.Label className={classes.body2}>{t('signUp.form.mdpCheck')}</Form.Label>
+                        <Form.Control className={classes.formControl} type="password" placeholder={t('signUp.form.mdpCheckLabel')}  required onBlur={checkPassword} 
                           onChange={(event) => { setRepeatPassword(event.target.value); }} {...getErrors("repeat_password", errors)}/>
                     </Form.Group>
                     <Form.Group controlId="exampleForm.ControlTextarea1">
-                        <Form.Label className={classes.body2}>Voter secteur d'activité</Form.Label>
-                        <Form.Control className={classes.formControl} as="textarea" rows={5} placeholder="Expliquez-nous votre activité" required/>
+                        <Form.Label className={classes.body2}>{t('signUp.form.sector')}</Form.Label>
+                        <Form.Control className={classes.formControl} as="textarea" rows={5} placeholder={t('signUp.form.sectorLabel')} required
+                        onChange={(event) => {setMessage(event.target.value)}} {...getErrors("message", errors)}/>
                     </Form.Group>
                    
                     
                     <Button className={classes.submit} type="submit" onClick={submit}>
-                    Envoyer
+                    {t('send')}
                     </Button>
                 
                 </Form>

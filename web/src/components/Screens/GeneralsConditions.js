@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles, Typography } from "@material-ui/core";
+import { useTranslation } from 'react-i18next';
 
 
 const useStyles = makeStyles(theme => ({
@@ -62,12 +63,13 @@ const useStyles = makeStyles(theme => ({
 
 export default function GeneralsConditions(){
 
+    const {t, i18n} = useTranslation();
     const classes = useStyles();
 
     return(
         <div className={classes.general}>
-            <Typography  className={classes.h1}>Conditions générales</Typography>
-            <Typography className={classes.body1}>Mise à jour le 15/04/2021
+            <Typography  className={classes.h1}>{t('gc.title')}</Typography>
+            <Typography className={classes.body1}>{t('gc.update')}
             <br></br>
             Le site Internet
             <br></br>

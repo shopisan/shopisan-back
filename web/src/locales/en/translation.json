@@ -1,0 +1,82 @@
+{
+    "nav": {
+        "concept": "Our concept",
+        "idea": "From an idea to a project?",
+        "signIn": "Inscription",
+        "contact": "Contact"
+    },
+    "concept": {
+        "title": "The concept",
+        "text": "(Re)discover local stores on a large scale !",
+        "text1": "Are you looking for sustainable products Made in France - Made in Belgium, vintage items, fashion, jewellery or cosmetics and many other things?"
+    },
+    "local":{
+        "title": "Looking to shop local? ",
+        "text": "Looking for authenticity ?",
+        "text1": "Then you've definitely found the right place!",
+        "text2" : "Select the category of shops you are looking for and geolocate them on a map.",
+        "text3" : "Do you fall in love with a shop that you want to see on the app? Let us know."
+    },
+    "discovery": {
+        "title": "Discoveries",
+        "text": "Ready for a discovery shopping experience? First, we will show you the stores in Belgium and France. We will continue with Italy, UK etc... Follow the guide.",
+        "text1" : " This is Shopisan"
+    },
+    "idea": {
+        "title": "From an idea to a project?",
+        "text": "Some time ago, we were looking for a gift. Walking in the center of Brussels, we passed by the window of the store Azur Elle. We walked through the door and were warmly welcomed by the owner.  He listened to what we were looking for. He found the perfect fit !",
+        "text1" : "What struck us during our visit to Azur Elle: the small size of the store but a great originality, a choice and a personalized welcome !",
+        "text2": "The Shopisan application project was born from the fact that we were not aware of small shops, even those located nearby."
+    },
+    "signUp": {
+        "title": "Stores, brands, designers",
+        "text": "Our goals :",
+        "text1": "- Boost your visibility !",
+        "text2": "- Allow you to make your know-how known to users and invite them to cross the threshold of your store whether it is online or not.",
+        "text3": "Shopisan allows boutiques, brands, designers of all categories to be highlighted.",
+        "form" : {
+            "title": "Sign up",
+            "text": "You want to register ? Registration is free.",
+            "store": "Name of your store / brand",
+            "storeLabel": "Exemple: Shopisan",
+            "firstname": "Name",
+            "firstnameLabel": "Exemple: Nicolas",
+            "lastname": "Surname",
+            "lastnameLabel": "Exemple: Goffard",
+            "email": "Your email address",
+            "emailLabel": "Exemple: info@shopisan.be",
+            "mobile": "Your phone number",
+            "mobileLabel": "Exemple : +32 411 23 33 44",
+            "mdp": "Password",
+            "mdpLabel": "Enter your password",
+            "mdpCheck": "Confirm password",
+            "mdpCheckLabel": "Re-enter your password",
+            "sector": "Your sector of activity",
+            "sectorLabel": "Tell us about your business"
+        }
+    },
+    "contact":{
+        "title": "Contact us",
+        "text": "Do you have a question, a suggestion or simply want to send us a message ?",
+        "firstname": "Name",
+        "firstnameLabel": "Exemple: Nicolas",
+        "lastname": "Surname",
+        "lastnameLabel": "Exemple: Goffard",
+        "email": "Your email address",
+        "emailLabel": "Exemple: info@shopisan.be",
+        "subject": "Subject message",
+        "subjectLabel": "Exemple: Request for information",
+        "message": "Your message",
+        "messageLabel": "Enter your message..."
+    },
+    "send" : "Send",
+    "userApp": "More than 5000 users on the mobile application",
+    "discoverApp": "Download the app now",
+    "gc": {
+        "title": "General conditions",
+        "update": "Updated on 15/04/2021"
+    },
+    "pp": {
+        "title": "Privacy policy"
+        }
+}
