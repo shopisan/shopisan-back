@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {createRef, useRef, useState} from 'react';
 import { makeStyles, Typography } from "@material-ui/core";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
@@ -6,6 +6,8 @@ import MuiAlert from '@material-ui/lab/Alert';
 import Snackbar from '@material-ui/core/Snackbar';
 import { getErrors } from '../Utils/FormsUtils';
 import { useTranslation } from 'react-i18next';
+import axios from 'axios';
+import { findDOMNode } from 'react-dom';
 
 
 const useStyles = makeStyles(theme => ({
@@ -154,17 +156,22 @@ export default function Contact(){
     const [message, setMessage] = useState("");
     const [showSuccess, setShowSuccess] = useState(false);
     const forceUpdate = useForceUpdate();
+    let ref = null;
 
 
     function submit() {
-        
-        if (setMessage()) {
-            axios.post("/api/contact/", {
+        console.log(ref);
+        console.log(ref.reportValidity());
+        if (ref.reportValidity()) {
+            axios.post("/api/contact/", JSON.stringify({
                 name, 
                 surname,
                 email,
                 subject,
                 message,
+            }), {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
             }).then((response, error) => {
                 if (response.success) {
                     errors = {}
@@ -175,6 +182,7 @@ export default function Contact(){
                     )
                 } else {
                     errors = response.data;
+                    console.log(errors);
                     forceUpdate();
                 }
             });
@@ -194,7 +202,7 @@ return(
             </div>
     </div>
             <div className={classes.contact}>
-            <Form className={classes.form}>
+            <Form className={classes.form} ref={(form) => { ref = form; }}>
             <Snackbar open={showSuccess} autoHideDuration={10000} onClose={handleClose}>
                     <Alert onClose={handleClose} severity="success">
                         This is a success message!
@@ -231,10 +239,9 @@ return(
                         <Form.Control className={classes.formControl} as="textarea" rows={5} placeholder={t('contact.messageLabel')} required
                         onChange={(event) => { setMessage(event.target.value); }} {...getErrors("message", errors)}/>
                     </Form.Group>
-                    <Button className={classes.submit} type="submit" onClick={submit} >
+                    <Button className={classes.submit} type="button" onClick={submit} >
                     {t('send')}
                     </Button>
-                
                 </Form>
             </div>
        </>
