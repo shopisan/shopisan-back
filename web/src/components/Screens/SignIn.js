@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { makeStyles, Typography } from "@material-ui/core";
+import { makeStyles, TextField, Typography } from "@material-ui/core";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { getErrors } from '../Utils/FormsUtils';
@@ -96,16 +96,35 @@ const useStyles = makeStyles(theme => ({
         }
     },
     group:{
+        display: 'flex',
+        flexDirection: 'column',
         [theme.breakpoints.up('md')]:{
             width: '40%'
         }
     },
     formControl:{
         borderRadius: "0.5rem",
-        padding: "1.5rem 1rem",
         marginTop: "5px",
-        fontSize:"12px",
+        width: 'auto',
+        background: "white",
+        '&:focus':{
+            border: "1px solid #FF6565!important",
+            boxShadow: "none!important"
+        },
+        
     }, 
+    textarea: {
+        borderRadius: "0.5rem",
+        marginTop: "5px",
+        background: "white",
+        '&:focus':{
+            borderColor: "#FF6565!important",
+            boxShadow: "none!important"
+        },
+        [theme.breakpoints.up('md')]:{
+            width: '250%',
+        }
+    },
     submit:{
         fontFamily: "Poppins",
         width: "100%",
@@ -151,11 +170,6 @@ const useStyles = makeStyles(theme => ({
 
 let errors = {};
 
-function useForceUpdate() {
-    const [value, setValue] = useState(0);
-    return () => setValue(value => value + 1);
-}
-
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
@@ -164,40 +178,52 @@ export default function SignIn(){
     const {t, i18n} = useTranslation();
     const classes = useStyles();
 
+    const [value, setValue] = useState(0);
     const [brand , setBrand ] = useState("");
     const [name, setName] = useState("");
     const [surname, setSurname] = useState("");
+    const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [repeatPassword, setRepeatPassword] = useState("");
     const [phone, setPhone] = useState("");
     const [message, setMessage] = useState("");
     const forceUpdate = useForceUpdate();
-    const [showSuccess, setShowSuccess] = useState(false)
+    const [showSuccess, setShowSuccess] = useState(false);
+    let ref = null;
+
+function useForceUpdate() {
+    return () => setValue(value => value + 1);
+}
 
     function submit() {
-        // faire la validation de chaque feild selon les conditions
+        console.log(ref);
         if (checkPassword()) {
-            axios.post("/api/register/", {
+            axios.post("/api/store_contact/",{
                 brand ,
+                username,
                 name,
                 surname,
                 phone,
                 message,
                 email,
                 password,
+            }, {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
             }).then((response, error) => {
-                if (response.success) {
+                console.log(response.data);
+                if (status === 201) {
                     errors = {}
                     setShowSuccess(true);
                     console.log("okayyy");
-                    return(
-                        <Typography>Merci de votre inscription !</Typography>
-                    )
                 } else {
                     errors = response.data;
                     forceUpdate();
                 }
+            }).catch((error) => {
+                console.log(error);
+                // todo gérer les erreurs
             });
         }
     }
@@ -207,7 +233,7 @@ export default function SignIn(){
             errors.repeat_password = ["Les mots de passe ne matchent pas !"];
             forceUpdate();
 
-            return false;
+            return false
         } else {
             delete errors.repeat_password
             forceUpdate();
@@ -231,13 +257,13 @@ export default function SignIn(){
     
      return(
         <>
-        <div className={classes.brand} id="signin">
+        <div className={classes.brand} id="signin" value={value}>
             <div>
             <Typography variant="h1" className={classes.h1}>{t('signUp.title')}</Typography>
-        <Typography variant="body1" className={classes.body1}>{t('signUp.text')} </Typography>
-        <Typography variant="body1" className={classes.body1}>{t('signUp.text1')}</Typography>
-        <Typography variant="body1" className={classes.body1}>{t('signUp.text2')}</Typography>
-        <Typography variant="body1" className={classes.body1}>{t('signUp.text3')}</Typography>
+            <Typography variant="body1" className={classes.body1}>{t('signUp.text')} </Typography>
+            <Typography variant="body1" className={classes.body1}>{t('signUp.text1')}</Typography>
+            <Typography variant="body1" className={classes.body1}>{t('signUp.text2')}</Typography>
+            <Typography variant="body1" className={classes.body1}>{t('signUp.text3')}</Typography>
             </div>
                 
             <div className= "d-flex justify-content-center" >
@@ -251,66 +277,73 @@ export default function SignIn(){
                 <Typography variant="body1" className={classes.body1}>{t('signUp.form.text')}</Typography>
             </div>
             <div className="column">
-                <Form className={classes.form} >
+                <Form className={classes.form} ref={(form) => { ref = form; }}>
                 <Snackbar open={showSuccess} autoHideDuration={10000} onClose={handleClose}>
                     <Alert onClose={handleClose} severity="success">
-                        This is a success message!
+                        {t('success')}
                     </Alert>
                 </Snackbar>
                     <div className={classes.formContent}>
                         <Form.Group className= {classes.group}>
                         <Form.Label className={classes.body2} >{t('signUp.form.store')}</Form.Label>
-                        <Form.Control className={classes.formControl} placeholder={t('signUp.form.storeLabel')} required
-                        onChange={(event) => {setBrand(event.target.value)}} {...getErrors("brand", errors)}/>
+                        <TextField className={classes.formControl} placeholder={t('signUp.form.storeLabel')} required
+                        variant="outlined" onChange={(event) => {setBrand(event.target.value)}} />
                     </Form.Group>
+        
                     <Form.Group className= {classes.group} >
-                        <Form.Label className={classes.body2} >{t('signUp.form.email')}</Form.Label>
-                        <Form.Control className={classes.formControl} id="email" type="email" placeholder={t('signUp.form.emailLabel')} required 
-                        onChange={(event) => {setEmail(event.target.value)}} {...getErrors("email", errors)} />
-                       
-                    </Form.Group> 
+                        <Form.Label className={classes.body2}>{t('signUp.form.username')}</Form.Label>
+                        <TextField className={classes.formControl}  placeholder={t('signUp.form.usernameLabel')} required 
+                        variant="outlined" onChange={(event) => {setUsername(event.target.value)}} />
+                    </Form.Group>
                     
                     </div>
                     
                     <div className={classes.formContent}>
                        <Form.Group className= {classes.group}>
                         <Form.Label className={classes.body2}>{t('signUp.form.firstname')}</Form.Label>
-                        <Form.Control className={classes.formControl} placeholder={t('signUp.form.firstnameLabel')} required
-                        onChange={(event) => {setSurname(event.target.value)}} {...getErrors("surname", errors)}/>
+                        <TextField className={classes.formControl} placeholder={t('signUp.form.firstnameLabel')} required
+                        variant="outlined" onChange={(event) => {setSurname(event.target.value)}} />
                     </Form.Group>
                     <Form.Group className= {classes.group}>
                         <Form.Label className={classes.body2}>{t('signUp.form.lastname')}</Form.Label>
-                        <Form.Control className={classes.formControl} placeholder={t('signUp.form.lastnameLabel')} required 
-                        onChange={(event) => {setName(event.target.value)}} {...getErrors("name", errors)}/>
+                        <TextField className={classes.formControl} placeholder={t('signUp.form.lastnameLabel')} required 
+                        variant="outlined" onChange={(event) => {setName(event.target.value)}} />
                     </Form.Group>
                     </div>
                     
                     <div className={classes.formContent}>
                          <Form.Group className= {classes.group}>
                         <Form.Label className={classes.body2}>{t('signUp.form.mobile')}</Form.Label>
-                        <Form.Control className={classes.formControl} placeholder={t('signUp.form.mobileLabel')} required 
-                        onChange={(event) => {setPhone(event.target.value)}} {...getErrors("phone", errors)}/>
+                        <TextField className={classes.formControl} placeholder={t('signUp.form.mobileLabel')} required 
+                        variant="outlined" onChange={(event) => {setPhone(event.target.value)}} />
                     </Form.Group>
                     <Form.Group className= {classes.group} >
-                        <Form.Label className={classes.body2}>{t('signUp.form.mdp')}</Form.Label>
-                        <Form.Control className={classes.formControl} type="password" placeholder={t('signUp.form.mdpLabel')} required 
-                        onChange={(event) => {setPassword(event.target.value)}} {...getErrors("password", errors)}/>
-                    </Form.Group>
+                        <Form.Label className={classes.body2} >{t('signUp.form.email')}</Form.Label>
+                        <TextField className={classes.formControl} id="email" type="email" placeholder={t('signUp.form.emailLabel')} required 
+                        variant="outlined" onChange={(event) => {setEmail(event.target.value)}} {...getErrors("email", errors)} />
+                    </Form.Group> 
                     </div>
-                   
+                    <div className={classes.formContent}>
+                      <Form.Group className= {classes.group} >
+                        <Form.Label className={classes.body2}>{t('signUp.form.mdp')}</Form.Label>
+                        <TextField className={classes.formControl} type="password" placeholder={t('signUp.form.mdpLabel')} required 
+                        variant="outlined" onChange={(event) => {setPassword(event.target.value)}} {...getErrors("password", errors)}/>
+                    </Form.Group>
                     <Form.Group className= {classes.group} >
                         <Form.Label className={classes.body2}>{t('signUp.form.mdpCheck')}</Form.Label>
-                        <Form.Control className={classes.formControl} type="password" placeholder={t('signUp.form.mdpCheckLabel')}  required onBlur={checkPassword} 
-                          onChange={(event) => { setRepeatPassword(event.target.value); }} {...getErrors("repeat_password", errors)}/>
-                    </Form.Group>
-                    <Form.Group controlId="exampleForm.ControlTextarea1">
+                        <TextField className={classes.formControl} type="password" placeholder={t('signUp.form.mdpCheckLabel')}  required onBlur={checkPassword} 
+                          variant="outlined" onChange={(event) => { setRepeatPassword(event.target.value); }} {...getErrors("repeat_password", errors)}/>
+                    </Form.Group>  
+                    </div>
+                    <Form.Group controlId="exampleTextFieldTextarea1" className= {classes.group}>
                         <Form.Label className={classes.body2}>{t('signUp.form.sector')}</Form.Label>
-                        <Form.Control className={classes.formControl} as="textarea" rows={5} placeholder={t('signUp.form.sectorLabel')} required
-                        onChange={(event) => {setMessage(event.target.value)}} {...getErrors("message", errors)}/>
+                        <TextField id="outlined-multiline-static" multiline className={classes.textarea} 
+                         variant="outlined" as="textarea" rows={5} placeholder={t('signUp.form.sectorLabel')} required
+                        onChange={(event) => {setMessage(event.target.value)}}/>
                     </Form.Group>
                    
                     
-                    <Button className={classes.submit} type="submit" onClick={submit}>
+                    <Button className={classes.submit} type="button" onClick={submit}>
                     {t('send')}
                     </Button>
                 

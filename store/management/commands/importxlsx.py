@@ -91,7 +91,7 @@ class Command(BaseCommand):
         ws = workbook['Boutiques']
 
         last_store = None
-        for index, row in enumerate(ws.iter_rows(min_row=2, max_col=9, max_row=101, values_only=True)):
+        for index, row in enumerate(ws.iter_rows(min_row=2, max_col=9, values_only=True)):
             if last_store is None or last_store.name != row[0]:
                 store = create_store_from_row(row, activities, cities=cities)
                 last_store = store

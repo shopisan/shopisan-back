@@ -43,6 +43,8 @@
             "firstnameLabel": "Exemple: Nicolas",
             "lastname": "Surname",
             "lastnameLabel": "Exemple: Goffard",
+            "username" : "Username",
+            "usernameLabel" : "Exemple : NicoG",
             "email": "Your email address",
             "emailLabel": "Exemple: info@shopisan.be",
             "mobile": "Your phone number",
@@ -70,11 +72,75 @@
         "messageLabel": "Enter your message..."
     },
     "send" : "Send",
+    "success": "Your message has been sent. We will contact you as soon as possible.",
     "userApp": "More than 5000 users on the mobile application",
     "discoverApp": "Download the app now",
     "gc": {
         "title": "General conditions",
-        "update": "Updated on 15/04/2021"
+        "update": "Updated on 15/04/2021",
+        "site" : "Le site internet",
+        "url": "shopisan.com",
+        "this": "Hereafter ",
+        "platform": "The Platforme",
+        "address": "AJOUTER UNE ADDRESSE",
+        "companyNumber": "Company number : AJOUTER NUM ENTREPRISE",
+        "email": "E-mail : AJOUTER UN EMAIL",
+        "mobile" : "Mobile: AJOUTER UN TEL",
+        "application" : {
+            "title" : "1. Scope",
+            "text": "The present general conditions of use",
+            "cgu" : "GCU",
+            "text1" : "apply to any visit or use of the Platform and its information by an Internet user",
+            "user": "User",
+            "text3": "By visiting or using the Platform, the User acknowledges having read these GCU and expressly accepts the rights and obligations mentioned herein.",
+            "text4": "In exceptional cases, the provisions of the GCU may be waived by written agreement. These deviations may consist in the modification, addition or deletion of the clauses to which they relate and shall not affect the application of the other provisions of the GCU.",
+            "text5": "We reserve the right to change our GCU at any time, without prior notice, but we will apply the provisions that were in effect at the time you used our Platform."
+        },
+        "website" : {
+            "title": "2. Website",
+            "a" : {
+                "title" : "a. Access and navigation",
+                "text" :"We take all reasonable and necessary measures to ensure the proper functioning, security and accessibility of our Platform. However, we cannot offer a guarantee of absolute operability and our actions must therefore be considered as being covered by an obligation of means.",
+                "text1" : "Any use of the Platform is always at the User's own risk. Therefore, we are not responsible for any damage that may result from possible malfunctions, interruptions, defects or harmful elements present on the Platform.",
+                "text2" : "We reserve the right to restrict access to the Platform or discontinue its operation at any time without prior notice."
+            },
+            "b" : {
+                "title" : "b. Content", 
+                "text" : "Shopisan determines much of the content of the Platform and takes great care with the information on the Platform. We take all reasonable steps to keep our Platform as complete, accurate and up-to-date as possible, even when the information on the Platform is provided by third parties. We reserve the right to modify, supplement or delete the Platform and its contents at any time without liability.",
+                "text1" : "Shopisan cannot offer any absolute guarantee as to the quality of the information on the Platform. Therefore, it is possible that this information may not always be complete, accurate, sufficiently precise or up to date. Therefore, Shopisan shall not be liable for any damages, direct or indirect, that the User may suffer as a result of the information presented on the Platform.",
+                "text2" : "If certain contents of the Platform are in violation of the law or the rights of third parties, or are contrary to morality, we ask you to inform us as soon as possible by e-mail so that we can take appropriate measures.",
+                "text3" : "Any download from the Platform is always at the User's own risk. Shopisan shall not be liable for any damages, direct or indirect, arising from such downloads, such as loss of data or damage to the User's computer system, which are the sole responsibility of the User."
+            }
+        },
+        "link" : {
+            "title" :"3. Links to other websites",
+            "text" : "The Platform may contain links or hyperlinks to external websites. Such links do not automatically imply any relationship between Shopisan and the external website or even an implied agreement with the content of such external websites.",
+            "text1": "Shopisan has no control over external websites. Therefore, we are not responsible for the safe and proper functioning of hyperlinks and their final destination. The moment the User clicks on the hyperlink, he/she leaves the Platform. Therefore, we cannot be held liable for any subsequent damage."
+        },
+        "property" : {
+            "title" : "4. Intellectual Property",
+            "text" : "The structure of the Platform, as well as the texts, graphics, images, photographs, sounds, videos, databases, computer applications, etc. that make it up or that are accessible via the Platform are the property of the publisher and are protected as such by the laws in force under intellectual property.",
+            "text1" : "Any representation, reproduction, adaptation or partial or total exploitation of the contents, trademarks and services offered by the Platform, by any process whatsoever, without the prior, express and written authorization of the publisher, is strictly prohibited, with the exception of elements expressly designated as free of rights on the Platform.",
+            "text2" : "The Platform User is granted a limited right to access, use and display the Platform and its content. This right is granted on a non-exclusive, non-transferable basis and may only be used for personal and non-commercial purposes. Except with prior written consent, Users are not authorized to modify, reproduce, translate, distribute, sell or communicate to the public, in whole or in part, the protected elements.",
+            "text3" : "The User is prohibited from introducing data to the Platform that would change or be likely to change its content or appearance."
+        },
+        "data" : {
+            "title" : "5. Protection of personal data", 
+            "text" : "The personal data provided by the User when visiting or using the Platform are collected and processed by Shopisan exclusively for internal purposes. Shopisan assures its users that it attaches the utmost importance to the protection of their privacy and personal data, and is always committed to clear and transparent communication on this point.",
+            "text1" : "Shopisan undertakes to comply with the applicable legislation on the subject, namely the Law of 8 December 1992 on the protection of privacy with regard to the processing of personal data as well as the European Regulation of 27 April 2016 on the protection of individuals with regard to the processing of personal data and on the free movement of such data.",
+            "text2" : "The User's personal data are processed in accordance with the Privacy Policy available on the Platform."    
+        },
+        "law" : {
+            "title" : "6. Applicable law and jurisdiction",
+            "text": "These GCU are governed by Belgian law.",
+            "text1" : "In the event of a dispute and in the absence of an amicable agreement, the dispute will be brought before the courts of the judicial district where Shopisan has its registered office."
+        },
+        "general" : {
+            "title" : "7. General provisions", 
+            "text" : "Shopisan reserves the right to modify, expand, delete, limit or discontinue the Platform and related services at any time, without notice, and without liability.",
+            "text1" : "In the event of a breach of the GCU by the User, Shopisan reserves the right to take appropriate remedial action. In particular, Shopisan reserves the right to deny the User any access to the Platform or our services temporarily or permanently. These measures may be taken without giving any reason and without prior notice. Such measures shall not give rise to any liability on the part of Shopisan or to any form of compensation.",
+            "text2" : "The illegality or invalidity of any provision of our GCU, in whole or in part, shall not affect the validity and enforceability of any other provision. In such a case, we have the right to replace the provision with another valid provision of similar scope."
+        }  
     },
     "pp": {
         "title": "Privacy policy"

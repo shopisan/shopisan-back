@@ -11,7 +11,15 @@ export default function Landing() {
 
   const {t, i18n} = useTranslation();
 
-
+  /*const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+      <button type="button" onClick={() => changeLanguage('fr')}>
+          fr
+        </button>
+        <button type="button" onClick={() => changeLanguage('en')}>
+          en
+        </button>*/
 
   return (
  
