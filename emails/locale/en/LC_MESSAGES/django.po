@@ -37,3 +37,11 @@ msgstr "Your store owner account request has been accepted."
 
 msgid "Réponse à votre demande de contact"
 msgstr "Answer to your contact request"
+
+msgid "Réponse à votre demande d'enregistrement"
+msgstr "Answer to your registration request"
+
+msgid "Réinitialisation de votre mot de passe"
+msgstr "Password reset"
+
+

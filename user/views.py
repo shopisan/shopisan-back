@@ -49,6 +49,7 @@ class CreateNewUser(generics.CreateAPIView):
 @api_view(["POST"])
 def forgot_password(request):
     email = request.data.pop("email")
+    locale = request.data.pop("lang")
     user = User.objects.get(email=email)
     if user is None:
         return Response({"success": False})
@@ -60,7 +61,7 @@ def forgot_password(request):
     user.save()
 
     send_mail(subject="Réinitialisation de votre mot de passe", recipient_list=[email],
-              template="emails/includes/reset_password_token.html", variables={"token": token})
+              template="emails/includes/reset_password_token.html", variables={"token": token}, locale=locale)
 
     return Response({"success": True})
 

@@ -6,8 +6,10 @@ import MuiAlert from '@material-ui/lab/Alert';
 import Snackbar from '@material-ui/core/Snackbar';
 import { getErrors } from '../Utils/FormsUtils';
 import { useTranslation } from 'react-i18next';
+import i18n from '../../i18n'
 import axios from 'axios';
 
+const lang = i18n.language;
 
 const useStyles = makeStyles(theme => ({
     brand:{
@@ -164,10 +166,8 @@ function Alert(props) {
 }
 
 export default function Contact(){
-
     const {t, i18n} = useTranslation();
     const classes = useStyles();
-
     const [name, setName] = useState("");
     const [surname, setSurname] = useState("");
     const [email, setEmail] = useState("");
@@ -178,8 +178,6 @@ export default function Contact(){
     let ref = null;
 
     function submit() {
-        console.log(ref);
-        console.log(ref.reportValidity());
         if (ref.reportValidity()) {
             axios.post("/api/contact/", {
                 name, 
@@ -187,12 +185,12 @@ export default function Contact(){
                 email,
                 subject,
                 message,
+                lang
             }, {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
             }).then((response, error) => {
-                console.log(response)
-                if (status === 201) {
+                if (response.status === 201) {
                     errors = {}
                     setShowSuccess(true);
                     console.log("okayyy");

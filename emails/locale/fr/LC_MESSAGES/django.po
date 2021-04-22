@@ -40,3 +40,10 @@ msgstr ""
 msgid "Réponse à votre demande de contact"
 msgstr "Réponse à votre demande de contact"
 
+msgid "Réponse à votre demande d'enregistrement"
+msgstr "Réponse à votre demande d'enregistrement"
+
+msgid "Réinitialisation de votre mot de passe"
+msgstr "Réinitialisation de votre mot de passe"
+
+

@@ -4,11 +4,13 @@ import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { getErrors } from '../Utils/FormsUtils';
 import setAxiosDefaults from '../Utils/Common';
-import axios from "axios";
 import MuiAlert from '@material-ui/lab/Alert';
 import Snackbar from '@material-ui/core/Snackbar';
 import { useTranslation } from "react-i18next";
+import i18n from '../../i18n'
+import axios from 'axios';
 
+const lang = i18n.language;
 
 setAxiosDefaults(axios);
 
@@ -208,12 +210,13 @@ function useForceUpdate() {
                 message,
                 email,
                 password,
+                lang
             }, {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
             }).then((response, error) => {
                 console.log(response.data);
-                if (status === 201) {
+                if (response.status === 201) {
                     errors = {}
                     setShowSuccess(true);
                     console.log("okayyy");
@@ -287,13 +290,13 @@ function useForceUpdate() {
                         <Form.Group className= {classes.group}>
                         <Form.Label className={classes.body2} >{t('signUp.form.store')}</Form.Label>
                         <TextField className={classes.formControl} placeholder={t('signUp.form.storeLabel')} required
-                        variant="outlined" onChange={(event) => {setBrand(event.target.value)}} />
+                        variant="outlined" onChange={(event) => {setBrand(event.target.value)}} {...getErrors("brand", errors)} />
                     </Form.Group>
         
                     <Form.Group className= {classes.group} >
                         <Form.Label className={classes.body2}>{t('signUp.form.username')}</Form.Label>
                         <TextField className={classes.formControl}  placeholder={t('signUp.form.usernameLabel')} required 
-                        variant="outlined" onChange={(event) => {setUsername(event.target.value)}} />
+                        variant="outlined" onChange={(event) => {setUsername(event.target.value)}} {...getErrors("username", errors)} />
                     </Form.Group>
                     
                     </div>
@@ -302,12 +305,12 @@ function useForceUpdate() {
                        <Form.Group className= {classes.group}>
                         <Form.Label className={classes.body2}>{t('signUp.form.firstname')}</Form.Label>
                         <TextField className={classes.formControl} placeholder={t('signUp.form.firstnameLabel')} required
-                        variant="outlined" onChange={(event) => {setSurname(event.target.value)}} />
+                        variant="outlined" onChange={(event) => {setSurname(event.target.value)}}  {...getErrors("surname", errors)} />
                     </Form.Group>
                     <Form.Group className= {classes.group}>
                         <Form.Label className={classes.body2}>{t('signUp.form.lastname')}</Form.Label>
                         <TextField className={classes.formControl} placeholder={t('signUp.form.lastnameLabel')} required 
-                        variant="outlined" onChange={(event) => {setName(event.target.value)}} />
+                        variant="outlined" onChange={(event) => {setName(event.target.value)}} {...getErrors("name", errors)} />
                     </Form.Group>
                     </div>
                     
@@ -315,7 +318,7 @@ function useForceUpdate() {
                          <Form.Group className= {classes.group}>
                         <Form.Label className={classes.body2}>{t('signUp.form.mobile')}</Form.Label>
                         <TextField className={classes.formControl} placeholder={t('signUp.form.mobileLabel')} required 
-                        variant="outlined" onChange={(event) => {setPhone(event.target.value)}} />
+                        variant="outlined" onChange={(event) => {setPhone(event.target.value)}} {...getErrors("phone", errors)} />
                     </Form.Group>
                     <Form.Group className= {classes.group} >
                         <Form.Label className={classes.body2} >{t('signUp.form.email')}</Form.Label>
@@ -339,14 +342,12 @@ function useForceUpdate() {
                         <Form.Label className={classes.body2}>{t('signUp.form.sector')}</Form.Label>
                         <TextField id="outlined-multiline-static" multiline className={classes.textarea} 
                          variant="outlined" as="textarea" rows={5} placeholder={t('signUp.form.sectorLabel')} required
-                        onChange={(event) => {setMessage(event.target.value)}}/>
+                        onChange={(event) => {setMessage(event.target.value)}} {...getErrors("message", errors)}/>
                     </Form.Group>
                    
-                    
                     <Button className={classes.submit} type="button" onClick={submit}>
                     {t('send')}
                     </Button>
-                
                 </Form>
             </div>
         </div>

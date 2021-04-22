@@ -78,16 +78,16 @@ def accept_and_send_email(store_contact_ticket):
 
     send_mail(subject="Votre demande de compte propriétaire a été acceptée",
               recipient_list=[store_contact_ticket.email],
-              template="emails/includes/store_owner_accepted.html")
+              template="emails/includes/store_owner_accepted.html", locale=store_contact_ticket.lang)
 
 
 class ContactAdmin(admin.ModelAdmin):
     list_display = ['subject', 'name', 'surname', 'processed']
     form = ContactTicketForm
     list_filter = ('processed',)
-    fields = ('subject', ('name', 'surname'), 'email', 'message', 'answer')
+    fields = ('subject', ('name', 'surname'), ('email', 'lang'), 'message', 'answer')
     exclude = ('processed',)
-    readonly_fields = ('subject', 'name', 'surname', 'email', 'message')
+    readonly_fields = ('subject', 'name', 'surname', 'email', 'message', 'lang')
     actions = ["accept"]
 
     change_form_template = 'admin/custom_contact_ticket_form.html'
@@ -111,9 +111,8 @@ class ContactAdmin(admin.ModelAdmin):
         if "_save_answer" in request.POST:
             answer = request.POST["answer"]
             if "" != answer.strip():
-                # translation.activate('fr')
                 send_mail(subject='Réponse à votre demande de contact', recipient_list=[obj.email],
-                          template="emails/includes/common_email.html", variables={"body": answer}, locale='en')
+                          template="emails/includes/common_email.html", variables={"body": answer}, locale=obj.lang)
 
         redirect_url = reverse('admin:%s_%s_change' %
                                (opts.app_label, opts.model_name),
@@ -137,9 +136,9 @@ class StoreContactAdmin(admin.ModelAdmin):
     form = StoreContactTicketForm
     list_filter = ('processed',)
     list_display = ['brand', 'name', 'surname', 'processed']
-    fields = ('brand', ('name', 'surname'), ('email', 'phone'), 'message', 'answer')
+    fields = (('brand', 'lang'), ('name', 'surname'), ('email', 'phone'), 'message', 'answer')
     exclude = ('processed',)
-    readonly_fields = ('brand', 'name', 'surname', 'email', 'phone', 'message')
+    readonly_fields = ('brand', 'name', 'surname', 'email', 'phone', 'message', 'lang')
     actions = ["accept"]
 
     def accept(self, request, queryset):
@@ -160,7 +159,7 @@ class StoreContactAdmin(admin.ModelAdmin):
             answer = request.POST["answer"]
             if "" != answer.strip():
                 send_mail(subject="Réponse à votre demande d'enregistrement", recipient_list=[obj.email],
-                          template="emails/includes/common_email.html", variables={"body": answer})
+                          template="emails/includes/common_email.html", variables={"body": answer}, locale=obj.lang)
         else:
             accept_and_send_email(obj)
         redirect_url = reverse('admin:%s_%s_change' %
