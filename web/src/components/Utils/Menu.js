@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
             position: "fixed",
         },
         [theme.breakpoints.up('md')]: {
-            padding: "1rem 7rem",
+            padding: "0rem 7rem",
         }
     },
     headerOpen: {
@@ -76,7 +76,10 @@ const useStyles = makeStyles(theme => ({
             flexDirection: 'row',
             width: '100%',
             justifyContent: 'space-between',
-            padding: "2rem 1rem",
+            padding: "0"
+        },
+        [theme.breakpoints.up('md')]:{
+            width: '80%'
         }
     },
     toggle: {
@@ -92,7 +95,7 @@ const useStyles = makeStyles(theme => ({
         fontSize: "1.2rem",
         color: "#FFFFFF !important",
         listStyle: "none !important",
-
+        fontWeight: '500',
         [theme.breakpoints.up("sm")]: {
             padding: '0.3rem 1.5rem !important',
             color: "#41455c !important",
@@ -115,9 +118,6 @@ const useStyles = makeStyles(theme => ({
                 color: '#FFFFFF !important'
             },
         },
-        [theme.breakpoints.up('lg')]: {
-            fontSize: '1rem',
-        }
     },
     active: {
         [theme.breakpoints.up('sm')]: {
@@ -147,7 +147,7 @@ export default function MenuHeader() {
                     <div className={"row pl-4 " + classes.rowHeader}>
                         <Link to="concept" smooth={true}>
                             {!menuExpanded ?
-                                <img src={"/static/images/logo.png"} alt={"logo shopisan"} width={"65px"} />
+                                <img src={"/static/images/logo.png"} alt={"logo shopisan"} width={"60px"} />
                                 :
                                 <img src="/static/images/LOGO_BLANC_SHOPISAN.png" width="65px" alt={"logo shopisan"} />
                             }

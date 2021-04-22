@@ -1,9 +1,9 @@
 export function getErrors(fieldName, errors) {
-    console.log(errors[fieldName]);
     if (errors[fieldName] !== undefined) {
+        console.log(errors[fieldName]);
         return {
-            error: "true",
-            helpertext: errors[fieldName]
+            error: true,
+            helperText: errors[fieldName]
         };
     }
 }

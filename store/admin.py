@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Store, StoreCategories, Address
+from .models import Store, StoreCategories, Address, Countries
 from .forms import StoreForm
 
 

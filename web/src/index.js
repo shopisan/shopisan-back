@@ -18,6 +18,7 @@ import GeneralsConditions from "./components/Screens/GeneralsConditions";
 import ScrollToTop from "./components/Utils/ScrollToTop";
 import { CookieBanner } from '@palmabit/react-cookie-law';
 import './i18n';
+import Register from "./components/Auth/Register";
 
 const theme = createMuiTheme({
     palette: {

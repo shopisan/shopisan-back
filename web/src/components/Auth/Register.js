@@ -5,7 +5,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import axios from 'axios';
 import setAxiosDefaults from '../Utils/Common';
-import TopMenu from './../Layout/TopMenu'
+//import TopMenu from './../Layout/TopMenu'
 import { getErrors } from '../Utils/FormsUtils';
 setAxiosDefaults(axios);
 
@@ -93,7 +93,7 @@ export default function Register() {
                         label="Username"
                         onChange={(event) => { setUsername(event.target.value) }}
                         variant="outlined"
-                        {...getErrors('username')}
+                        {...getErrors('username', errors)}
                     />
                     <TextField
                         id="email"
@@ -101,7 +101,7 @@ export default function Register() {
                         label="Email address"
                         onChange={(event) => { setEmail(event.target.value) }}
                         variant="outlined"
-                        {...getErrors('email')}
+                        {...getErrors('email', errors)}
                     />
                     <TextField
                         id="password-input"
@@ -110,7 +110,7 @@ export default function Register() {
                         onChange={(event) => { setPassword(event.target.value) }}
                         autoComplete="current-password"
                         variant="outlined"
-                        {...getErrors('password')}
+                        {...getErrors('password', errors)}
                     />
                     <TextField
                         id="password-input-repeat"
@@ -120,7 +120,7 @@ export default function Register() {
                         onBlur={checkPassword}
                         autoComplete="repeat-password"
                         variant="outlined"
-                        {...getErrors('repeat_password')}
+                        {...getErrors('repeat_password', errors)}
                     />
 
                     <Button variant="contained" color="primary" component="span" onClick={submit}>

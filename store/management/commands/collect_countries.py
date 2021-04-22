@@ -16,7 +16,7 @@ class Command(BaseCommand):
 
         for new_country in new_countries_addresses:
             new_country_iso = new_country.country.strip()
-            if new_country_iso not in new_country_list:
+            if new_country_iso not in new_country_list and new_country_iso not in country_list:
                 country = Countries(iso=new_country_iso)
                 new_country_list.append(new_country_iso)
                 country.save()
