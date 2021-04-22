@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'shopisan.urls'
@@ -168,7 +169,15 @@ AWS_S3_SIGNATURE_VERSION = "s3v4"
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'fr-FR'
+# LANGUAGE_CODE = 'fr-FR'
+LANGUAGE_CODE = 'fr'
+
+LANGUAGES = [
+    ('fr', 'Francais'), ('en', 'English')
+]
+
+# LOCALE_PATHS = (
+#     BASE_DIR + '/shopisan/locale', )
 
 TIME_ZONE = 'UTC'
 

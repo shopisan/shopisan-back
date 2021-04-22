@@ -8,6 +8,7 @@ class ContactTicket(models.Model):
     subject = models.CharField(max_length=200)
     message = models.TextField()
     processed = models.BooleanField(default=False)
+    lang = models.CharField(max_length=2)
     objects = models.Manager()
 
     def __str__(self):
@@ -24,6 +25,7 @@ class StoreContactTicket(models.Model):
     password = models.CharField(max_length=150)
     message = models.TextField()
     processed = models.BooleanField(default=False)
+    lang = models.CharField(max_length=2)
     objects = models.Manager()
 
     def __str__(self):
