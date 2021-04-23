@@ -2,6 +2,7 @@ import { makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import AppStoreBtn from '../../components/svg/AppStoreBtn';
+import GooglePlayBtn from "../../components/svg/GooglePlayBtn";
 import StarIcon from '../../components/svg/StarIcon';
 
 const useStyles = makeStyles(theme => ({
@@ -42,7 +43,7 @@ const useStyles = makeStyles(theme => ({
         margin:'2rem 0 2rem 0',
         fontWeight: "bold",
         color: "#41455c",
-        fontSize: "2.5rem",
+        fontSize: "2.8rem",
         [theme.breakpoints.up('sm')]: {
             width: '75%'
         },
@@ -82,7 +83,7 @@ export default function AddOnApp() {
                     <AppStoreBtn />
                 </a>
                 <a href="/">
-                    <img src="static/images/googleplay_badge.png" alt="google play badge" height="52px"/>
+                    <GooglePlayBtn />
                 </a>
             </div>
         </div>

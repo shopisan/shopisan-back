@@ -4,7 +4,7 @@ import './css/index.scss'
 import Landing from "./components/Screens/Landing"
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "react-bootstrap";
-import MenuHeader from "./components/Utils/Menu";
+import MenuHeader from "./components/Utils/MenuHeader";
 import SignIn from "./components/Screens/SignIn";
 import Footer from './components/Utils/Footer';
 import Contact from "./components/Screens/Contact";
@@ -18,7 +18,7 @@ import GeneralsConditions from "./components/Screens/GeneralsConditions";
 import ScrollToTop from "./components/Utils/ScrollToTop";
 import { CookieBanner } from '@palmabit/react-cookie-law';
 import './i18n';
-import Register from "./components/Auth/Register";
+import { useTranslation } from "react-i18next";
 
 const theme = createMuiTheme({
     palette: {
@@ -50,15 +50,19 @@ const theme = createMuiTheme({
 
 })
 
-render(
-    <React.StrictMode>
+function Base(){
+    const {t, i18n} = useTranslation();
+
+    return (
+        <React.StrictMode>
         <Suspense fallback={(<div>Loading...</div>)}>
              <CookieBanner
-                message="Ce site web utilise des Cookies. Certains sont utilisés à des fins statistiques et d’autres sont mis en place par des services tiers. En cliquant sur ‘Accept all ‘, vous acceptez l’utilisation de cookies"
-                privacyPolicyLinkText="Cookies policy"
+                message={t('textCookies')}
+                privacyPolicyLinkText={t('cookiesPolicy')}
                 policyLink="/privacy_policy"
                 statisticsOptionText="Statistics"
-                managePreferencesButtonText="Manage my cookies"
+                managePreferencesButtonText={t('manageBtn')}
+                acceptButtonText={t('accept')}
                 showPreferencesOption={false}
                 showMarketingOption={false}
                 statisticsDefaultChecked = {true}
@@ -70,7 +74,7 @@ render(
                 left:"0px",
                 right: '0px',
                 zIndex: "100000",
-                padding: "1rem",
+                padding: "3rem 1rem",
                 borderTop: '1px solid #FFCFCF'
                 },
                 container:{
@@ -83,9 +87,9 @@ render(
                 },
                 policy: {
                 fontsize: '1rem' ,
-                color: '#black !important',
+                color: 'black',
+                textDecoration: "underline",
                 },
-                
                 optionWrapper:{
                 display: 'inline-flex',
                 position:"relative",
@@ -134,8 +138,9 @@ render(
             </ThemeProvider> 
         </Router>
         </Suspense>
-       </React.StrictMode>,
-    
+       </React.StrictMode>
+    );
+}
 
-document.getElementById("root")
-);
+
+render(<Base/> ,document.getElementById("root"));

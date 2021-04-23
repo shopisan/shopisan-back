@@ -3,7 +3,7 @@ import React from 'react';
 export default function AppStoreBtn(){
     return (
         <>
-        <svg id="livetype" xmlns="http://www.w3.org/2000/svg"  height="35" viewBox="0 0 126.50751 40">
+        <svg id="livetype" xmlns="http://www.w3.org/2000/svg"  height="45" viewBox="0 0 126.50751 40">
   <title>Download_on_the_App_Store_Badge_FR_RGB_blk_100517</title>
   <g>
     <g>

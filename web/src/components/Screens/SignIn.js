@@ -16,25 +16,25 @@ setAxiosDefaults(axios);
 
 const useStyles = makeStyles(theme => ({
     brand:{
-        padding: "25vh 40px 0 40px",
+        padding: "25vh 2.5rem 0 2.5rem",
         backgroundColor: "#FAFAFA",
         [theme.breakpoints.up('sm')]:{
             display: "flex",
             flexDirection: "row",
             padding: "5rem",
             alignItems: "center",
-            marginTop: "10vh",
+            marginTop: "5vh",
         },
         [theme.breakpoints.up('md')]:{
-            padding: "10rem 15rem",
+            padding: "10rem 17rem",
             marginTop: "0vh",
         },
         [theme.breakpoints.up('xl')]:{
-            padding: "10rem 20rem"
+            padding: "10rem 30rem"
         }
     },
     signIn:{
-        padding: "3rem",
+        padding: "2.5rem",
         backgroundColor: "#FFFFFF",
         [theme.breakpoints.up('sm')]:{
             padding: '5rem',
@@ -43,14 +43,38 @@ const useStyles = makeStyles(theme => ({
             padding: "10rem 15rem"
         },
         [theme.breakpoints.up('xl')]:{
-            padding: "10rem 20rem"
+            padding: "10rem 30rem"
         }
     },
+    root: {
+        color: 'grey',
+        fontSize: '0.7rem',
+        borderRadius: '0.5rem',
+        padding: '0.2rem',
+        "&.Mui-focused": {
+          border: " 1px solid #FF6565",
+          '& .MuiOutlinedInput-notchedOutline': {
+                  border: '1px solid #FF6565'
+          }
+        }
+      },
+      rootArea: {
+        color: 'grey',
+        fontSize: '0.7rem',
+        borderRadius: '0.5rem',
+        padding: '1.2rem',
+        "&.Mui-focused": {
+          border: " 1px solid #FF6565",
+          '& .MuiOutlinedInput-notchedOutline': {
+                  border: '1px solid #FF6565'
+          }
+        }
+      },
     h1: {
         fontFamily: "Poppins",
         fontWeight: "bold",
         color: "#41455c",
-        fontSize: "2.5rem",
+        fontSize: "2.8rem",
         [theme.breakpoints.up('sm')]:{
             fontSize: "3rem"
         },
@@ -67,26 +91,24 @@ const useStyles = makeStyles(theme => ({
         lineHeight: "1rem",
         [theme.breakpoints.up('sm')]:{
             width: '100%',
-            fontSize: "0.8rem",
-            lineHeight: "1rem",
+            lineHeight: "1.2rem",
             width: '80%'
         },
-        [theme.breakpoints.up('md')]: {
-            fontSize: "0.9rem",
-            
-        }
     },
     body2:{
         fontFamily: "Poppins",
-        margin: "1rem 0 0 0",
-        fontSize: "0.9rem", 
+        margin: "1rem 0 0.3rem 0",
+        fontSize: "0.6rem", 
         color: "#41455c",
         lineHeight: "1rem",
+        [theme.breakpoints.up('sm')]:{
+            fontSize: '0.7rem'
+        }
     },
     form:{
         paddingTop: '3rem',
         [theme.breakpoints.up('md')]:{
-            padding: '7rem'
+            padding: '5rem 7rem'
         } 
     },
     formContent:{
@@ -193,6 +215,7 @@ export default function SignIn(){
     const forceUpdate = useForceUpdate();
     const [showSuccess, setShowSuccess] = useState(false);
     let ref = null;
+    const [disabled, setDisabled] = useState(false);
 
 function useForceUpdate() {
     return () => setValue(value => value + 1);
@@ -219,6 +242,7 @@ function useForceUpdate() {
                 if (response.status === 201) {
                     errors = {}
                     setShowSuccess(true);
+                    setDisabled(true);
                     console.log("okayyy");
                 } else {
                     errors = response.data;
@@ -263,9 +287,12 @@ function useForceUpdate() {
         <div className={classes.brand} id="signin" value={value}>
             <div>
             <Typography variant="h1" className={classes.h1}>{t('signUp.title')}</Typography>
-            <Typography variant="body1" className={classes.body1}>{t('signUp.text')} </Typography>
-            <Typography variant="body1" className={classes.body1}>{t('signUp.text1')}</Typography>
-            <Typography variant="body1" className={classes.body1}>{t('signUp.text2')}</Typography>
+            <Typography variant="body1" className={classes.body1}>{t('signUp.text')}
+            <br></br>
+            {t('signUp.text1')}
+            <br></br>
+            {t('signUp.text2')}
+             </Typography>
             <Typography variant="body1" className={classes.body1}>{t('signUp.text3')}</Typography>
             </div>
                 
@@ -283,20 +310,22 @@ function useForceUpdate() {
                 <Form className={classes.form} ref={(form) => { ref = form; }}>
                 <Snackbar open={showSuccess} autoHideDuration={10000} onClose={handleClose}>
                     <Alert onClose={handleClose} severity="success">
-                        {t('success')}
+                        {t('successSu')}
                     </Alert>
                 </Snackbar>
                     <div className={classes.formContent}>
                         <Form.Group className= {classes.group}>
                         <Form.Label className={classes.body2} >{t('signUp.form.store')}</Form.Label>
                         <TextField className={classes.formControl} placeholder={t('signUp.form.storeLabel')} required
-                        variant="outlined" onChange={(event) => {setBrand(event.target.value)}} {...getErrors("brand", errors)} />
+                        variant="outlined" onChange={(event) => {setBrand(event.target.value)}} {...getErrors("brand", errors)}
+                        InputProps= {{className: classes.root}} disabled={disabled}/>
                     </Form.Group>
         
                     <Form.Group className= {classes.group} >
                         <Form.Label className={classes.body2}>{t('signUp.form.username')}</Form.Label>
                         <TextField className={classes.formControl}  placeholder={t('signUp.form.usernameLabel')} required 
-                        variant="outlined" onChange={(event) => {setUsername(event.target.value)}} {...getErrors("username", errors)} />
+                        variant="outlined" onChange={(event) => {setUsername(event.target.value)}} {...getErrors("username", errors)}
+                        InputProps= {{className: classes.root}} disabled={disabled}/>
                     </Form.Group>
                     
                     </div>
@@ -305,12 +334,14 @@ function useForceUpdate() {
                        <Form.Group className= {classes.group}>
                         <Form.Label className={classes.body2}>{t('signUp.form.firstname')}</Form.Label>
                         <TextField className={classes.formControl} placeholder={t('signUp.form.firstnameLabel')} required
-                        variant="outlined" onChange={(event) => {setSurname(event.target.value)}}  {...getErrors("surname", errors)} />
+                        variant="outlined" onChange={(event) => {setSurname(event.target.value)}}  {...getErrors("surname", errors)}
+                        InputProps= {{className: classes.root}} disabled={disabled}/>
                     </Form.Group>
                     <Form.Group className= {classes.group}>
                         <Form.Label className={classes.body2}>{t('signUp.form.lastname')}</Form.Label>
                         <TextField className={classes.formControl} placeholder={t('signUp.form.lastnameLabel')} required 
-                        variant="outlined" onChange={(event) => {setName(event.target.value)}} {...getErrors("name", errors)} />
+                        variant="outlined" onChange={(event) => {setName(event.target.value)}} {...getErrors("name", errors)}
+                        InputProps= {{className: classes.root}} disabled={disabled} />
                     </Form.Group>
                     </div>
                     
@@ -318,31 +349,36 @@ function useForceUpdate() {
                          <Form.Group className= {classes.group}>
                         <Form.Label className={classes.body2}>{t('signUp.form.mobile')}</Form.Label>
                         <TextField className={classes.formControl} placeholder={t('signUp.form.mobileLabel')} required 
-                        variant="outlined" onChange={(event) => {setPhone(event.target.value)}} {...getErrors("phone", errors)} />
+                        variant="outlined" onChange={(event) => {setPhone(event.target.value)}} {...getErrors("phone", errors)} 
+                        InputProps= {{className: classes.root}} disabled={disabled}/>
                     </Form.Group>
                     <Form.Group className= {classes.group} >
                         <Form.Label className={classes.body2} >{t('signUp.form.email')}</Form.Label>
                         <TextField className={classes.formControl} id="email" type="email" placeholder={t('signUp.form.emailLabel')} required 
-                        variant="outlined" onChange={(event) => {setEmail(event.target.value)}} {...getErrors("email", errors)} />
+                        variant="outlined" onChange={(event) => {setEmail(event.target.value)}} {...getErrors("email", errors)} 
+                        InputProps= {{className: classes.root}} disabled={disabled}/>
                     </Form.Group> 
                     </div>
                     <div className={classes.formContent}>
                       <Form.Group className= {classes.group} >
                         <Form.Label className={classes.body2}>{t('signUp.form.mdp')}</Form.Label>
                         <TextField className={classes.formControl} type="password" placeholder={t('signUp.form.mdpLabel')} required 
-                        variant="outlined" onChange={(event) => {setPassword(event.target.value)}} {...getErrors("password", errors)}/>
+                        variant="outlined" onChange={(event) => {setPassword(event.target.value)}} {...getErrors("password", errors)}
+                        InputProps= {{className: classes.root}} disabled={disabled}/>
                     </Form.Group>
                     <Form.Group className= {classes.group} >
                         <Form.Label className={classes.body2}>{t('signUp.form.mdpCheck')}</Form.Label>
                         <TextField className={classes.formControl} type="password" placeholder={t('signUp.form.mdpCheckLabel')}  required onBlur={checkPassword} 
-                          variant="outlined" onChange={(event) => { setRepeatPassword(event.target.value); }} {...getErrors("repeat_password", errors)}/>
+                          variant="outlined" onChange={(event) => { setRepeatPassword(event.target.value); }} {...getErrors("repeat_password", errors)}
+                          InputProps= {{className: classes.root}} disabled={disabled}/>
                     </Form.Group>  
                     </div>
                     <Form.Group controlId="exampleTextFieldTextarea1" className= {classes.group}>
                         <Form.Label className={classes.body2}>{t('signUp.form.sector')}</Form.Label>
                         <TextField id="outlined-multiline-static" multiline className={classes.textarea} 
-                         variant="outlined" as="textarea" rows={5} placeholder={t('signUp.form.sectorLabel')} required
-                        onChange={(event) => {setMessage(event.target.value)}} {...getErrors("message", errors)}/>
+                         variant="outlined" as="textarea" rows={10} placeholder={t('signUp.form.sectorLabel')} required
+                        onChange={(event) => {setMessage(event.target.value)}} {...getErrors("message", errors)}
+                        InputProps= {{className: classes.rootArea}} disabled={disabled}/>
                     </Form.Group>
                    
                     <Button className={classes.submit} type="button" onClick={submit}>
