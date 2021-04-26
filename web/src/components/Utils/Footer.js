@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
     rowMedia:{
         justifyContent: 'center',
         textAlign: 'center',
-        marginTop: "0.5rem", 
+        marginTop: "1rem", 
         [theme.breakpoints.up('sm')]:{
             marginTop: '0px'
         }
@@ -55,13 +55,13 @@ const classes = useStyles();
     return(
         <div className={classes.footer}>
             <div className={classes.row}>
-            <NavLink to="/" className="nav-link">
-                  <Typography variant={'body1'} className={classes.body1}>© 2021 Shopisan</Typography>
+            <NavLink to="/" className="nav-link p-0">
+                  <Typography variant={'body1'} className={classes.body1}>© 2021 SHOPISAN</Typography>
                 </NavLink> 
-            <NavLink to="/generals_conditions" className="nav-link">
+            <NavLink to="/generals_conditions" className="nav-link p-0">
             <Typography variant={'body1'} className={classes.body1}>{t('gc.title')}</Typography>
             </NavLink>
-            <NavLink to="/privacy_policy" className="nav-link">
+            <NavLink to="/privacy_policy" className="nav-link p-0">
             <Typography variant={'body1'} className={classes.body1}>{t('pp.title')}</Typography>
             </NavLink>
             </div>

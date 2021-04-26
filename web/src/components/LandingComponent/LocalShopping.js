@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles(theme => ({
     localShopping:{
-        padding: '15vh 40px',
+        padding: '15vh 2.5rem',
         backgroundColor: "#FFFFFF",
         [theme.breakpoints.up('sm')]:{
             display: "flex",
@@ -14,17 +14,17 @@ const useStyles = makeStyles(theme => ({
             alignItems: "center"
         },
         [theme.breakpoints.up('md')]:{
-            padding: "10rem 15rem"
+            padding: "10rem 17rem"
         },
         [theme.breakpoints.up('xl')]:{
-            padding: "10rem 20rem"
+            padding: "10rem 30rem"
         }
     },
     h1: {
         fontFamily: "Poppins",
         fontWeight: "bold",
         color: "#41455c",
-        fontSize: "2.5rem",
+        fontSize: "2.8rem",
         [theme.breakpoints.up('sm')]:{
             fontSize: "3rem"
         },
@@ -40,14 +40,8 @@ const useStyles = makeStyles(theme => ({
         lineHeight: "1rem",
         [theme.breakpoints.up('sm')]:{
             width: '100%',
-            fontSize: "0.8rem",
-            lineHeight: "1rem",
+            lineHeight: "1.2rem",
         },
-        [theme.breakpoints.up('md')]: {
-            fontSize: "0.9rem",
-            width: '80%',
-            lineHeight: '1.5rem'
-        }
     },
     img:{
         height: '500px',
@@ -75,7 +69,6 @@ export default function LocalShopping() {
                      <Typography variant="h1" className={classes.h1}>{t('local.title')}</Typography>
         <Typography variant="body1" className={classes.body1}>{t('local.text')} <strong> {t('local.text1')}</strong></Typography>
         <Typography variant="body1" className={classes.body1}> {t('local.text2')}</Typography>
-        <Typography variant="body1" className={classes.body1}> {t('local.text3')}</Typography>
                 </div>
        
                 <div className= "d-flex justify-content-center" >

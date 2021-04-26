@@ -14,11 +14,10 @@
         "title": "Envie d'un shopping local ?",
         "text": "Envie d’acheter local ? En quête d’authenticité ?",
         "text1": "Vous êtes au bon endroit !",
-        "text2" : "Sélectionnez la catégories de boutiques que vous souhaitez et géolocalisez-les sur une carte. ",
-        "text3" : "Vous avez un coup de coeur pour une boutique que vous voulez voir sur l'appli ? Informez-nous en."
+        "text2" : "Sélectionnez la catégories de boutiques que vous souhaitez et géolocalisez-les sur une carte. Vous avez un coup de coeur pour une boutique que vous voulez voir sur l'appli ? Informez-nous en. "
     },
     "discovery": {
-        "title": "Découverte",
+        "title": "Découvertes",
         "text": "Prêts pour une expérience shopping découverte ? Nous vous faisons découvrir d'abord les boutiques de Belgique et de France. Nous poursuivrons avec l' Italie, la GB etc... Suivez le guide ",
         "text1" : "ici c'est Shopisan"
     },
@@ -72,9 +71,14 @@
         "messageLabel": "Entrez votre message..."
     },
     "send" : "Envoyer",
-    "success": "Votre message est bien envoyé. Nous vous recontacterons dans les plus brefs délais.",
+    "successC": "Votre message est bien envoyé. Nous vous recontacterons dans les plus brefs délais.",
+    "successSu": "Nous avons bien reçu votre inscription ! Nous vous recontacterons dans les plus brefs délais.",
     "userApp": "Plus de 5000 utilisateurs sur l'application mobile",
     "discoverApp": "Découvrez l'application",
+    "textCookies": "Ce site web utilise des Cookies. Certains sont utilisés à des fins statistiques et d’autres sont mis en place par des services tiers. En cliquant sur ‘Accepter‘, vous acceptez l’utilisation de cookies.",
+    "cookiesPolicy": "Politique des Cookies",
+    "manageBtn" : "Gérer mes Cookies",
+    "accept": "Accepter",
     "gc": {
         "title": "Conditions générales",
         "update": "Mise à jour le 15/04/2021",
@@ -181,7 +185,7 @@
             "text2" : "Afin de pouvoir assurer les commandes et les réservations "
         },
         "data3" : {
-            "title" : "4. Données personelles susceptibles d'ête traitées",
+            "title" : "4. Données personelles susceptibles d'être traitées",
             "text" : "L'Utilisateur consent, lors de la visite et lors de l'utilisation du Site, que Shopisan recueille et traite, selon les modalités et principes décrits dans la présente Politique de confidentialité, les données à caractère personnel suivantes :" ,
             "text1" : "L'identité des utilisateurs qui envoient les formulaires assurant le fonctionnement du site."
         }, 
@@ -284,7 +288,7 @@
                 "text4": "Les cookies de traçage : Shopisan utilise des cookies de traçage via Google Analytics, pour mesurer l'interaction des Utilisateurs avec le contenu du Site et produire des statistiques anonymes. Ces statistiques permettent à Shopisan de perfectionner le Site Internet. Google étaye l'explication de ces cookies à l'adresse suivante: http://www.google.nl/intl/en_uk/policies/privacy/"
             },
             "c" : {
-                "title" : "c.  Délai de conservation des cookies",
+                "title" : "c. Délai de conservation des cookies",
                 "text" : "Les cookies sont conservés pour le temps nécessaire à l'accomplissement de la finalité poursuivie. Les cookies susceptibles d'être stockés sur le disque dur de l'Utilisateur ainsi que leur délai de conservation sont les suivants :",
                 "text1" : "1 an"
             }, 

@@ -21,24 +21,24 @@ const useStyles = makeStyles(theme => ({
         }
     },
     concept:{
-        padding: "15vh 40px",
+        padding: "15vh 2.5rem",
         [theme.breakpoints.up('sm')]:{
             padding: "0 5rem",
             display: "flex",
             alignItems: 'center'
         },
         [theme.breakpoints.up('md')]:{
-            padding: "10rem 15rem"
+            padding: "10rem 17rem"
         },
         [theme.breakpoints.up('xl')]:{
-            padding: "10rem 20rem"
+            padding: "10rem 30rem"
         }
     },
     h1: {
         fontFamily: "Poppins",
         fontWeight: "bold",
         color: "#41455c",
-        fontSize: "2.5rem",
+        fontSize: "2.8rem",
         [theme.breakpoints.up('sm')]:{
             fontSize: "3rem"
         },
@@ -53,14 +53,9 @@ const useStyles = makeStyles(theme => ({
         color: "#41455c",
         lineHeight: "1rem",
         [theme.breakpoints.up('sm')]:{
-            fontSize: "0.8rem",
-            lineHeight: "1rem",
+            lineHeight: "1.2rem",
             width: '80%',
         },
-        [theme.breakpoints.up('md')]: {
-            fontSize: "0.9rem",
-            lineHeight: '1.5rem'
-        }
     },
     img:{
         height: '500px',
@@ -85,8 +80,9 @@ export default function Concept() {
                 <div className={classes.concept}>
                     <div>
                         <Typography  className={classes.h1}>{t('concept.title')}</Typography>
-                        <Typography className={classes.body1}>{t('concept.text')}</Typography>
-                        <Typography className={classes.body1}>{t('concept.text1')}</Typography>
+                        <Typography className={classes.body1}>{t('concept.text')} 
+                        <br></br>
+                        {t('concept.text1')}</Typography>
                     </div>
                    <div className= "d-flex justify-content-center" >
                     <img className={classes.img} src= "static/images/Iphone_Mockup .png"></img>

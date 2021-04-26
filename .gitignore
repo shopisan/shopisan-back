@@ -7,3 +7,16 @@
 /venv/
 /.idea
 yarn.lock
+/web/node_modules/void-elements/
+/web/node_modules/universal-cookie/
+/web/node_modules/react-i18next/
+/web/node_modules/react-cookie/
+/web/node_modules/node-fetch/
+/web/node_modules/i18next-http-backend/
+/web/node_modules/i18next-browser-languagedetector/
+/web/node_modules/i18next/
+/web/node_modules/html-parse-stringify/
+/web/node_modules/cookie/
+/web/node_modules/@types/
+/web/node_modules/@palmabit/
+/web/node_modules/**

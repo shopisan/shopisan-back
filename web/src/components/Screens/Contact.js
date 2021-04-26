@@ -13,25 +13,25 @@ const lang = i18n.language;
 
 const useStyles = makeStyles(theme => ({
     brand:{
-        padding: "25vh 40px 0 40px",
+        padding: "25vh 2.5rem 0 2.5rem",
         backgroundColor: "#FAFAFA",
         [theme.breakpoints.up('sm')]:{
             display: "flex",
             flexDirection: "row",
             padding: "10rem 5rem 0 5rem",
             alignItems: "center",
-            marginTop: "10vh",
+            marginTop: "5vh",
         },
         [theme.breakpoints.up('md')]:{
-            padding: "15rem 15rem 0 15rem",
+            padding: "15rem 17rem 0 17rem",
             marginTop: "0vh",
         },
         [theme.breakpoints.up('xl')]:{
-            padding: "10rem 20rem"
+            padding: "10rem 30rem"
         }
     },
     contact:{
-        padding: "3rem",
+        padding: "2.5rem",
         backgroundColor: "#FAFAFA",
         [theme.breakpoints.up('sm')]:{
             padding: '5rem',
@@ -40,14 +40,38 @@ const useStyles = makeStyles(theme => ({
             padding: "5rem 15rem 10rem 15rem"
         },
         [theme.breakpoints.up('xl')]:{
-            padding: "0rem 20rem 10rem 20rem"
+            padding: "0rem 30rem 10rem 30rem"
         }
     },
+    root: {
+        color: 'grey',
+        fontSize: '0.7rem',
+        borderRadius: '0.5rem',
+        padding: '0.2rem',
+        "&.Mui-focused": {
+          border: "1px solid #FF6565",
+          '& .MuiOutlinedInput-notchedOutline': {
+                  border: '1px solid #FF6565'
+          }
+        }
+      },
+      rootArea: {
+        color: 'grey',
+        fontSize: '0.7rem',
+        borderRadius: '0.5rem',
+        padding: '1.2rem',
+        "&.Mui-focused": {
+          border: " 1px solid #FF6565",
+          '& .MuiOutlinedInput-notchedOutline': {
+                  border: '1px solid #FF6565'
+          }
+        }
+      },
     h1: {
         fontFamily: "Poppins",
         fontWeight: "bold",
         color: "#41455c",
-        fontSize: "2.5rem",
+        fontSize: "2.8rem",
         [theme.breakpoints.up('sm')]:{
             fontSize: "3rem"
         },
@@ -61,22 +85,21 @@ const useStyles = makeStyles(theme => ({
         fontSize: "0.7rem", 
         color: "#41455c",
         lineHeight: "1rem",
+        width: '90%',
         [theme.breakpoints.up('sm')]:{
-            width: '80%',
-            fontSize: "0.8rem",
-            lineHeight: "1rem",
+            width: '100%',
+            lineHeight: "1.2rem",
         },
-        [theme.breakpoints.up('md')]: {
-            fontSize: "0.9rem",
-            lineHeight: '1.5rem'
-        }
     },
     body2:{
         fontFamily: "Poppins",
-        margin: "1rem 0 0 0",
-        fontSize: "0.9rem", 
+        margin: "1rem 0 0.3rem 0",
+        fontSize: "0.6rem", 
         color: "#41455c",
         lineHeight: "1rem",
+        [theme.breakpoints.up('sm')]:{
+            fontSize: '0.7rem'
+        }
     },
     formControl:{
         borderRadius: "0.5rem",
@@ -176,6 +199,8 @@ export default function Contact(){
     const [showSuccess, setShowSuccess] = useState(false);
     const forceUpdate = useForceUpdate();
     let ref = null;
+    const [disabled, setDisabled] = useState(false);
+    
 
     function submit() {
         if (ref.reportValidity()) {
@@ -192,8 +217,10 @@ export default function Contact(){
             }).then((response, error) => {
                 if (response.status === 201) {
                     errors = {}
+                    setDisabled(true);
                     setShowSuccess(true);
                     console.log("okayyy");
+                    
                 } else {
                     console.log(error);
                     errors = response.data;
@@ -220,19 +247,21 @@ return(
             <Form className={classes.form} ref={(form) => { ref = form; }} >
             <Snackbar open={showSuccess} autoHideDuration={10000} onClose={handleClose}>
                     <Alert onClose={handleClose} severity="success">
-                        {t('success')}
+                        {t('successC')}
                     </Alert>
                 </Snackbar>
                     <div className={classes.formContent}>
                        <Form.Group  className= {classes.group}>
                         <Form.Label className={classes.body2}>{t('contact.firstname')}</Form.Label>
                         <TextField className={classes.formControl}  placeholder={t('contact.firstnameLabel')} required 
-                        variant="outlined" onChange={(event) => {setName(event.target.value)}} />
+                        variant="outlined" onChange={(event) => {setName(event.target.value)}} InputProps= {{className: classes.root}}
+                        disabled={disabled}/>
                     </Form.Group>
                     <Form.Group className= {classes.group}>
                         <Form.Label className={classes.body2}>{t('contact.lastname')}</Form.Label>
                         <TextField className={classes.formControl} placeholder={t('contact.lastnameLabel')} required
-                        variant="outlined" onChange={(event) => {setSurname(event.target.value)}} />
+                        variant="outlined" onChange={(event) => {setSurname(event.target.value)}} InputProps= {{className: classes.root}}
+                        disabled={disabled}/>
                     </Form.Group> 
                     </div>
                     
@@ -240,20 +269,23 @@ return(
                     <Form.Group className= {classes.group} >
                         <Form.Label className={classes.body2}>{t('contact.email')}</Form.Label>
                         <TextField className={classes.formControl} id="email" type="email" placeholder={t('contact.emailLabel')} required 
-                        variant="outlined" onChange={(event) => {setEmail(event.target.value)}} {...getErrors("email", errors)}/>
+                        variant="outlined" onChange={(event) => {setEmail(event.target.value)}} {...getErrors("email", errors)}
+                        InputProps= {{className: classes.root}} disabled={disabled}/>
                     </Form.Group> 
                     <Form.Group className= {classes.group} >
                         <Form.Label className={classes.body2}>{t('contact.subject')}</Form.Label>
                         <TextField className={classes.formControl} placeholder={t('contact.subjectLabel')} required 
-                        variant="outlined" onChange={(event) => {setSubject(event.target.value)}} />
+                        variant="outlined" onChange={(event) => {setSubject(event.target.value)}} InputProps= {{className: classes.root}}
+                        disabled={disabled}/>
                     </Form.Group> 
                 </div>
                 
                     <Form.Group controlId="exampleTextFieldTextarea1" className={classes.group}>
                         <Form.Label className={classes.body2}>{t('contact.message')}</Form.Label>
-                        <TextField className={classes.textarea} id="outlined-multiline-static" rows={5} 
+                        <TextField className={classes.textarea} id="outlined-multiline-static" rows={10} 
                         placeholder={t('contact.messageLabel')} required variant="outlined" multiline 
-                        onChange={(event) => { setMessage(event.target.value); }} />
+                        onChange={(event) => { setMessage(event.target.value); }} InputProps= {{className: classes.rootArea}}
+                        disabled={disabled}/>
                     </Form.Group>
                     <Button className={classes.submit} type="button" onClick={submit} >
                     {t('send')}
