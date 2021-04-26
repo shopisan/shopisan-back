@@ -10,8 +10,9 @@ def fetch_localisation(address):
     if address.city != "" or address.city is not None:
         address_str = address_str + " " + address.city
 
-    country = pycountry.countries.get(alpha_2=address.country)
-    address_str = address_str + " " + country.name
+    country = pycountry.countries.get(alpha_2=address.country.strip())
+    if country is not None:
+        address_str = address_str + " " + country.name
 
     print("generated address " + address_str)
     params = {
