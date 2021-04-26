@@ -52,11 +52,19 @@ const theme = createMuiTheme({
 
 function Base(){
     const {t, i18n} = useTranslation();
+    const hasCookie = getCookie('rcl_consent_given');
+
+    function actOnAccept(){
+        if (hasCookie == ""){
+            window.location.reload()
+        }
+    }
 
     return (
         <React.StrictMode>
         <Suspense fallback={(<div>Loading...</div>)}>
              <CookieBanner
+                onAccept={() => actOnAccept()}
                 message={t('textCookies')}
                 privacyPolicyLinkText={t('cookiesPolicy')}
                 policyLink="/privacy_policy"
@@ -119,8 +127,6 @@ function Base(){
                 manageButton:{
                     content: "Manage my cookies"
                 }
-            
-            
          }}
         />
         <Router >
@@ -140,6 +146,13 @@ function Base(){
         </Suspense>
        </React.StrictMode>
     );
+}
+
+function getCookie(key) {
+    if (typeof document !== `undefined`) {
+        var b = document.cookie.match("(^|;)\\s*" + key + "\\s*=\\s*([^;]+)");
+    }
+    return b ? b.pop() : "";
 }
 
 
