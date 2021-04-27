@@ -1,26 +1,37 @@
-import React, { Suspense } from "react";
+import React, { Suspense, lazy } from "react";
 import {render} from "react-dom"
 import './css/index.scss'
-import Landing from "./components/Screens/Landing"
+// import Landing from "./components/Screens/Landing"
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "react-bootstrap";
-import MenuHeader from "./components/Utils/MenuHeader";
-import SignIn from "./components/Screens/SignIn";
-import Footer from './components/Utils/Footer';
-import Contact from "./components/Screens/Contact";
+// import MenuHeader from "./components/Utils/MenuHeader";
+// import SignIn from "./components/Screens/SignIn";
+// import Footer from './components/Utils/Footer';
+// import Contact from "./components/Screens/Contact";
 import {
     BrowserRouter as Router,
     Switch,
     Route,
   } from "react-router-dom";
-import PrivacyPolicy from "./components/Screens/PrivacyPolicy";
-import GeneralsConditions from "./components/Screens/GeneralsConditions";
-import ScrollToTop from "./components/Utils/ScrollToTop";
+// import PrivacyPolicy from "./components/Screens/PrivacyPolicy";
+// import GeneralsConditions from "./components/Screens/GeneralsConditions";
+// import ScrollToTop from "./components/Utils/ScrollToTop";
 import { CookieBanner } from '@palmabit/react-cookie-law';
 import './i18n';
 import { useTranslation } from "react-i18next";
 import {Helmet} from "react-helmet";
-import PageNotFound from "./components/Utils/PageNotFound";
+// import PageNotFound from "./components/Utils/PageNotFound";
+
+const MenuHeader = lazy(() => import("./components/Utils/MenuHeader"));
+const Footer = lazy(() => import("./components/Utils/Footer"));
+const ScrollToTop = lazy(() => import("./components/Utils/ScrollToTop"));
+
+const Landing = lazy(() => import("./components/Screens/Landing"));
+const Contact = lazy(() => import("./components/Screens/Contact"));
+const SignIn = lazy(() => import("./components/Screens/SignIn"));
+const PrivacyPolicy = lazy(() => import("./components/Screens/PrivacyPolicy"));
+const GeneralsConditions = lazy(() => import("./components/Screens/GeneralsConditions"));
+const PageNotFound = lazy(() => import("./components/Utils/PageNotFound"));
 
 const theme = createMuiTheme({
     palette: {
