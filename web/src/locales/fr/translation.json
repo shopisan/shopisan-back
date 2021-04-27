@@ -1,4 +1,5 @@
 {
+    "metaDescription": "Découvrez les boutiques de proximité à grande échelle locale",
     "nav": {
         "concept": "Notre concept",
         "idea": "De l'idée au projet",
@@ -176,18 +177,19 @@
             "text" : "L'utilisation du Site par les Utilisateurs pourra entraîner la communication de données personnelles. Le traitement de ces données par Shopisan, en sa qualité de Responsable du traitement, ou par les prestataires agissant au nom et pour le compte de Shopisan, sera conforme à la Loi et au Règlement.",
             "text1": "Les données à caractère personnel seront traitées par Shopisan, conformément aux finalités citées plus bas, via :",
             "text2": "Les demandes de contact",
-            "text3": "Lors d'un passage de commande ou prise de réservation      "
+            "text3": "La création d'un compte utilisateur"
         },
         "data2" : {
             "title" : "3. Finalité du traitement des données personnelles",
             "text": "Conformément à l'article 13 du Règlement, les finalités du traitement des données personnelles sont communiquées à l'Utilisateur et sont les suivantes :",
             "text1" : "Afin de répondre au questions et demandes de contact des utilisateurs.",
-            "text2" : "Afin de pouvoir assurer les commandes et les réservations "
+            "text2" : "Afin de pouvoir assurer un accès personnalisé selon le type d'utilisateur"
         },
         "data3" : {
             "title" : "4. Données personelles susceptibles d'être traitées",
             "text" : "L'Utilisateur consent, lors de la visite et lors de l'utilisation du Site, que Shopisan recueille et traite, selon les modalités et principes décrits dans la présente Politique de confidentialité, les données à caractère personnel suivantes :" ,
-            "text1" : "L'identité des utilisateurs qui envoient les formulaires assurant le fonctionnement du site."
+            "text1" : "L'identité des utilisateurs qui envoient les formulaires assurant le fonctionnement du site.",
+            "text2" : "L'identité des utilisateurs enregistrés et leur préférences"
         }, 
         "consent" : {
             "title" : "5. Consentement",
@@ -324,5 +326,15 @@
             "title" : "14. Contact",
             "text" : "Pour toute question ou réclamation relative à la présente Politique de confidentialité, l'Utilisateur peut contacter le Responsable du traitement via l'adresse suivante : info@shopisan.be"
         }
-    }    
+    },
+    "title": {
+        "discoverStoreAround": "Découvrez les boutiques autour de vous",
+        "signUp": "Inscription de votre boutique",
+        "contact": "Contactez-nous"
+    },
+    "meta": {
+        "signUpDescription": "Inscrivez votre marque, ou votre boutique et boostez votre visibilité",
+        "contact": "Une question ou une suggestion? Contactez-nous"
+    },
+    "pageNotFound": "Impossible de trouver la page recherchée"   
 }

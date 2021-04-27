@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles, Typography } from "@material-ui/core";
 import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet';
 
 
 const useStyles = makeStyles(theme => ({
@@ -68,6 +69,9 @@ export default function GeneralsConditions(){
 
     return(
         <div className={classes.general}>
+            <Helmet>
+                <title>Shopisan | {t('gc.title')}</title>
+            </Helmet>
             <Typography  className={classes.h1}>{t('gc.title')}</Typography>
             <Typography className={classes.body1}>{t('gc.update')}
             <br></br>

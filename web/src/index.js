@@ -19,6 +19,8 @@ import ScrollToTop from "./components/Utils/ScrollToTop";
 import { CookieBanner } from '@palmabit/react-cookie-law';
 import './i18n';
 import { useTranslation } from "react-i18next";
+import {Helmet} from "react-helmet";
+import PageNotFound from "./components/Utils/PageNotFound";
 
 const theme = createMuiTheme({
     palette: {
@@ -129,16 +131,21 @@ function Base(){
                 }
          }}
         />
+        <Helmet>
+            <title>Shopisan | {t('title.discoverStoreAround')}</title>
+            <meta name="description" content={t('metaDescription')} />
+        </Helmet>
         <Router >
             <ThemeProvider theme={theme}>
                 <ScrollToTop/>
                 <MenuHeader/>
                 <Switch>
                     <Route exact path='/' component={Landing}/>
-                    <Route path='/signin' component={SignIn}/>
+                    <Route path='/signup' component={SignIn}/>
                     <Route path='/contact' component={Contact}/>
                     <Route path='/privacy_policy' component={PrivacyPolicy}/>
                     <Route path='/generals_conditions' component={GeneralsConditions}/>
+                    <Route path='*' component={PageNotFound} />
                 </Switch>
                 <Footer/>
             </ThemeProvider> 

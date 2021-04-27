@@ -1,4 +1,5 @@
 {
+    "metaDescription": "Discover local shops on a large local scale",
     "nav": {
         "concept": "Our concept",
         "idea": "From an idea to a project?",
@@ -187,7 +188,8 @@
         "data3" : {
             "title" : "4. Personal data that may be processed",
             "text" : "The User consents, when visiting and using the Site, that Shopisan collects and processes, in the manner and principles described in this Privacy Policy, the following personal data:" ,
-            "text1" : "The identity of the users who submit the forms that make the site work."
+            "text1" : "The identity of the users who submit the forms that make the site work.",
+            "text2" : "The identity of the registered users and their preferences"
         }, 
         "consent" : {
             "title" : "5. Consent",
@@ -324,5 +326,15 @@
             "title" : "14. Contact",
             "text" : "For any questions or complaints regarding this Privacy Policy, the User may contact the Data Controller via the following address: info@shopisan.be"
         }
-    }    
+    },
+    "title": {
+        "discoverStoreAround": "Discover stores around you",
+        "signUp": "Register your store",
+        "contact": "Contact us"
+    },
+    "meta": {
+        "signUpDescription": "Register your brand or your store, and boost your visibility",
+        "contact": "A question or a suggestion? Contact us"
+    },
+    "pageNotFound": "We were unable to find the requested page" 
 }

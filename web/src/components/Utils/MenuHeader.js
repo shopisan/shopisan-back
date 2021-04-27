@@ -148,10 +148,6 @@ export default function MenuHeader() {
 
     const {t, i18n} = useTranslation();
 
-
-
-    console.log(location.pathname);
-
     return (
         <nav id="mainNav" className={" navbar-expand-lg fixed-top"}>
             <div className={`justify-content-between m-0 "  ${!menuExpanded ? classes.header : classes.headerOpen}`} width="100%">
@@ -206,7 +202,7 @@ export default function MenuHeader() {
                         </li>
 
                         <li className={"nav-item"}>
-                            <NavLink activeClassName={classes.active} className={"nav-link " + classes.li} to={"/signin"}
+                            <NavLink activeClassName={classes.active} className={"nav-link " + classes.li} to={"/signup"}
                                 onClick={() => setMenuExpanded()} >{t('nav.signIn')}</NavLink>
                         </li>
 

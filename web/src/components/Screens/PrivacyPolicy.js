@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles, Typography } from "@material-ui/core";
 import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet';
 
 
 const useStyles = makeStyles(theme => ({
@@ -68,7 +69,9 @@ export default function PrivacyPolicy(){
 
     return(
         <div className={classes.confid}>
-
+            <Helmet>
+                <title>Shopisan | {t('pp.title')}</title>
+            </Helmet>
             <Typography className={classes.h1}>{t('pp.title')}</Typography>
             <Typography className={classes.body1}>{t('pp.date')}</Typography>
             <Typography className={classes.h2}>{t('pp.parts.title')}</Typography>
@@ -83,7 +86,7 @@ export default function PrivacyPolicy(){
             <br></br>
             {t('pp.parts.text')} ({t('pp.parts.this')}  <strong>" {t('pp.parts.site')} "</strong>) {t('pp.parts.text1')}
             <br></br>
-            {t('pp.parts.text2')} <strong>" Ut{t('pp.parts.user')} "</strong> {t('pp.parts.text3')}
+            {t('pp.parts.text2')} <strong>" {t('pp.parts.user')} "</strong> {t('pp.parts.text3')}
             <br></br>
             {t('pp.parts.text4')}({t('pp.parts.this')}, <strong>" {t('pp.parts.law')} "</strong>) {t('pp.parts.text5')} ({t('pp.parts.this')} <strong>" {t('pp.parts.rules')} "</strong>).
             <br></br>
@@ -112,6 +115,8 @@ export default function PrivacyPolicy(){
             <Typography className={classes.body1}>{t('pp.data3.text')}
             <br></br>
             - {t('pp.data3.text1')}
+            <br></br>
+            - {t('pp.data3.text2')}
             </Typography>
 
             <Typography className={classes.h2}>{t('pp.consent.title')}</Typography>
