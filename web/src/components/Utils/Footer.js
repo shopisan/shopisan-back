@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
     },
     body1: {
         fontFamily: "Poppins",
-        fontSize: "0.4rem", 
+        fontSize: "0.6rem", 
         color: "#41455c",
         [theme.breakpoints.up('sm')]:{
             fontSize: "0.6rem",
@@ -59,10 +59,10 @@ const classes = useStyles();
                   <Typography variant={'body1'} className={classes.body1}>© 2021 SHOPISAN</Typography>
                 </NavLink> 
             <NavLink to="/generals_conditions" className="nav-link p-0">
-            <Typography variant={'body1'} className={classes.body1}>{t('gc.title')}</Typography>
+                <Typography variant={'body1'} className={classes.body1}>{t('gc.title')}</Typography>
             </NavLink>
             <NavLink to="/privacy_policy" className="nav-link p-0">
-            <Typography variant={'body1'} className={classes.body1}>{t('pp.title')}</Typography>
+                <Typography variant={'body1'} className={classes.body1}>{t('pp.title')}</Typography>
             </NavLink>
             </div>
             <div className={classes.rowMedia}>

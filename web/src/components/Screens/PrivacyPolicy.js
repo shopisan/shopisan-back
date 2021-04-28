@@ -158,8 +158,8 @@ export default function PrivacyPolicy(){
             - {t('pp.rights.a.text3')}
             <br></br>
             - {t('pp.rights.a.text4')}
-            <br></br>
-            - {t('pp.rights.a.text5')}
+            {/* <br></br>
+            - {t('pp.rights.a.text5')} */}
             <br></br>
             - {t('pp.rights.a.text6')}
             <br></br>
