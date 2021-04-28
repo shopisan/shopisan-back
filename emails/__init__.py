@@ -5,7 +5,7 @@ from django.utils.translation import activate
 from django.utils.translation import gettext_lazy as _
 
 
-def send_mail(subject, recipient_list, template='', from_email='"Shopisan" <info@jh8.dev>', variables=None,
+def send_mail(subject, recipient_list, template='', from_email='"Shopisan" <info@shopisan.com>', variables=None,
               locale='fr'):
     if variables is None:
         variables = {}

@@ -199,10 +199,10 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'mail.jh8.dev'  # mail.privateemail.com
+EMAIL_HOST = 'mail.privateemail.com'
 EMAIL_PORT = '465'
-EMAIL_HOST_USER = 'info@jh8.dev'  # info@shopisan.com
-EMAIL_HOST_PASSWORD = 'G6xF6U8IXVrT'  #  
+EMAIL_HOST_USER = 'info@shopisan.com'
+EMAIL_HOST_PASSWORD = 'NinaSimone23'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 EMAIL_SUBJECT_PREFIX = ""
