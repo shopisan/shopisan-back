@@ -79,10 +79,10 @@ export default function AddOnApp() {
             </div>
             <Typography variant="h1" className={classes.h1}>{t('discoverApp')}</Typography>
             <div className={classes.row}>
-                <a href="/">
+                <a href="/" >
                     <AppStoreBtn />
                 </a>
-                <a href="/">
+                <a href="/" >
                     <GooglePlayBtn />
                 </a>
             </div>
