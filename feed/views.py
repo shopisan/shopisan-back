@@ -42,6 +42,6 @@ def get_posts_by_owned_stores(request):
     if isinstance(request.user, AnonymousUser):
         return Response()
     stores = request.user.profile.owned_stores.all()
-    posts = Post.objects.filter(store__in=stores)
+    posts = Post.objects.filter(store__in=stores).order_by('-created')
     serializer = PostReadSerializer(instance=posts, many=True, context={'request': request})
     return Response(serializer.data)
