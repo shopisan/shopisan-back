@@ -1,8 +1,8 @@
 {
     "metaDescription": "Discover local shops on a large local scale",
     "nav": {
-        "concept": "Our concept",
-        "idea": "From an idea to a project?",
+        "concept": "The concept",
+        "idea": "From an idea to the project",
         "signIn": "Inscription",
         "contact": "Contact"
     },
@@ -24,7 +24,7 @@
     },
     "idea": {
         "title": "From an idea to a project?",
-        "text": "Some time ago, we were looking for a gift. Walking in the center of Brussels, we passed by the window of the store Azur Elle. We walked through the door and were warmly welcomed by the owner.  He listened to what we were looking for. He found the perfect fit !",
+        "text": "Some time ago, we were looking for a gift. Walking in the centre of Brussels, we walked past the Azur Elle boutique. We walked through the door and were warmly welcomed by the owner.  He listened to what we were looking for. He found the perfect fit !",
         "text1" : "What struck us during our visit to Azur Elle: the small size of the store but a great originality, a choice and a personalized welcome !",
         "text2": "The Shopisan application project was born from the fact that we were not aware of small shops, even those located nearby."
     },

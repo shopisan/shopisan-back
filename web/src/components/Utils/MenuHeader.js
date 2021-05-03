@@ -35,7 +35,7 @@ const useStyles = makeStyles(theme => ({
         }
     },
     headerContent: {
-        padding: "1.5rem 2rem",
+        padding: "1rem 2rem",
         display: 'flex',
         justifyContent: 'space-between',
         
@@ -54,8 +54,8 @@ const useStyles = makeStyles(theme => ({
         alignItems: 'center'
     },
     title: {
-        display: 'none',
-        [theme.breakpoints.up('sm')]: {
+        // display: 'none',
+        // [theme.breakpoints.up('sm')]: {
             display: 'flex',
             alignItems: 'center',
             marginLeft: "1rem",
@@ -64,7 +64,7 @@ const useStyles = makeStyles(theme => ({
             color: '#41455c',
             borderLeft: "1px solid #41455c",
             height: "3rem",
-        }
+        // }
     },
     rowtitle: {
         fontFamily: "Poppins",
@@ -155,9 +155,9 @@ export default function MenuHeader() {
                     <div className={"row pl-4 " + classes.rowHeader}>
                         <Link to="concept" smooth={true}>
                             {!menuExpanded ?
-                                <img src={"/static/images/logo.png"} alt={"logo shopisan"} width={"60px"} />
+                                <img src={"/static/images/logo.png"} alt={"logo shopisan"} width={"50px"} />
                                 :
-                                <img src="/static/images/LOGO_BLANC_SHOPISAN.png" width="65px" alt={"logo shopisan"} />
+                                <img src="/static/images/LOGO_BLANC_SHOPISAN.png" width="50px" alt={"logo shopisan"} />
                             }
                         </Link>
                         <div className={classes.title}>

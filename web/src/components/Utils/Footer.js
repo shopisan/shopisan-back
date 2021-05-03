@@ -66,10 +66,9 @@ const classes = useStyles();
             </NavLink>
             </div>
             <div className={classes.rowMedia}>
-                <a href="/">
-                    <InstagramIcon/>
+                <a href="https://www.instagram.com/shopisanapp/" target="_blank">
+                    <InstagramIcon width={'18px'}/>
                 </a>
-
             </div>
         </div>
     )

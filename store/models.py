@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.postgres.fields import ArrayField
 from file_management.models import File
 from django.db.models import Avg
 
@@ -20,9 +21,10 @@ class Store(models.Model):
     # 0 => Waiting approval, 1 => Published, 2 => Banned
     storeStatus = models.IntegerField(default=0)
     openingTimes = models.JSONField(null=True)
-    profilePicture = models.ForeignKey(File, on_delete=models.SET_NULL, null=True)
+    profilePicture = models.ForeignKey(File, on_delete=models.SET_NULL, null=True, blank=True)
     categories = models.ManyToManyField(StoreCategories, blank=True)
-    owner = models.ForeignKey("user.Profile", related_name="owned_stores", on_delete=models.CASCADE, null=True)
+    owner = models.ForeignKey("user.Profile", related_name="owned_stores", on_delete=models.CASCADE, null=True,
+                              blank=True)
     appointmentOnly = models.BooleanField(default=False)
     description_fr = models.TextField(default="", null=True, blank=True)
     description_en = models.TextField(default="", null=True, blank=True)
@@ -66,3 +68,16 @@ class Countries(models.Model):
     def __str__(self):
         return self.iso
 
+
+class City(models.Model):
+    en = models.CharField(max_length=150)
+    fr = models.CharField(max_length=150, null=True)
+    postal_codes = ArrayField(models.CharField(max_length=30))
+    country = models.ForeignKey(Countries, related_name="cities", on_delete=models.DO_NOTHING, null=False)
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+
+    objects = models.Manager()
+
+    def __str__(self):
+        return self.en

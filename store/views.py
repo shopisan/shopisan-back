@@ -3,9 +3,9 @@ from rest_framework import permissions
 from .permissions import IsOwnerOrAdminOrReadOnly
 from api.permissions import IsAdminOrReadOnly
 from functools import cmp_to_key
-from .models import Store, StoreCategories, Address, Evaluation, Countries
+from .models import Store, StoreCategories, Address, Evaluation, Countries, City
 from .serializers import StoreSerializer, StoreWriteSerializer, StoreCategorySerializer, AddressSerializer, \
-    EvaluationSerializer, CountrySerializer
+    EvaluationSerializer, CountrySerializer, CitySerializer
 from .maps import get_shortest_distance
 
 
@@ -44,6 +44,15 @@ class EvaluationViewSet(viewsets.ModelViewSet):
 class CountryList(generics.ListAPIView):
     serializer_class = CountrySerializer
     queryset = Countries.objects.all()
+
+
+class CitiesByCountryList(generics.ListAPIView):
+    serializer_class = CitySerializer
+
+    def get_queryset(self):
+        country = self.request.query_params.get('country', None)
+        queryset = City.objects.filter(country__iso=country).order_by('en')
+        return queryset
 
 
 class StoreCategoryGeoList(generics.ListAPIView):
