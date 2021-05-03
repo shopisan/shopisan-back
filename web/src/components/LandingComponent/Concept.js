@@ -46,6 +46,19 @@ const useStyles = makeStyles(theme => ({
             fontSize: "5rem"
         }
     },
+    h2: {
+        fontFamily: "Poppins",
+        // fontWeight: "bold",
+        marginBottom: "2rem",
+        color: "#41455c",
+        fontSize: "1rem",
+        [theme.breakpoints.up('sm')]:{
+            fontSize: "1rem"
+        },
+        [theme.breakpoints.up('md')]:{
+            fontSize: "1rem"
+        }
+    },
     body1: {
         fontFamily: "Poppins",
         margin: "2rem 0 0 0",
@@ -79,7 +92,8 @@ export default function Concept() {
             <div className={classes.container} id="concept">
                 <div className={classes.concept}>
                     <div>
-                        <Typography  className={classes.h1}>{t('concept.title')}</Typography>
+                        <Typography className={classes.h2}>{t('concept.baseline')}</Typography>
+                        <Typography variant="h1" className={classes.h1}>{t('concept.title')}</Typography>
                         <Typography className={classes.body1}>{t('concept.text')} 
                         <br></br>
                         {t('concept.text1')}</Typography>

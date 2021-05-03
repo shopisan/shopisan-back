@@ -7,6 +7,7 @@
         "contact": "Contact"
     },
     "concept": {
+        "baseline": "Votre guide shopping où que vous soyez",
         "title": "Le concept",
         "text": "(Re)découvrez les boutiques de proximité à grande échelle locale !",
         "text1": "Vous êtes à la recherche de produits durables Made in France - Made in Belgium, des articles vintage, de mode, des bijoux ou des cosmétiques et biens d’autres choses ?"
@@ -117,31 +118,40 @@
                 "text3" : "Tout téléchargement à partir de la Plateforme a toujours lieu aux risques de l'Utilisateur. Shopisan ne pourra pas être tenue responsable des éventuels dommages, directs ou indirects, découlant de ces téléchargements, tels qu'une perte de données ou un endommagement du système informatique de l'Utilisateur, qui relèvent entièrement et exclusivement de la responsabilité de ce dernier."
             }
         },
+        "posts" : {
+            "title": "3. Clause relative à la publication des posts",
+            "text1": "Le contenu que vous publiez sur Shopisan vous appartient. Ne publiez aucun contenu que vous avez copié ou obtenu sur Internet et sur lequel vous ne disposez pas de droits de publication.",
+            "text2": "Il est formellement interdit d’encourager la violence ou d’attaquer quiconque en raison de sa couleur de peau, de son origine ethnique, de sa nationalité, de son sexe, de son genre, de son identité de genre, de son orientation sexuelle, de son affiliation religieuse, de handicaps ou d’états pathologiques. Nous n'autorisons pas la nudité.",
+            "text3": "Il est interdit de faire l’éloge du terrorisme, du crime organisé ou de groupes haineux. Il est également interdit de proposer des services sexuels, d’acheter ou de vendre des armes à feu, de l’alcool ou des produits liés au tabac entre particuliers ainsi que d’acheter ou de vendre des drogues ou des médicaments illégaux ou sur ordonnance (même si cette activité est légale dans votre région).",
+            "text4": "Il est strictement interdit d'utiliser des insultes et /ou détruire la réputation d'une entreprise concurrente par exemple en discréditant les produits/services fournis par cette même entreprise.",
+            "text5": "Shopisan se réserve le droit de supprimer tout post et/ou tout compte qui enfreindrait les règles telles que mentionnées ci-dessus.",
+            "text6": "Si vous constatez un contenu abusif qui, selon vous, peut violer ou ne pas suivre nos directives, veuillez nous aider en utilisant notre adresse électronique : "
+        },
         "link" : {
-            "title" :"3. Liens vers d'autres sites internet",
+            "title" :"4. Liens vers d'autres sites internet",
             "text" : "La Plateforme pourrait contenir des liens ou hyperliens renvoyant vers des sites internet externes. De tels liens ne signifient pas de manière automatique qu'il existe une relation entre Shopisan et le site internet externe ou même qu'un accord implicite existe avec le contenu de ces sites externes.",
             "text1": "Shopisan n'exerce aucun contrôle sur les sites internet externes. Nous ne sommes donc pas responsables du fonctionnement sûr et correct des hyperliens et de leur destination finale. Dès l'instant où l'Utilisateur clique sur l'hyperlien, il quitte la Plateforme. Nous ne pouvons dès lors pas être tenus responsables en cas de dommage ultérieur."
         },
         "property" : {
-            "title" : "4. Propriété intellectuelle",
+            "title" : "5. Propriété intellectuelle",
             "text" : "La structuration de la Plateforme, mais aussi les textes, graphiques, images, photographies, sons, vidéos, bases de données, applications informatiques, etc. qui le composent ou qui sont accessibles via la Plateforme sont la propriété de l'éditeur et sont protégés comme tels par les lois en vigueur au titre de la propriété intellectuelle.",
             "text1" : "Toute représentation, reproduction, adaptation ou exploitation partielle ou totale des contenus, marques déposées et services proposés par la Plateforme, par quelque procédé que ce soit, sans l'autorisation préalable, expresse et écrite de l'éditeur, est strictement interdite, à l'exception des éléments expressément désignés comme libres de droits sur la Plateforme.",
             "text2" : "L'Utilisateur de la Plateforme se voit octroyer un droit limité d'accès, d'utilisation et d'affichage de la Plateforme et de son contenu. Ce droit est accordé à titre non exclusif, non transférable et ne peut être utilisé que moyennant un usage personnel et non commercial. Sauf accord préalable et écrit, les Utilisateurs ne sont pas autorisés à modifier, reproduire, traduire, distribuer, vendre, communiquer au public, en tout ou en partie, les éléments protégés.",
             "text3" : "Il est interdit à l'Utilisateur d'introduire des données sur la Plateforme qui modifieraient ou qui seraient susceptibles d'en modifier le contenu ou l'apparence."
         },
         "data" : {
-            "title" : "5. Protection des données personelles", 
+            "title" : "6. Protection des données personelles", 
             "text" : "Les données personnelles fournies par l'Utilisateur lors de sa visite ou de l'utilisation de la Plateforme sont collectées et traitées par Shopisan exclusivement à des fins internes. Shopisan assure à ses utilisateurs qu'elle attache la plus grande importance à la protection de leur vie privée et de leurs données personnelles, et qu'elle s'engage toujours à communiquer de manière claire et transparente sur ce point.",
             "text1" : "Shopisan s'engage à respecter la législation applicable en la matière, à savoir la Loi du 8 décembre 1992 relative à la protection de la vie privée à l'égard des traitements de données à caractère personnel ainsi que le Règlement européen du 27 avril 2016 relatif à la protection des personnes physiques à l'égard du traitement des données à caractère personnel et à la libre circulation de ces données.",
             "text2" : "Les données personnelles de l'Utilisateur sont traitées conformément à la Charte de Vie Privée disponible sur la Plateforme."    
         },
         "law" : {
-            "title" : "6. Loi applicable et juridiction compétente",
+            "title" : "7. Loi applicable et juridiction compétente",
             "text": "Les présentes CGU sont régies par le droit belge.",
             "text1" : "En cas de différend et à défaut d'accord amiable, le litige sera porté devant les tribunaux de l'arrondissement judiciaire où Shopisan a son siège social."
         },
         "general" : {
-            "title" : "7. Dispositions générales", 
+            "title" : "8. Dispositions générales", 
             "text" : "Shopisan se réserve la possibilité de modifier, étendre, supprimer, limiter ou interrompre la Plateforme et les services associés à tout moment, sans notification préalable, et sans engager sa responsabilité.",
             "text1" : "En cas de violation des CGU par l'Utilisateur, Shopisan se réserve le droit de prendre des mesures de sanction et de réparation adaptées. Shopisan se réserve notamment le droit de refuser à l'Utilisateur tout accès à la Plateforme ou à nos services temporairement ou définitivement. Ces mesures peuvent être prises sans indication de motif et sans préavis. Elles ne peuvent pas engager la responsabilité de Shopisan ou donner lieu à une quelconque forme d'indemnisation.",
             "text2" : "L'illégalité ou la nullité totale ou partielle d'une disposition de nos CGU n'aura aucun impact sur la validité et l'application des autres dispositions. Nous disposons, dans un tel cas, du droit de remplacer la disposition par une autre disposition valable et de portée similaire."

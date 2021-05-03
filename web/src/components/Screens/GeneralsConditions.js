@@ -126,6 +126,22 @@ export default function GeneralsConditions(){
             {t('gc.website.b.text3')}
             <br></br>
             </Typography>
+
+            <Typography className={classes.h2}>{t('gc.posts.title')}</Typography>
+            <Typography className={classes.body1}>
+            {t('gc.posts.text1')}
+            <br></br>
+            {t('gc.posts.text2')}
+            <br></br>
+            {t('gc.posts.text3')}
+            <br></br>
+            {t('gc.posts.text4')}
+            <br></br>
+            {t('gc.posts.text5')}
+            <br></br>
+            {t('gc.posts.text6')} <a href="mailto:info@shopisan.com">info@shopisan.com</a>.
+            <br></br>
+            </Typography>
         
             <Typography className={classes.h2}>{t('gc.link.title')}</Typography>
             <Typography className={classes.body1}>{t('gc.link.text')}

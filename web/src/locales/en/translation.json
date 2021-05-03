@@ -7,6 +7,7 @@
         "contact": "Contact"
     },
     "concept": {
+        "baseline": "Your shopping guide wherever you are",
         "title": "The concept",
         "text": "(Re)discover local stores on a large scale !",
         "text1": "Are you looking for sustainable products Made in France - Made in Belgium, vintage items, fashion, jewellery or cosmetics and many other things?"
@@ -117,31 +118,40 @@
                 "text3" : "Any download from the Platform is always at the User's own risk. Shopisan shall not be liable for any damages, direct or indirect, arising from such downloads, such as loss of data or damage to the User's computer system, which are the sole responsibility of the User."
             }
         },
+        "posts" : {
+            "title": "3. Posts publishing",
+            "text1": "You own the content you post on Shopisan. Don’t post anything you’ve copied or collected from the Internet that you don’t have the right to post.",
+            "text2": "It's stricly forbidden to encourage violence or attack anyone based on their race, ethnicity, national origin, sex, gender, gender identity, sexual orientation, religious affiliation, disabilities, or diseases. We don’t allow nudity.",
+            "text3": "Offering sexual services, buying or selling firearms, alcohol, and tobacco products between private individuals, and buying or selling illegal or prescription drugs (even if legal in your region) are also not allowed.",
+            "text4": "It is strictly forbidden to use insults and or to destroy the reputation of a competing business for example by discrediting their products/services.",
+            "text5": "Shopisan reserves the right to remove any post / any account that violates the rules as stated above.",
+            "text6": "If you see something that you think may violate / not follow our guidelines, please help us by using our email address : "
+        },
         "link" : {
-            "title" :"3. Links to other websites",
+            "title" :"4. Links to other websites",
             "text" : "The Platform may contain links or hyperlinks to external websites. Such links do not automatically imply any relationship between Shopisan and the external website or even an implied agreement with the content of such external websites.",
             "text1": "Shopisan has no control over external websites. Therefore, we are not responsible for the safe and proper functioning of hyperlinks and their final destination. The moment the User clicks on the hyperlink, he/she leaves the Platform. Therefore, we cannot be held liable for any subsequent damage."
         },
         "property" : {
-            "title" : "4. Intellectual Property",
+            "title" : "5. Intellectual Property",
             "text" : "The structure of the Platform, as well as the texts, graphics, images, photographs, sounds, videos, databases, computer applications, etc. that make it up or that are accessible via the Platform are the property of the publisher and are protected as such by the laws in force under intellectual property.",
             "text1" : "Any representation, reproduction, adaptation or partial or total exploitation of the contents, trademarks and services offered by the Platform, by any process whatsoever, without the prior, express and written authorization of the publisher, is strictly prohibited, with the exception of elements expressly designated as free of rights on the Platform.",
             "text2" : "The Platform User is granted a limited right to access, use and display the Platform and its content. This right is granted on a non-exclusive, non-transferable basis and may only be used for personal and non-commercial purposes. Except with prior written consent, Users are not authorized to modify, reproduce, translate, distribute, sell or communicate to the public, in whole or in part, the protected elements.",
             "text3" : "The User is prohibited from introducing data to the Platform that would change or be likely to change its content or appearance."
         },
         "data" : {
-            "title" : "5. Protection of personal data", 
+            "title" : "6. Protection of personal data", 
             "text" : "The personal data provided by the User when visiting or using the Platform are collected and processed by Shopisan exclusively for internal purposes. Shopisan assures its users that it attaches the utmost importance to the protection of their privacy and personal data, and is always committed to clear and transparent communication on this point.",
             "text1" : "Shopisan undertakes to comply with the applicable legislation on the subject, namely the Law of 8 December 1992 on the protection of privacy with regard to the processing of personal data as well as the European Regulation of 27 April 2016 on the protection of individuals with regard to the processing of personal data and on the free movement of such data.",
             "text2" : "The User's personal data are processed in accordance with the Privacy Policy available on the Platform."    
         },
         "law" : {
-            "title" : "6. Applicable law and jurisdiction",
+            "title" : "7. Applicable law and jurisdiction",
             "text": "These TC are governed by Belgian law.",
             "text1" : "In the event of a dispute and in the absence of an amicable agreement, the dispute will be brought before the courts of the judicial district where Shopisan has its registered office."
         },
         "general" : {
-            "title" : "7. General provisions", 
+            "title" : "8. General provisions", 
             "text" : "Shopisan reserves the right to modify, expand, delete, limit or discontinue the Platform and related services at any time, without notice, and without liability.",
             "text1" : "In the event of a breach of the TC by the User, Shopisan reserves the right to take appropriate remedial action. In particular, Shopisan reserves the right to deny the User any access to the Platform or our services temporarily or permanently. These measures may be taken without giving any reason and without prior notice. Such measures shall not give rise to any liability on the part of Shopisan or to any form of compensation.",
             "text2" : "The illegality or invalidity of any provision of our TC, in whole or in part, shall not affect the validity and enforceability of any other provision. In such a case, we have the right to replace the provision with another valid provision of similar scope."

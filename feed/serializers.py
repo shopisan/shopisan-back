@@ -43,6 +43,7 @@ class PostSerializer(serializers.HyperlinkedModelSerializer):
     def update(self, instance, validated_data):
         post_media = validated_data.pop("post_media")
         post_media_dict = dict((i.id, i) for i in instance.post_media.all())
+        instance.store = validated_data.pop('store')
         instance.save()
 
         for media in post_media:
