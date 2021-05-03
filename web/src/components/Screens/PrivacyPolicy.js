@@ -76,12 +76,12 @@ export default function PrivacyPolicy(){
             <Typography className={classes.body1}>{t('pp.date')}</Typography>
             <Typography className={classes.h2}>{t('pp.parts.title')}</Typography>
             <Typography className={classes.body1}>Shopisan ({t('pp.parts.this')} <strong>"Shopisan"</strong> {t('pp.parts.or')} <strong>" {t('pp.parts.resp')} "</strong>)
+            {/* <br></br>
+            {t('pp.parts.address')} */}
             <br></br>
-            {t('pp.parts.address')}
-            <br></br>
-            {t('pp.parts.email')}
-            <br></br>
-            {t('pp.parts.mobile')}
+            {t('pp.parts.email')} <a href="mailto:info@shopisan.com">info@shopisan.com</a>
+            {/* <br></br>
+            {t('pp.parts.mobile')} */}
             <br></br>
             <br></br>
             {t('pp.parts.text')} ({t('pp.parts.this')}  <strong>" {t('pp.parts.site')} "</strong>) {t('pp.parts.text1')}

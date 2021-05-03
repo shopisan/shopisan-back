@@ -90,7 +90,7 @@
         "platform": "The Platforme",
         "address": "AJOUTER UNE ADDRESSE",
         "companyNumber": "Company number : AJOUTER NUM ENTREPRISE",
-        "email": "E-mail : AJOUTER UN EMAIL",
+        "email": "E-mail :",
         "mobile" : "Mobile: AJOUTER UN TEL",
         "application" : {
             "title" : "1. Scope",
@@ -166,7 +166,7 @@
             "or" : "or the",
             "resp" : "Person in charge of the treatment",
             "address" : "AJOUTER UNE ADDRESSE",
-            "email" :"E-mail : AJOUTER UN EMAIL",
+            "email" :"E-mail :",
             "mobile" : "Mobile: AJOUTER UN TEL",
             "text" : "Shopisan establishes this Privacy Policy in order to provide transparency to the Users of the website hosted at the following address : Shopisan.com,",
             "site": "the Website",

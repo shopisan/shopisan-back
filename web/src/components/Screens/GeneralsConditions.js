@@ -83,14 +83,14 @@ export default function GeneralsConditions(){
             <br></br>
             Shopisan
             <br></br>
-            <br></br>
+            {/* <br></br>
             {t('gc.address')}
             <br></br>
-            {t('gc.companyNumber')}
+            {t('gc.companyNumber')} */}
             <br></br>
-            {t('gc.email')}
-            <br></br>
-            {t('gc.mobile')}
+            {t('gc.email')} <a href="mailto:info@shopisan.com">info@shopisan.com</a>
+            {/* <br></br>
+            {t('gc.mobile')} */}
             <br></br>
             ( {t('gc.this')} <strong>" Shopisan "</strong>)
             <br></br>
