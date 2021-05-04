@@ -10,6 +10,9 @@ class StoreCategories(models.Model):
 
     objects = models.Manager()
 
+    class Meta:
+        verbose_name_plural = "Store categories"
+
     def __str__(self):
         return self.fr
 
@@ -78,6 +81,9 @@ class City(models.Model):
     longitude = models.FloatField()
 
     objects = models.Manager()
+
+    class Meta:
+        verbose_name_plural = "Cities"
 
     def __str__(self):
         return self.en

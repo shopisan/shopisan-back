@@ -108,4 +108,4 @@ class Command(BaseCommand):
                     print("Couldn't find: " + new_address.country + " " + new_address.postalCode + " " +
                           new_address.streetAvenue)
 
-        self.stdout.write(self.style.SUCCESS("Country check successful"))
+        self.stdout.write(self.style.SUCCESS("City check successful"))

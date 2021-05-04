@@ -54,12 +54,12 @@ class Command(BaseCommand):
         self.stdout.write(self.style.SUCCESS(print(filename)))
         wb = load_workbook(filename=filename)
         cities = self.parse_cities(workbook=wb)
-        # activities = self.parse_activities(workbook=wb)
+        activities = self.parse_activities(workbook=wb)
 
-        activities = {}
-        activities_entity = StoreCategories.objects.all()
-        for cat in activities_entity:
-            activities[cat.pk] = cat
+        # activities = {}
+        # activities_entity = StoreCategories.objects.all()
+        # for cat in activities_entity:
+        #     activities[cat.pk] = cat
 
         self.parse_stores(workbook=wb, activities=activities, cities=cities)
         self.stdout.write(self.style.SUCCESS(""))

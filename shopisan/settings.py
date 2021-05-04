@@ -54,6 +54,10 @@ MIDDLEWARE = [
     'django.middleware.locale.LocaleMiddleware',
 ]
 
+# config redirect to https (Prod)
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+
 ROOT_URLCONF = 'shopisan.urls'
 
 TEMPLATES = [
@@ -77,6 +81,7 @@ WSGI_APPLICATION = 'shopisan.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# local
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -88,13 +93,26 @@ WSGI_APPLICATION = 'shopisan.wsgi.application'
 #     }
 # }
 
+# dev
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'dc73p6lmn8mogi',
+#         'USER': 'voivvuejgrtlxv',
+#         'PASSWORD': '283d3d1038b83c2d85fc83d00d8d2bcadcbc901d25bc3f38c20540b8816afc09',
+#         'HOST': 'ec2-54-74-77-126.eu-west-1.compute.amazonaws.com',
+#         'PORT': '5432',
+#     }
+# }
+
+# prod
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dc73p6lmn8mogi',
-        'USER': 'voivvuejgrtlxv',
-        'PASSWORD': '283d3d1038b83c2d85fc83d00d8d2bcadcbc901d25bc3f38c20540b8816afc09',
-        'HOST': 'ec2-54-74-77-126.eu-west-1.compute.amazonaws.com',
+        'NAME': 'dde1ncfjc9cmbr',
+        'USER': 'mptimxzhzxsuog',
+        'PASSWORD': '556b87d218e3253862c8719a296d011d9ad0ccf0c12abd4c16a106d2b79186a0',
+        'HOST': 'ec2-54-155-35-88.eu-west-1.compute.amazonaws.com',
         'PORT': '5432',
     }
 }
