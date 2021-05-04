@@ -109,10 +109,10 @@ WSGI_APPLICATION = 'shopisan.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dde1ncfjc9cmbr',
-        'USER': 'mptimxzhzxsuog',
-        'PASSWORD': '556b87d218e3253862c8719a296d011d9ad0ccf0c12abd4c16a106d2b79186a0',
-        'HOST': 'ec2-54-155-35-88.eu-west-1.compute.amazonaws.com',
+        'NAME': 'd18jnerdka5ga5',
+        'USER': 'vnqmgrpwnbojes',
+        'PASSWORD': 'e94aaae394a19111e3b2d131f34400f27715a13bb3ba66ea0f42da47dc64a3d6',
+        'HOST': 'ec2-34-255-134-200.eu-west-1.compute.amazonaws.com',
         'PORT': '5432',
     }
 }
