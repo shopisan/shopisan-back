@@ -1,10 +1,12 @@
 import i18n from "i18next";
-import Backend from "i18next-http-backend";
-import languageDetector from 'i18next-browser-languagedetector';
+import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from "react-i18next";
 import transEn from '../src/locales/en/translation.json';
 import transFr from '../src/locales/fr/translation.json';
+import langDetector from '../src/langDetector';
 
+const languageDetector = new LanguageDetector();
+languageDetector.addDetector(langDetector);
 
 const resources = {
     en: {
@@ -18,8 +20,10 @@ const resources = {
 const languages = ['en', 'fr'];
 
 i18n
-//.use(Backend)
 .use(languageDetector).use(initReactI18next).init({
+    detection: {
+        order: ['langDetector', 'querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain']
+    },
     resources,
     fallbackLng: 'en',
     debug: true,
@@ -27,10 +31,7 @@ i18n
         escapeValue: false
     },
     saveMissing: true,
-    whitelist: languages,
-    //defaultNS: "translations",
-    //ns: "translations"
-   
+    whitelist: languages
 })
 
 export default i18n;

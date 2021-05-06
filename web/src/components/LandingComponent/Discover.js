@@ -67,7 +67,7 @@ export default function Discover(){
             <div className={classes.discover}>
                 <div>
                     <Typography variant="h1" className={classes.h1}>{t('discovery.title')}</Typography>
-                    <Typography variant="body1" className={classes.body1}>{t('discovery.text')}<br/><i>{t('discovery.text1')}</i> </Typography>
+                    <Typography variant="body1" className={classes.body1}>{t('discovery.text')}<br/>{t('discovery.text1')}</Typography>
                 </div>
         
                 <div className= "d-flex justify-content-center" >

@@ -1,7 +1,7 @@
 {
     "metaDescription": "Découvrez les boutiques de proximité à grande échelle locale",
     "nav": {
-        "concept": "Notre concept",
+        "concept": "Le concept",
         "idea": "De l'idée au projet",
         "signIn": "Inscription",
         "contact": "Contact"
@@ -10,24 +10,24 @@
         "baseline": "Votre guide shopping où que vous soyez",
         "title": "Le concept",
         "text": "(Re)découvrez les boutiques de proximité à grande échelle locale !",
-        "text1": "Vous êtes à la recherche de produits durables Made in France - Made in Belgium, des articles vintage, de mode, des bijoux ou des cosmétiques et biens d’autres choses ?"
+        "text1": "Vous êtes à la recherche de produits durables Made in France - Made in Belgium, des articles vintage, de mode, des bijoux ou des cosmétiques et bien d’autres choses ?"
     },
     "local":{
         "title": "Envie d'un shopping local ?",
-        "text": "Envie d’acheter local ? En quête d’authenticité ?",
+        "text": "En quête d’authenticité ?",
         "text1": "Vous êtes au bon endroit !",
-        "text2" : "Sélectionnez la catégories de boutiques que vous souhaitez et géolocalisez-les sur une carte. Vous avez un coup de coeur pour une boutique que vous voulez voir sur l'appli ? Informez-nous en. "
+        "text2" : "Sélectionnez la catégorie de boutique que vous souhaitez et géolocalisez-les sur une carte. Vous avez un coup de coeur pour une boutique que vous voulez voir sur l'appli ? Informez-nous en. "
     },
     "discovery": {
         "title": "Découvertes",
-        "text": "Prêts pour une expérience shopping découverte ? Nous vous faisons découvrir d'abord les boutiques de Belgique et de France. Nous poursuivrons avec l' Italie, la GB etc... Suivez le guide ",
+        "text": "Prêts pour une expérience shopping découverte ? Nous vous faisons d'abord découvrir des boutiques en France, Belgique, Italie, Royaume-Uni. D'autres villes et pays s'ajouteront bientôt.",
         "text1" : "ici c'est Shopisan"
     },
     "idea": {
         "title": "De l'idée au projet",
-        "text": "Il y a quelques temps, nous étions à la recherche d'un cadeau. Nous promenant au centre de Bruxelles, nous sommes passés devant la vitrine de la boutique Azur Elle. Nous avons franchi la porte et nous avons été chaleureusement acceuillis par le propriétaire. Il était à notre écoute de ce que nous recherchions. Il nous a déniché LA PÉPITE !",
+        "text": "Il y a quelque temps, nous étions à la recherche d'un cadeau. Nous promenant au centre de Bruxelles, nous sommes passés devant la vitrine de la boutique Azur Elle. Nous avons franchi la porte et avons été chaleureusement accueillis par le propriétaire. Il était à l'écoute de ce que nous recherchions. Il nous a déniché LA PÉPITE !",
         "text1" : "Ce qui nous a frappé lors de notre passage chez Azur Elle: la petite taille de la boutique mais une grande originalité, un choix et un accueil personnalisé !",
-        "text2": "Du constat que nous ne connaissions pas les petits commerces même ceux qui sont situés à proximité, est né le projet de l'application Shopisan."
+        "text2": "Du constat que nous ne connaissions pas les petits commerces, même ceux situés à proximité, est né le projet de l'application Shopisan."
     },
     "signUp": {
         "title": "Boutiques, marques, créateurs",
@@ -123,14 +123,14 @@
             "text1": "Le contenu que vous publiez sur Shopisan vous appartient. Ne publiez aucun contenu que vous avez copié ou obtenu sur Internet et sur lequel vous ne disposez pas de droits de publication.",
             "text2": "Il est formellement interdit d’encourager la violence ou d’attaquer quiconque en raison de sa couleur de peau, de son origine ethnique, de sa nationalité, de son sexe, de son genre, de son identité de genre, de son orientation sexuelle, de son affiliation religieuse, de handicaps ou d’états pathologiques. Nous n'autorisons pas la nudité.",
             "text3": "Il est interdit de faire l’éloge du terrorisme, du crime organisé ou de groupes haineux. Il est également interdit de proposer des services sexuels, d’acheter ou de vendre des armes à feu, de l’alcool ou des produits liés au tabac entre particuliers ainsi que d’acheter ou de vendre des drogues ou des médicaments illégaux ou sur ordonnance (même si cette activité est légale dans votre région).",
-            "text4": "Il est strictement interdit d'utiliser des insultes et /ou détruire la réputation d'une entreprise concurrente par exemple en discréditant les produits/services fournis par cette même entreprise.",
+            "text4": "Il est strictement interdit de proférer des insultes et /ou détruire la réputation d'une entreprise concurrente par exemple en discréditant les produits/services fournis par cette même entreprise.",
             "text5": "Shopisan se réserve le droit de supprimer tout post et/ou tout compte qui enfreindrait les règles telles que mentionnées ci-dessus.",
             "text6": "Si vous constatez un contenu abusif qui, selon vous, peut violer ou ne pas suivre nos directives, veuillez nous aider en utilisant notre adresse électronique : "
         },
         "link" : {
             "title" :"4. Liens vers d'autres sites internet",
             "text" : "La Plateforme pourrait contenir des liens ou hyperliens renvoyant vers des sites internet externes. De tels liens ne signifient pas de manière automatique qu'il existe une relation entre Shopisan et le site internet externe ou même qu'un accord implicite existe avec le contenu de ces sites externes.",
-            "text1": "Shopisan n'exerce aucun contrôle sur les sites internet externes. Nous ne sommes donc pas responsables du fonctionnement sûr et correct des hyperliens et de leur destination finale. Dès l'instant où l'Utilisateur clique sur l'hyperlien, il quitte la Plateforme. Nous ne pouvons dès lors pas être tenus responsables en cas de dommage ultérieur."
+            "text1": "Shopisan n'exerce aucun contrôle sur les sites internet externes. Nous ne sommes donc pas responsables du fonctionnement sûr et correct des hyperliens et de leur destination finale. Dès l'instant où l'Utilisateur clique sur un hyperlien, il quitte la Plateforme. Nous ne pouvons dès lors pas être tenus responsables en cas de dommage ultérieur."
         },
         "property" : {
             "title" : "5. Propriété intellectuelle",

@@ -9,13 +9,13 @@ const useStyles = makeStyles(theme => ({
         padding: theme.spacing(5),
         backgroundColor: "#FAFAFA",
         [theme.breakpoints.up('sm')]:{
-            padding: "2rem 5rem",
+            padding: "1.5rem 5rem",
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center'
         },
         [theme.breakpoints.up('md')]:{
-            padding: "2rem 7rem",
+            padding: "1.5rem 7rem",
         }
     },
     row:{
@@ -67,7 +67,7 @@ const classes = useStyles();
             </div>
             <div className={classes.rowMedia}>
                 <a href="https://www.instagram.com/shopisanapp/" target="_blank">
-                    <InstagramIcon width={'18px'}/>
+                    <InstagramIcon width={'24px'}/>
                 </a>
             </div>
         </div>
