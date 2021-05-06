@@ -10,7 +10,6 @@ export default {
     lookup(options) {
       let found = [];
 
-      console.log(options);
       if (typeof navigator !== 'undefined') {
         if (navigator.languages) {
           for (let i=0; i < navigator.languages.length; i++) {

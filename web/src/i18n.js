@@ -22,7 +22,7 @@ const languages = ['en', 'fr'];
 i18n
 .use(languageDetector).use(initReactI18next).init({
     detection: {
-        order: ['langDetector', 'querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain']
+        order: ['querystring', 'langDetector', 'cookie', 'localStorage', 'sessionStorage', 'navigator']
     },
     resources,
     fallbackLng: 'en',

@@ -5,7 +5,6 @@ import { login } from '../Utils/Auth';
 
 export default function Login(props) {
     const {setSnackContent, setModalOpen} = props;
-    console.log(props);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
