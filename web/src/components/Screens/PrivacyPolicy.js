@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
     body1: {
         fontFamily: "Poppins",
         margin: "2rem 0 0 0",
-        fontSize: "0.7rem", 
+        fontSize: "0.8rem", 
         color: "#41455c",
         lineHeight: "1rem",
         [theme.breakpoints.up('sm')]:{

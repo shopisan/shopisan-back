@@ -20,12 +20,12 @@
     },
     "discovery": {
         "title": "Discoveries",
-        "text": "Ready for a discovery shopping experience? We make you discover stores based out of France, Belgium, Italy, the UK and Spain.Other countries and their most demanded cities will be featured soon. Follow the guide.",
-        "text1" : " This is Shopisan"
+        "text": "Ready for a shopping experience? First, we'll be discovering the shops in Belgium and France. We'll continue with Italy, the UK. Other countries and their most demanded cities will be featured soon.",
+        "text1" : "Follow the guide, this is Shopisan"
     },
     "idea": {
         "title": "From an idea to the project",
-        "text": "Some time ago, we were looking for a gift. Walking in the centre of Brussels, we walked past the Azur Elle boutique. We walked through the door and were warmly welcomed by the owner.  He listened to what we were looking for. He found the perfect fit !",
+        "text": "Some time ago, we were looking for a gift. While walking in  Brussels centre we walked past the Azur Elle boutique. We were warmly welcomed by the owner. He listened to what we were looking for. He found the perfect fit !",
         "text1" : "What struck us during our visit to Azur Elle: the small size of the store but a great originality, a choice and a personalized welcome !",
         "text2": "The Shopisan application project was born from the fact that we were not aware of small shops, even those located nearby."
     },
@@ -114,7 +114,8 @@
                 "title" : "b. Content", 
                 "text" : "Shopisan determines much of the content of the Platform and takes great care with the information on the Platform. We take all reasonable steps to keep our Platform as complete, accurate and up-to-date as possible, even when the information on the Platform is provided by third parties. We reserve the right to modify, supplement or delete the Platform and its contents at any time without liability.",
                 "text1" : "Shopisan cannot offer any absolute guarantee as to the quality of the information on the Platform. Therefore, it is possible that this information may not always be complete, accurate, sufficiently precise or up to date. Therefore, Shopisan shall not be liable for any damages, direct or indirect, that the User may suffer as a result of the information presented on the Platform.",
-                "text2" : "If certain contents of the Platform are in violation of the law or the rights of third parties, or are contrary to morality, we ask you to inform us as soon as possible by e-mail so that we can take appropriate measures.",
+                "text2" : "If certain contents of the Platform are in violation of the law or the rights of third parties, or are contrary to morality, we ask you to inform us ASAP by email to ",
+                "text2bis": "so that we can take appropriate measures.",
                 "text3" : "Any download from the Platform is always at the User's own risk. Shopisan shall not be liable for any damages, direct or indirect, arising from such downloads, such as loss of data or damage to the User's computer system, which are the sole responsibility of the User."
             }
         },

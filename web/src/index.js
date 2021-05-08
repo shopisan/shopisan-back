@@ -59,8 +59,6 @@ const theme = createMuiTheme({
             lineHeight: "1rem"
         },
     },
-   
-
 })
 
 function Base(){

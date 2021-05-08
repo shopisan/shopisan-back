@@ -16,12 +16,12 @@
         "title": "Envie d'un shopping local ?",
         "text": "En quête d’authenticité ?",
         "text1": "Vous êtes au bon endroit !",
-        "text2" : "Sélectionnez la catégorie de boutique que vous souhaitez et géolocalisez-les sur une carte. Vous avez un coup de coeur pour une boutique que vous voulez voir sur l'appli ? Informez-nous en. "
+        "text2" : "Sélectionnez la catégorie de boutiques que vous souhaitez et géolocalisez-les sur une carte. Vous avez un coup de coeur pour une boutique que vous voulez voir sur l'appli ? Informez-nous en. "
     },
     "discovery": {
         "title": "Découvertes",
-        "text": "Prêts pour une expérience shopping découverte ? Nous vous faisons d'abord découvrir des boutiques en France, Belgique, Italie, Royaume-Uni. D'autres villes et pays s'ajouteront bientôt. Suivez le guide ",
-        "text1" : "ici c'est Shopisan"
+        "text": "Prêts pour une expérience shopping découvertes ? Nous vous faisons d'abord découvrir des boutiques en France, Belgique, Italie, Royaume-Uni. D'autres villes et pays s'ajouteront bientôt.",
+        "text1" : "Suivez le guide, ici c'est Shopisan"
     },
     "idea": {
         "title": "De l'idée au projet",
@@ -114,7 +114,8 @@
                 "title" : "b. Contenu", 
                 "text" : "Shopisan détermine en grande partie le contenu de la Plateforme et prend grand soin des informations présentes sur celle-ci. Nous prenons toutes les mesures possibles pour maintenir notre Plateforme aussi complète, précise et à jour que possible, même lorsque les informations présentes sur celle-ci sont fournies par des tiers. Nous nous réservons le droit de modifier, compléter ou supprimer à tout moment la Plateforme et son contenu, sans que sa responsabilité ne puisse être engagée.",
                 "text1" : "Shopisan ne peut pas offrir de garantie absolue concernant la qualité de l'information présente sur la Plateforme. Il est donc possible que cette information ne soit pas toujours complète, exacte, suffisamment précise ou à jour. Par conséquent, Shopisan ne pourra pas être tenue responsable des dommages, directs ou indirects, que l'Utilisateur subirait de par l'information présente sur la Plateforme.",
-                "text2" : "Si certains contenus de la Plateforme sont en violation avec la loi ou les droits des tiers, ou sont contraires à la morale, nous vous demandons de nous en informer le plus rapidement possible par mail afin que nous puissions prendre des mesures appropriées.",
+                "text2" : "Si certains contenus de la Plateforme sont en violation avec la loi ou les droits des tiers, ou sont contraires à la morale, nous vous demandons de nous en informer le plus rapidement possible par mail à l'addresse ",
+                "text2bis": "afin que nous puissions prendre des mesures appropriées.",
                 "text3" : "Tout téléchargement à partir de la Plateforme a toujours lieu aux risques de l'Utilisateur. Shopisan ne pourra pas être tenue responsable des éventuels dommages, directs ou indirects, découlant de ces téléchargements, tels qu'une perte de données ou un endommagement du système informatique de l'Utilisateur, qui relèvent entièrement et exclusivement de la responsabilité de ce dernier."
             }
         },

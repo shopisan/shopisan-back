@@ -161,7 +161,7 @@ export default function MenuHeader() {
                             }
                         </Link>
                         <div className={classes.title}>
-                            <Typography>SHOPISAN</Typography>
+                            <Typography style={{fontWeight: "bold"}}>SHOPISAN</Typography>
                         </div>
                     </div>
                     <button className={classes.toggle} type="button" data-toggle="collapse"

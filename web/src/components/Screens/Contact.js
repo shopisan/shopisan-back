@@ -12,6 +12,9 @@ import { Helmet } from 'react-helmet';
 
 const lang = i18n.language;
 
+/**
+ * @todo ici plutot regarder comment merge les deux styles
+ */
 const useStyles = makeStyles(theme => ({
     brand: {
         padding: "25vh 2.5rem 0 2.5rem",
@@ -83,7 +86,7 @@ const useStyles = makeStyles(theme => ({
     body1: {
         fontFamily: "Poppins",
         margin: "2rem 0 0 0",
-        fontSize: "0.7rem",
+        fontSize: "0.8rem",
         color: "#41455c",
         lineHeight: "1rem",
         width: '90%',
@@ -95,7 +98,7 @@ const useStyles = makeStyles(theme => ({
     body2: {
         fontFamily: "Poppins",
         margin: "1rem 0 0.3rem 0",
-        fontSize: "0.6rem",
+        fontSize: "0.7rem",
         color: "#41455c",
         lineHeight: "1rem",
         [theme.breakpoints.up('sm')]: {

@@ -1,62 +1,9 @@
 import React from 'react';
-import {makeStyles, Typography} from '@material-ui/core'
+import {Typography} from '@material-ui/core'
 import { useTranslation } from 'react-i18next';
-
-const useStyles = makeStyles(theme => ({
-    projectIdea:{
-        padding: '15vh 2.5rem',
-        backgroundColor: "#FFFFFF",
-        [theme.breakpoints.up('sm')]:{
-            display: "flex",
-            flexDirection: "row-reverse",
-            padding: " 5rem",
-            alignItems: "center"
-        },
-        [theme.breakpoints.up('md')]:{
-            padding: "10rem 17rem"
-        },
-        [theme.breakpoints.up('xl')]:{
-            padding: "10rem 30rem"
-        }
-    },
-    h1: {
-        fontFamily: "Poppins",
-        fontWeight: "bold",
-        color: "#41455c",
-        fontSize: "2.8rem",
-        [theme.breakpoints.up('sm')]:{
-            fontSize: "3rem"
-        },
-        [theme.breakpoints.up('md')]:{
-            fontSize: "5rem",
-        }
-    },
-    body1: {
-        fontFamily: "Poppins",
-        margin: "2rem 0 0 0",
-        fontSize: "0.7rem", 
-        color: "#41455c",
-        lineHeight: "1rem",
-        [theme.breakpoints.up('sm')]:{
-            width: '100%',
-            lineHeight: "1.2rem",
-        },
-    },
-    img:{
-        height: '450px',
-        marginTop: '2rem',
-        [theme.breakpoints.up('sm')]:{
-            height: '500px',
-            marginLeft : "0"
-        },
-        [theme.breakpoints.up('md')]: {
-            height: '700px'
-        }
-    }
-}))
+import useStyles from '../../theme';
 
 export default function ProjectIdea(){
-
     const {t, i18n } = useTranslation();
     const classes = useStyles();
 
@@ -72,9 +19,9 @@ export default function ProjectIdea(){
                 </div>
        
                 <div className= "d-flex justify-content-center" >
-            <img className={classes.img} src= "static/images/Iphone_Mockup_2.png"></img>
-        </div>
-        </div> 
+                    <img className={classes.img} src= "static/images/Iphone_Mockup_2.png"></img>
+                </div>
+            </div> 
         </>
     )
 }

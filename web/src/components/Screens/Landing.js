@@ -3,9 +3,6 @@ import Concept from '../LandingComponent/Concept';
 import ProjectIdea from '../LandingComponent/ProjectIdea';
 import AddOnApp from '../LandingComponent/AddOnApp';
 import { useTranslation } from 'react-i18next';
-import { makeStyles } from "@material-ui/core";
-
-
 
 export default function Landing() {
 

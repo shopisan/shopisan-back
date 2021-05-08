@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
     body1: {
         fontFamily: "Poppins",
         margin: "2rem 0 0 0",
-        fontSize: "0.7rem", 
+        fontSize: "0.8rem", 
         color: "#41455c",
         lineHeight: "1rem",
         [theme.breakpoints.up('sm')]:{
@@ -121,7 +121,7 @@ export default function GeneralsConditions(){
             <br></br>
             {t('gc.website.b.text1')}
             <br></br>
-            {t('gc.website.b.text2')}
+            {t('gc.website.b.text2')} <a href="mailto: info@shopisan.com">info@shopisan.com</a> {t('gc.website.b.text2bis')}
             <br></br>
             {t('gc.website.b.text3')}
             <br></br>
