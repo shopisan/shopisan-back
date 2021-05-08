@@ -14,6 +14,7 @@ class AddressInline(admin.TabularInline):
 
 class StoreAdmin(admin.ModelAdmin):
     search_fields = ["name"]
+    icon_name = 'store'
     # form = StoreForm
 
     inlines = [
@@ -23,12 +24,14 @@ class StoreAdmin(admin.ModelAdmin):
 
 class StoreCategoriesAdmin(admin.ModelAdmin):
     search_fields = ["fr"]
+    icon_name = 'list'
 
 
 class CitiesAdmin(admin.ModelAdmin):
     search_fields = ["en", "fr"]
     verbose_name_plural = "Cities"
     list_display = ['en', 'fr', 'country']
+    icon_name = 'location_on'
 
 
 admin.site.register(Store, StoreAdmin)

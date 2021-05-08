@@ -12,6 +12,7 @@ class PostMediaInline(admin.TabularInline):
 
 class PostAdmin(admin.ModelAdmin):
     list_display = ['store', 'created']
+    icon_name = 'art_track'
 
     inlines = [
         PostMediaInline

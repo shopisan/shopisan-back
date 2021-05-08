@@ -89,6 +89,7 @@ class ContactAdmin(admin.ModelAdmin):
     exclude = ('processed',)
     readonly_fields = ('subject', 'name', 'surname', 'email', 'message', 'lang')
     actions = ["accept"]
+    icon_name = 'email'
 
     change_form_template = 'admin/custom_contact_ticket_form.html'
 
@@ -140,6 +141,7 @@ class StoreContactAdmin(admin.ModelAdmin):
     exclude = ('processed',)
     readonly_fields = ('brand', 'name', 'surname', 'email', 'phone', 'message', 'lang')
     actions = ["accept"]
+    icon_name = 'contact_mail'
 
     def accept(self, request, queryset):
         for store_ticket in queryset:
