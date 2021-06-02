@@ -183,11 +183,6 @@ const useStyles = makeStyles(theme => ({
 
 let errors = {};
 
-function useForceUpdate() {
-    const [value, setValue] = useState(0);
-    return () => setValue(value => value + 1);
-}
-
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
@@ -204,9 +199,17 @@ export default function Contact() {
     const forceUpdate = useForceUpdate();
     let ref = null;
     const [disabled, setDisabled] = useState(false);
+    const [value, setValue] = useState(0);
+
+function useForceUpdate() {
+    return () => setValue(value => value + 1);
+}
 
 
-    function submit() {
+    const handleSubmit = (event) => {
+     event.preventDefault();
+        setDisabled(true);
+     console.log(ref);
         if (ref.reportValidity()) {
             axios.post("/api/contact/", {
                 name,
@@ -224,14 +227,15 @@ export default function Contact() {
                     setDisabled(true);
                     setShowSuccess(true);
                     console.log("okayyy");
-
                 } else {
-                    console.log(error);
                     errors = response.data;
-                    console.log(errors);
                     forceUpdate();
                 }
+                setDisabled(false);
             });
+        }
+        else {
+            setDisabled(false);
         }
     }
 
@@ -245,61 +249,79 @@ export default function Contact() {
                 <title>Shopisan | {t('title.contact')}</title>
                 <meta name="description" content={t('meta.contact')} />
             </Helmet>
-            <div className={classes.brand} id="contact">
+
+            <div className={classes.brand} id="contact" value={value}>
                 <div>
                     <Typography variant="h1" className={classes.h1}>{t('contact.title')}</Typography>
                     <Typography variant="body1" className={classes.body1}>{t('contact.text')}</Typography>
                 </div>
             </div>
-            <div className={classes.contact}>
-                <Form className={classes.form} ref={(form) => { ref = form; }} >
-                    <Snackbar open={showSuccess} autoHideDuration={10000} onClose={handleClose}>
-                        <Alert onClose={handleClose} severity="success">
-                            {t('successC')}
-                        </Alert>
-                    </Snackbar>
-                    <div className={classes.formContent}>
-                        <Form.Group className={classes.group}>
-                            <Form.Label className={classes.body2}>{t('contact.firstname')}</Form.Label>
-                            <TextField className={classes.formControl} placeholder={t('contact.firstnameLabel')} required
-                                variant="outlined" onChange={(event) => { setName(event.target.value) }} InputProps={{ className: classes.root }}
-                                disabled={disabled} />
-                        </Form.Group>
-                        <Form.Group className={classes.group}>
-                            <Form.Label className={classes.body2}>{t('contact.lastname')}</Form.Label>
-                            <TextField className={classes.formControl} placeholder={t('contact.lastnameLabel')} required
-                                variant="outlined" onChange={(event) => { setSurname(event.target.value) }} InputProps={{ className: classes.root }}
-                                disabled={disabled} />
-                        </Form.Group>
-                    </div>
+                <div className={classes.contact}>
+                    <Form className={classes.form} ref={(form) => {
+                        ref = form;
+                    }}>
+                        <Snackbar open={showSuccess} autoHideDuration={10000} onClose={handleClose}>
+                            <Alert onClose={handleClose} severity="success">
+                                {t('successC')}
+                            </Alert>
+                        </Snackbar>
+                        <div className={classes.formContent}>
+                            <Form.Group className={classes.group}>
+                                <Form.Label className={classes.body2}>{t('contact.firstname')}</Form.Label>
+                                <TextField className={classes.formControl} placeholder={t('contact.firstnameLabel')}
+                                           required
+                                           variant="outlined" onChange={(event) => {
+                                    setName(event.target.value)
+                                }} InputProps={{className: classes.root}}
+                                           disabled={disabled} {...getErrors("surname", errors)}/>
+                            </Form.Group>
+                            <Form.Group className={classes.group}>
+                                <Form.Label className={classes.body2}>{t('contact.lastname')}</Form.Label>
+                                <TextField className={classes.formControl} placeholder={t('contact.lastnameLabel')}
+                                           required
+                                           variant="outlined" onChange={(event) => {
+                                    setSurname(event.target.value)
+                                }} InputProps={{className: classes.root}}
+                                           disabled={disabled} {...getErrors("name", errors)} />
+                            </Form.Group>
+                        </div>
 
-                    <div className={classes.formContent}>
-                        <Form.Group className={classes.group} >
-                            <Form.Label className={classes.body2}>{t('contact.email')}</Form.Label>
-                            <TextField className={classes.formControl} id="email" type="email" placeholder={t('contact.emailLabel')} required
-                                variant="outlined" onChange={(event) => { setEmail(event.target.value) }} {...getErrors("email", errors)}
-                                InputProps={{ className: classes.root }} disabled={disabled} />
-                        </Form.Group>
-                        <Form.Group className={classes.group} >
-                            <Form.Label className={classes.body2}>{t('contact.subject')}</Form.Label>
-                            <TextField className={classes.formControl} placeholder={t('contact.subjectLabel')} required
-                                variant="outlined" onChange={(event) => { setSubject(event.target.value) }} InputProps={{ className: classes.root }}
-                                disabled={disabled} />
-                        </Form.Group>
-                    </div>
+                        <div className={classes.formContent}>
+                            <Form.Group className={classes.group}>
+                                <Form.Label className={classes.body2}>{t('contact.email')}</Form.Label>
+                                <TextField className={classes.formControl} id="email" type="email"
+                                           placeholder={t('contact.emailLabel')} required
+                                           variant="outlined" onChange={(event) => {
+                                    setEmail(event.target.value)
+                                }} {...getErrors("email", errors)}
+                                           InputProps={{className: classes.root}} disabled={disabled}/>
+                            </Form.Group>
+                            <Form.Group className={classes.group}>
+                                <Form.Label className={classes.body2}>{t('contact.subject')}</Form.Label>
+                                <TextField className={classes.formControl} placeholder={t('contact.subjectLabel')}
+                                           required
+                                           variant="outlined" onChange={(event) => {
+                                    setSubject(event.target.value)
+                                }} InputProps={{className: classes.root}}
+                                           disabled={disabled} {...getErrors("subject", errors)}/>
+                            </Form.Group>
+                        </div>
 
-                    <Form.Group controlId="exampleTextFieldTextarea1" className={classes.group}>
-                        <Form.Label className={classes.body2}>{t('contact.message')}</Form.Label>
-                        <TextField className={classes.textarea} id="outlined-multiline-static" rows={10}
-                            placeholder={t('contact.messageLabel')} required variant="outlined" multiline
-                            onChange={(event) => { setMessage(event.target.value); }} InputProps={{ className: classes.rootArea }}
-                            disabled={disabled} />
-                    </Form.Group>
-                    <Button className={classes.submit} type="button" onClick={submit} >
-                        {t('send')}
-                    </Button>
-                </Form>
-            </div>
+                        <Form.Group controlId="exampleTextFieldTextarea1" className={classes.group}>
+                            <Form.Label className={classes.body2}>{t('contact.message')}</Form.Label>
+                            <TextField className={classes.textarea} id="outlined-multiline-static" rows={10}
+                                       placeholder={t('contact.messageLabel')} required variant="outlined" multiline
+                                       onChange={(event) => {
+                                           setMessage(event.target.value);
+                                       }} InputProps={{className: classes.rootArea}}
+                                       disabled={disabled} {...getErrors("message", errors)} />
+                        </Form.Group>
+                        <Button className={classes.submit} type="button" onClick={handleSubmit}>
+                            {t('send')}
+                        </Button>
+                    </Form>
+                </div>
+
         </>
     )
 

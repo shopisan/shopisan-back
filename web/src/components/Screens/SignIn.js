@@ -97,7 +97,7 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.up('sm')]: {
             width: '100%',
             lineHeight: "1.2rem",
-            width: '80%'
+            // width: '80%'
         },
     },
     body2: {
@@ -226,7 +226,9 @@ export default function SignIn() {
         return () => setValue(value => value + 1);
     }
 
-    function submit() {
+    const handleSubmit = (event) => {
+     event.preventDefault();
+        setDisabled(true);
         console.log(ref);
         if (checkPassword()) {
             axios.post("/api/store_contact/", {
@@ -253,10 +255,11 @@ export default function SignIn() {
                     errors = response.data;
                     forceUpdate();
                 }
-            }).catch((error) => {
-                console.log(error);
-                // todo gérer les erreurs
+                setDisabled(false);
             });
+        }
+        else {
+            setDisabled(false);
         }
     }
 
@@ -293,6 +296,7 @@ export default function SignIn() {
                 <title>Shopisan | {t('title.signUp')}</title>
                 <meta name="description" content={t('meta.signUpDescription')} />
             </Helmet>
+
             <div className={classes.brand} id="signin" value={value}>
                 <div>
                     <Typography variant="h1" className={classes.h1}>{t('signUp.title')}</Typography>
@@ -309,93 +313,122 @@ export default function SignIn() {
                     <img className={classes.img} src="/static/images/Iphone_Mockup .png"></img>
                 </div>
             </div>
+                <div className={classes.signIn}>
+                    <div className="column">
+                        <Typography variant="h1" className={classes.h1}>{t('signUp.form.title')}</Typography>
+                        <Typography variant="body1" className={classes.body1}>{t('signUp.form.text')}</Typography>
+                    </div>
+                    <div className="column">
+                        <Form className={classes.form} ref={(form) => {
+                            ref = form;
+                        }}>
+                            <Snackbar open={showSuccess} autoHideDuration={10000} onClose={handleClose}>
+                                <Alert onClose={handleClose} severity="success">
+                                    {t('successSu')}
+                                </Alert>
+                            </Snackbar>
+                            <div className={classes.formContent}>
+                                <Form.Group className={classes.group}>
+                                    <Form.Label className={classes.body2}>{t('signUp.form.store')}</Form.Label>
+                                    <TextField className={classes.formControl} placeholder={t('signUp.form.storeLabel')}
+                                               required
+                                               variant="outlined" onChange={(event) => {
+                                        setBrand(event.target.value)
+                                    }} {...getErrors("brand", errors)}
+                                               InputProps={{className: classes.root}} disabled={disabled}/>
+                                </Form.Group>
 
-            <div className={classes.signIn}>
-                <div className="column">
-                    <Typography variant="h1" className={classes.h1}>{t('signUp.form.title')}</Typography>
-                    <Typography variant="body1" className={classes.body1}>{t('signUp.form.text')}</Typography>
+                                <Form.Group className={classes.group}>
+                                    <Form.Label className={classes.body2}>{t('signUp.form.username')}</Form.Label>
+                                    <TextField className={classes.formControl}
+                                               placeholder={t('signUp.form.usernameLabel')} required
+                                               variant="outlined" onChange={(event) => {
+                                        setUsername(event.target.value)
+                                    }} {...getErrors("username", errors)}
+                                               InputProps={{className: classes.root}} disabled={disabled}/>
+                                </Form.Group>
+
+                            </div>
+
+                            <div className={classes.formContent}>
+                                <Form.Group className={classes.group}>
+                                    <Form.Label className={classes.body2}>{t('signUp.form.firstname')}</Form.Label>
+                                    <TextField className={classes.formControl}
+                                               placeholder={t('signUp.form.firstnameLabel')} required
+                                               variant="outlined" onChange={(event) => {
+                                        setSurname(event.target.value)
+                                    }}  {...getErrors("surname", errors)}
+                                               InputProps={{className: classes.root}} disabled={disabled}/>
+                                </Form.Group>
+                                <Form.Group className={classes.group}>
+                                    <Form.Label className={classes.body2}>{t('signUp.form.lastname')}</Form.Label>
+                                    <TextField className={classes.formControl}
+                                               placeholder={t('signUp.form.lastnameLabel')} required
+                                               variant="outlined" onChange={(event) => {
+                                        setName(event.target.value)
+                                    }} {...getErrors("name", errors)}
+                                               InputProps={{className: classes.root}} disabled={disabled}/>
+                                </Form.Group>
+                            </div>
+
+                            <div className={classes.formContent}>
+                                <Form.Group className={classes.group}>
+                                    <Form.Label className={classes.body2}>{t('signUp.form.mobile')}</Form.Label>
+                                    <TextField className={classes.formControl}
+                                               placeholder={t('signUp.form.mobileLabel')} required
+                                               variant="outlined" onChange={(event) => {
+                                        setPhone(event.target.value)
+                                    }} {...getErrors("phone", errors)}
+                                               InputProps={{className: classes.root}} disabled={disabled}/>
+                                </Form.Group>
+                                <Form.Group className={classes.group}>
+                                    <Form.Label className={classes.body2}>{t('signUp.form.email')}</Form.Label>
+                                    <TextField className={classes.formControl} id="email" type="email"
+                                               placeholder={t('signUp.form.emailLabel')} required
+                                               variant="outlined" onChange={(event) => {
+                                        setEmail(event.target.value)
+                                    }} {...getErrors("email", errors)}
+                                               InputProps={{className: classes.root}} disabled={disabled}/>
+                                </Form.Group>
+                            </div>
+                            <div className={classes.formContent}>
+                                <Form.Group className={classes.group}>
+                                    <Form.Label className={classes.body2}>{t('signUp.form.mdp')}</Form.Label>
+                                    <TextField className={classes.formControl} type="password"
+                                               placeholder={t('signUp.form.mdpLabel')} required
+                                               variant="outlined" onChange={(event) => {
+                                        setPassword(event.target.value)
+                                    }} {...getErrors("password", errors)}
+                                               InputProps={{className: classes.root}} disabled={disabled}/>
+                                </Form.Group>
+                                <Form.Group className={classes.group}>
+                                    <Form.Label className={classes.body2}>{t('signUp.form.mdpCheck')}</Form.Label>
+                                    <TextField className={classes.formControl} type="password"
+                                               placeholder={t('signUp.form.mdpCheckLabel')} required
+                                               onBlur={checkPassword}
+                                               variant="outlined" onChange={(event) => {
+                                        setRepeatPassword(event.target.value);
+                                    }} {...getErrors("repeat_password", errors)}
+                                               InputProps={{className: classes.root}} disabled={disabled}/>
+                                </Form.Group>
+                            </div>
+                            <Form.Group controlId="exampleTextFieldTextarea1" className={classes.group}>
+                                <Form.Label className={classes.body2}>{t('signUp.form.sector')}</Form.Label>
+                                <TextField id="outlined-multiline-static" multiline className={classes.textarea}
+                                           variant="outlined" as="textarea" rows={10}
+                                           placeholder={t('signUp.form.sectorLabel')} required
+                                           onChange={(event) => {
+                                               setMessage(event.target.value)
+                                           }} {...getErrors("message", errors)}
+                                           InputProps={{className: classes.rootArea}} disabled={disabled}/>
+                            </Form.Group>
+
+                            <Button className={classes.submit} type="button" onClick={handleSubmit}>
+                                {t('send')}
+                            </Button>
+                        </Form>
+                    </div>
                 </div>
-                <div className="column">
-                    <Form className={classes.form} ref={(form) => { ref = form; }}>
-                        <Snackbar open={showSuccess} autoHideDuration={10000} onClose={handleClose}>
-                            <Alert onClose={handleClose} severity="success">
-                                {t('successSu')}
-                            </Alert>
-                        </Snackbar>
-                        <div className={classes.formContent}>
-                            <Form.Group className={classes.group}>
-                                <Form.Label className={classes.body2} >{t('signUp.form.store')}</Form.Label>
-                                <TextField className={classes.formControl} placeholder={t('signUp.form.storeLabel')} required
-                                    variant="outlined" onChange={(event) => { setBrand(event.target.value) }} {...getErrors("brand", errors)}
-                                    InputProps={{ className: classes.root }} disabled={disabled} />
-                            </Form.Group>
-
-                            <Form.Group className={classes.group} >
-                                <Form.Label className={classes.body2}>{t('signUp.form.username')}</Form.Label>
-                                <TextField className={classes.formControl} placeholder={t('signUp.form.usernameLabel')} required
-                                    variant="outlined" onChange={(event) => { setUsername(event.target.value) }} {...getErrors("username", errors)}
-                                    InputProps={{ className: classes.root }} disabled={disabled} />
-                            </Form.Group>
-
-                        </div>
-
-                        <div className={classes.formContent}>
-                            <Form.Group className={classes.group}>
-                                <Form.Label className={classes.body2}>{t('signUp.form.firstname')}</Form.Label>
-                                <TextField className={classes.formControl} placeholder={t('signUp.form.firstnameLabel')} required
-                                    variant="outlined" onChange={(event) => { setSurname(event.target.value) }}  {...getErrors("surname", errors)}
-                                    InputProps={{ className: classes.root }} disabled={disabled} />
-                            </Form.Group>
-                            <Form.Group className={classes.group}>
-                                <Form.Label className={classes.body2}>{t('signUp.form.lastname')}</Form.Label>
-                                <TextField className={classes.formControl} placeholder={t('signUp.form.lastnameLabel')} required
-                                    variant="outlined" onChange={(event) => { setName(event.target.value) }} {...getErrors("name", errors)}
-                                    InputProps={{ className: classes.root }} disabled={disabled} />
-                            </Form.Group>
-                        </div>
-
-                        <div className={classes.formContent}>
-                            <Form.Group className={classes.group}>
-                                <Form.Label className={classes.body2}>{t('signUp.form.mobile')}</Form.Label>
-                                <TextField className={classes.formControl} placeholder={t('signUp.form.mobileLabel')} required
-                                    variant="outlined" onChange={(event) => { setPhone(event.target.value) }} {...getErrors("phone", errors)}
-                                    InputProps={{ className: classes.root }} disabled={disabled} />
-                            </Form.Group>
-                            <Form.Group className={classes.group} >
-                                <Form.Label className={classes.body2} >{t('signUp.form.email')}</Form.Label>
-                                <TextField className={classes.formControl} id="email" type="email" placeholder={t('signUp.form.emailLabel')} required
-                                    variant="outlined" onChange={(event) => { setEmail(event.target.value) }} {...getErrors("email", errors)}
-                                    InputProps={{ className: classes.root }} disabled={disabled} />
-                            </Form.Group>
-                        </div>
-                        <div className={classes.formContent}>
-                            <Form.Group className={classes.group} >
-                                <Form.Label className={classes.body2}>{t('signUp.form.mdp')}</Form.Label>
-                                <TextField className={classes.formControl} type="password" placeholder={t('signUp.form.mdpLabel')} required
-                                    variant="outlined" onChange={(event) => { setPassword(event.target.value) }} {...getErrors("password", errors)}
-                                    InputProps={{ className: classes.root }} disabled={disabled} />
-                            </Form.Group>
-                            <Form.Group className={classes.group} >
-                                <Form.Label className={classes.body2}>{t('signUp.form.mdpCheck')}</Form.Label>
-                                <TextField className={classes.formControl} type="password" placeholder={t('signUp.form.mdpCheckLabel')} required onBlur={checkPassword}
-                                    variant="outlined" onChange={(event) => { setRepeatPassword(event.target.value); }} {...getErrors("repeat_password", errors)}
-                                    InputProps={{ className: classes.root }} disabled={disabled} />
-                            </Form.Group>
-                        </div>
-                        <Form.Group controlId="exampleTextFieldTextarea1" className={classes.group}>
-                            <Form.Label className={classes.body2}>{t('signUp.form.sector')}</Form.Label>
-                            <TextField id="outlined-multiline-static" multiline className={classes.textarea}
-                                variant="outlined" as="textarea" rows={10} placeholder={t('signUp.form.sectorLabel')} required
-                                onChange={(event) => { setMessage(event.target.value) }} {...getErrors("message", errors)}
-                                InputProps={{ className: classes.rootArea }} disabled={disabled} />
-                        </Form.Group>
-
-                        <Button className={classes.submit} type="button" onClick={submit}>
-                            {t('send')}
-                        </Button>
-                    </Form>
-                </div>
-            </div>
         </>
     )
 }

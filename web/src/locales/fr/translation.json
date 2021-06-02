@@ -70,7 +70,7 @@
         "subject": "Objet du message",
         "subjectLabel": "Exemple: Demande d'informations",
         "message": "Votre message",
-        "messageLabel": "Entrez votre message..."
+        "messageLabel": "Entrez votre message...",
     },
     "send" : "Envoyer",
     "successC": "Votre message est bien envoyé. Nous vous recontacterons dans les plus brefs délais.",
@@ -347,5 +347,9 @@
         "signUpDescription": "Inscrivez votre marque, ou votre boutique et boostez votre visibilité",
         "contact": "Une question ou une suggestion? Contactez-nous"
     },
-    "pageNotFound": "Impossible de trouver la page recherchée"   
+    "pageNotFound": "Impossible de trouver la page recherchée",
+    "validation": {
+        "ok": "Votre demande a bie été envoyée",
+        "error" : "Il semblerait qu'il y ait un problème avec l'envoi du formulaire"
+    }
 }
