@@ -35,7 +35,7 @@ msgid "Texte compte proprio"
 msgstr ""
 "Votre demande de compte propriétaire de boutique à été acceptée."
 "Vous pouvez dès maintenant vous connecter à votre compte depuis l'application en "
-"utilisant les identifiants crééslors de votre demande d'inscription."
+"utilisant les identifiants créés lors de votre demande d'inscription."
 
 msgid "Réponse à votre demande de contact"
 msgstr "Réponse à votre demande de contact"
