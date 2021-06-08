@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-22 16:11+0200\n"
+"POT-Creation-Date: 2021-06-08 20:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: templates/emails/base.html:170
+#: templates/emails/base.html:168
 msgid "Nous contacter"
 msgstr "Nous contacter"
 
@@ -26,24 +26,22 @@ msgstr "Nous contacter"
 msgid "Votre token est le:"
 msgstr "Votre token est le:"
 
-#: templates/emails/includes/reset_password_token.html:20
+#: templates/emails/includes/reset_password_token.html:19
 msgid "Merci de bien vouloir suivre la procédure sur votre application."
 msgstr "Merci de bien vouloir suivre la procédure sur votre application."
 
 #: templates/emails/includes/store_owner_accepted.html:12
 msgid "Texte compte proprio"
 msgstr ""
-"Votre demande de compte propriétaire de boutique à été acceptée."
-"Vous pouvez dès maintenant vous connecter à votre compte depuis l'application en "
+"Votre demande de compte propriétaire de boutique à été acceptée.Vous pouvez "
+"dès maintenant vous connecter à votre compte depuis l'application en "
 "utilisant les identifiants créés lors de votre demande d'inscription."
 
-msgid "Réponse à votre demande de contact"
-msgstr "Réponse à votre demande de contact"
+#~ msgid "Réponse à votre demande de contact"
+#~ msgstr "Réponse à votre demande de contact"
 
-msgid "Réponse à votre demande d'enregistrement"
-msgstr "Réponse à votre demande d'enregistrement"
+#~ msgid "Réponse à votre demande d'enregistrement"
+#~ msgstr "Réponse à votre demande d'enregistrement"
 
-msgid "Réinitialisation de votre mot de passe"
-msgstr "Réinitialisation de votre mot de passe"
-
-
+#~ msgid "Réinitialisation de votre mot de passe"
+#~ msgstr "Réinitialisation de votre mot de passe"
