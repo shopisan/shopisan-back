@@ -70,7 +70,7 @@
         "subject": "Objet du message",
         "subjectLabel": "Exemple: Demande d'informations",
         "message": "Votre message",
-        "messageLabel": "Entrez votre message...",
+        "messageLabel": "Entrez votre message..."
     },
     "send" : "Envoyer",
     "successC": "Votre message est bien envoyé. Nous vous recontacterons dans les plus brefs délais.",

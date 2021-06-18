@@ -27,6 +27,10 @@ const useStyles = makeStyles(theme => ({
             marginTop: "5vh",
         },
         [theme.breakpoints.up('md')]: {
+            padding: "15rem 7rem 0 7rem",
+            marginTop: "0vh",
+        },
+        [theme.breakpoints.up('lg')]: {
             padding: "15rem 17rem 0 17rem",
             marginTop: "0vh",
         },
@@ -41,6 +45,9 @@ const useStyles = makeStyles(theme => ({
             padding: '5rem',
         },
         [theme.breakpoints.up('md')]: {
+            padding: "5rem 7rem 10rem 7rem"
+        },
+        [theme.breakpoints.up('lg')]: {
             padding: "5rem 15rem 10rem 15rem"
         },
         [theme.breakpoints.up('xl')]: {

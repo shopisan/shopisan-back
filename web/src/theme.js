@@ -24,6 +24,9 @@ export default makeStyles(theme => ({
             alignItems: 'center'
         },
         [theme.breakpoints.up('md')]: {
+            padding: "10rem 7rem"
+        },
+        [theme.breakpoints.up('lg')]: {
             padding: "10rem 17rem"
         },
         [theme.breakpoints.up('xl')]: {
@@ -40,7 +43,10 @@ export default makeStyles(theme => ({
             alignItems: "center"
         },
         [theme.breakpoints.up('md')]:{
-            padding: "10rem 17rem"
+            padding: "10rem 5rem"
+        },
+        [theme.breakpoints.up('lg')]:{
+            padding: "10rem 13rem"
         },
         [theme.breakpoints.up('xl')]:{
             padding: "10rem 30rem"
@@ -67,6 +73,9 @@ export default makeStyles(theme => ({
             alignItems: "center"
         },
         [theme.breakpoints.up('md')]:{
+            padding: "10rem 7rem"
+        },
+        [theme.breakpoints.up('lg')]:{
             padding: "10rem 17rem"
         },
         [theme.breakpoints.up('xl')]:{
@@ -164,10 +173,16 @@ export default makeStyles(theme => ({
             alignItems: "center"
         },
         [theme.breakpoints.up('md')]:{
-            padding: "10rem 17rem"
+            padding: "10rem 7rem"
+        },
+        [theme.breakpoints.up('lg')]:{
+            padding: "10rem 15rem"
         },
         [theme.breakpoints.up('xl')]:{
             padding: "10rem 30rem"
         }
     },
+    btnApp:{
+        marginTop: "-3.2rem"
+    }
 }));

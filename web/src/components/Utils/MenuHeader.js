@@ -16,6 +16,9 @@ const useStyles = makeStyles(theme => ({
             position: "fixed",
         },
         [theme.breakpoints.up('md')]: {
+            padding: "0rem 2rem",
+        },
+        [theme.breakpoints.up('lg')]: {
             padding: "0rem 7rem",
         }
     },
@@ -138,7 +141,6 @@ const useStyles = makeStyles(theme => ({
             color: '#FFFFFF !important'
         }
     },
-
 }));
 
 export default function MenuHeader() {
