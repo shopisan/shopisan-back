@@ -6,6 +6,8 @@ import useStyles from '../../theme';
 export default function ProjectIdea(){
     const {t, i18n } = useTranslation();
     const classes = useStyles();
+    const locale = i18n.language;
+
 
     return(
         <>
@@ -19,6 +21,7 @@ export default function ProjectIdea(){
                 </div>
        
                 <div className= "d-flex justify-content-center" >
+            
                     <img className={classes.img} src= "static/images/Iphone_Mockup_2.png"></img>
                 </div>
             </div> 

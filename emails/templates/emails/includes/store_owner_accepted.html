@@ -6,10 +6,16 @@
 {% endblock %}
 
 {% block body %}
-<tr>
-    <td class="text-phone mp30"
-        style="padding-bottom: 10px; color:#41455c; font-family: 'Poppins', sans-serif; font-size:1rem; line-height:1.5rem; text-align:center;">
-        {% trans 'Texte compte proprio' %}
-    </td>
-</tr>
+
+
+<body class="body" style="padding:0 !important; margin:0 !important; display:block !important; -webkit-text-size-adjust:none; background:#F7F7F7;">
+    <table width="75%" border="0" cellspacing="0" cellpadding="0px" style="background: #F7F7F7;" align="center">
+        <tr>
+            <td class="text-phone mp30" style="padding-bottom: 10px; color:#41455c; font-family: 'Poppins', sans-serif; font-size:1rem; line-height:1.5rem; text-align:center;">
+                {% trans 'Texte compte proprio' %}
+            </td>
+        </tr>
+    </table>
+</body>
+
 {% endblock %}

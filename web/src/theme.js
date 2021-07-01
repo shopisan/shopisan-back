@@ -8,7 +8,7 @@ export default makeStyles(theme => ({
         paddingTop: "5rem",
         [theme.breakpoints.up('sm')]: {
             alignItems: "center",
-            marginTop: "10vh",
+            marginTop: "9vh",
             paddingTop: "0",
         },
         [theme.breakpoints.up('md')]: {
@@ -27,7 +27,7 @@ export default makeStyles(theme => ({
             padding: "10rem 7rem"
         },
         [theme.breakpoints.up('lg')]: {
-            padding: "10rem 17rem"
+            padding: "10rem 12rem"
         },
         [theme.breakpoints.up('xl')]: {
             padding: "10rem 30rem"
@@ -76,7 +76,7 @@ export default makeStyles(theme => ({
             padding: "10rem 7rem"
         },
         [theme.breakpoints.up('lg')]:{
-            padding: "10rem 17rem"
+            padding: "10rem 10rem"
         },
         [theme.breakpoints.up('xl')]:{
             padding: "10rem 30rem"
@@ -154,15 +154,67 @@ export default makeStyles(theme => ({
         marginTop: "0.5rem"
     },
     img: {
+        zIndex: '2',
         height: '500px',
         [theme.breakpoints.up('sm')]: {
-            height: '600px',
+            height: '400px',
             marginLeft: "0"
         },
         [theme.breakpoints.up('md')]: {
-            height: '700px'
+            height: '500px'
         }
     },
+    contentVideo:{
+        background: "FFFFFEF",
+        position: 'absolute',
+        height: '475px',
+        width: '225px',
+        borderRadius: '2rem',
+        marginTop: '15px',
+    },
+    video1:{
+        height: '470px',
+        marginTop: '8px',
+        marginLeft: '8px',
+        borderRadius: '2rem',
+        width: '215px',
+        position: 'absolute',
+        [theme.breakpoints.up('sm')]: {
+            height: '355px'
+        },
+        [theme.breakpoints.up('md')]: {
+            height: '470px'
+        }
+    },
+    video2:{
+        height: '475px',
+        marginTop: '12px',
+        marginLeft: '9px',
+        borderRadius: '2rem',
+        width: '210px',
+        position: 'absolute',
+        [theme.breakpoints.up('sm')]: {
+            height: '351px'
+        },
+        [theme.breakpoints.up('md')]: {
+            height: '475px'
+        }
+    },
+    video3:{
+        height: '475px',
+        marginTop: '8px',
+        marginLeft: '9px',
+        borderRadius: '2rem',
+        width: '210px',
+        position: 'absolute',
+        [theme.breakpoints.up('sm')]: {
+            height: '355px'
+        },
+        [theme.breakpoints.up('md')]: {
+            height: '470px'
+        }
+    },
+ 
     discover:{
         padding: '15vh 2.5rem',
         backgroundColor: "#FAFAFA",
@@ -176,7 +228,7 @@ export default makeStyles(theme => ({
             padding: "10rem 7rem"
         },
         [theme.breakpoints.up('lg')]:{
-            padding: "10rem 15rem"
+            padding: "10rem 12rem"
         },
         [theme.breakpoints.up('xl')]:{
             padding: "10rem 30rem"

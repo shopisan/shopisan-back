@@ -2,13 +2,21 @@ import React from 'react';
 import {makeStyles, Typography} from '@material-ui/core';
 import { useTranslation } from "react-i18next";
 import useStyles from '../../theme';
+import VideoMockUp from '../VideoMockUp';
+
 
 export default function LocalShopping() {
 
     const classes = useStyles();
-
     const {t, i18n} = useTranslation();
+    const locale = i18n.language;
 
+
+    // attention les 2 vidéos sont en francais ! 
+
+    function getVideoUrl(){
+        return locale === "fr" ? "static/video/preparer-FR.mp4" : "static/video/preparer-EN.mp4";
+    }
 
     return(
         
@@ -19,8 +27,8 @@ export default function LocalShopping() {
         <Typography variant="body1" className={classes.body1}> {t('local.text2')}</Typography>
                 </div>
        
-                <div className= "d-flex justify-content-center" >
-            <img className={classes.img} src= "static/images/Iphone_Mockup .png"></img>
+                <div className= "d-flex justify-content-center mt-5" >
+                <VideoMockUp url={getVideoUrl()}/>
         </div>
         </div> 
        

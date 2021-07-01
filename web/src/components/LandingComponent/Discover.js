@@ -2,10 +2,17 @@ import React from 'react';
 import {Typography} from '@material-ui/core'
 import { useTranslation } from 'react-i18next';
 import useStyles from '../../theme';
+import VideoMockUp from '../VideoMockUp';
+
 
 export default function Discover(){
     const {t, i18n} = useTranslation();
     const classes = useStyles();
+    const locale = i18n.language;
+
+    function getVideoUrl(){
+        return locale === "fr" ? "static/video/geoloc-FR.mp4" : "static/video/geoloc-EN.mp4";
+    }
 
     return(
         <>
@@ -15,8 +22,8 @@ export default function Discover(){
                     <Typography variant="body1" className={classes.body1}>{t('discovery.text')}<br/>{t('discovery.text1')}</Typography>
                 </div>
         
-                <div className= "d-flex justify-content-center" >
-            <img className={classes.img} src= "static/images/Iphone_Mockup .png"></img>
+                <div className= "d-flex justify-content-center mt-5 mb-sm-5" >
+                <VideoMockUp url={getVideoUrl()}/>
         </div>
         </div> 
         </>

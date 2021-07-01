@@ -10,6 +10,8 @@ import { useTranslation } from "react-i18next";
 import i18n from '../../i18n'
 import axios from 'axios';
 import { Helmet } from "react-helmet";
+import VideoMockUp from '../VideoMockUp';
+
 
 const lang = i18n.language;
 
@@ -35,7 +37,7 @@ const useStyles = makeStyles(theme => ({
             marginTop: "0vh",
         },
         [theme.breakpoints.up('lg')]: {
-            padding: "10rem 17rem",
+            padding: "10rem 12rem",
             marginTop: "0vh",
         },
         [theme.breakpoints.up('xl')]: {
@@ -194,14 +196,43 @@ const useStyles = makeStyles(theme => ({
     },
     img: {
         height: '500px',
+        marginBottom: '5rem',
+        zIndex: '2',
         [theme.breakpoints.up('sm')]: {
-            height: '600px',
+            height: '400px',
             marginLeft: "0"
         },
         [theme.breakpoints.up('md')]: {
-            height: '700px'
+            height: '500px'
         }
-    }
+    },
+    contentVideo:{
+        background: "FFFFFEF",
+        position: 'absolute',
+        height: '475px',
+        width: '225px',
+        borderRadius: '2rem',
+        marginTop: '15px',
+    },
+    video4:{
+        height: '475px',
+        marginTop: '8px',
+        marginLeft: '9px',
+        width: '213px',
+        position: 'absolute',
+        [theme.breakpoints.up('sm')]: {
+            height: '355px',
+            width: "190px",
+            marginLeft: '26px',
+            marginTop: '10px'
+        },
+        [theme.breakpoints.up('md')]: {
+            height: '514px',
+            marginLeft: '11px',
+            marginTop: '-7px',
+            width: '207px',
+        }
+    },
 }))
 
 let errors = {};
@@ -210,9 +241,12 @@ function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
+
+
 export default function SignIn() {
     const { t, i18n } = useTranslation();
     const classes = useStyles();
+    const locale = i18n.language;
 
     const [value, setValue] = useState(0);
     const [brand, setBrand] = useState("");
@@ -233,6 +267,10 @@ export default function SignIn() {
         return () => setValue(value => value + 1);
     }
 
+    function getVideoUrl(){
+        return locale === "fr" ? "static/video/store-FR.mp4" : "static/video/store-EN.mp4";
+    }
+    
     const handleSubmit = (event) => {
      event.preventDefault();
         setDisabled(true);
@@ -305,7 +343,7 @@ export default function SignIn() {
             </Helmet>
 
             <div className={classes.brand} id="signin" value={value}>
-                <div>
+                <div className="mr-md-5">
                     <Typography variant="h1" className={classes.h1}>{t('signUp.title')}</Typography>
                     <Typography variant="body1" className={classes.body1}>{t('signUp.text')}
                         <br></br>
@@ -316,8 +354,8 @@ export default function SignIn() {
                     <Typography variant="body1" className={classes.body1}>{t('signUp.text3')}</Typography>
                 </div>
 
-                <div className="d-flex justify-content-center" >
-                    <img className={classes.img} src="/static/images/Iphone_Mockup .png"></img>
+                <div className="d-flex justify-content-center mt-5" >
+                <VideoMockUp url={getVideoUrl()}/>
                 </div>
             </div>
                 <div className={classes.signIn}>

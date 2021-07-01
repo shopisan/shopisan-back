@@ -2,12 +2,18 @@ import { Typography } from "@material-ui/core";
 import React from "react";
 import LocalShopping from '../LandingComponent/LocalShopping';
 import Discover from '../LandingComponent/Discover';
+import VideoMockUp from '../VideoMockUp';
 import { useTranslation } from "react-i18next";
 import useStyles from '../../theme';
 
 export default function Concept() {
     const { t, i18n } = useTranslation();
     const classes = useStyles();
+    const locale = i18n.language;
+
+    function getVideoUrl(){
+        return locale === "fr" ? "static/video/chercher-FR.mp4" : "static/video/chercher-EN.mp4";
+    }
 
     return (
         <div className={classes.container} id="concept">
@@ -23,8 +29,8 @@ export default function Concept() {
                     </Typography>
                     </div>
                 </div>
-                <div className="d-flex justify-content-center" >
-                    <img className={classes.img} src="static/images/Iphone_Mockup .png"></img>
+                <div className="d-flex justify-content-center mt-5 mb-sm-5" >
+                    <VideoMockUp url={getVideoUrl()}/>
                 </div>
             </div>
             <LocalShopping />

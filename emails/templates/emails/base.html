@@ -3,6 +3,7 @@
 
 {% load i18n %}
 
+
 <head>
     <!--[if gte mso 9]>
     <xml>
@@ -33,7 +34,7 @@
     <style type="text/css" media="screen">
      body { background: #F7F7F7; }
         html { background: #F7F7F7; }
-        body { padding:0 !important; margin:0 !important; display:block !important; -webkit-text-size-adjust:none; background:#        html { background: #F7F7F7; };}
+        body { padding:0 !important; margin:0 !important; display:block !important; -webkit-text-size-adjust:none; background:#F7F7F7;}
         a { color:#41455c; text-decoration:none }
         p { padding:0 !important; margin:0 !important }
         img { -ms-interpolation-mode: bicubic; /* Allow smoother rendering of resized image in Internet Explorer */ }
@@ -198,6 +199,37 @@
                                                             </td>
                                                         </tr>
                                                     </table>
+
+                                                <table width="100%" border="0" cellspacing="0" cellpadding="20px" class="buttonFR">
+                                                        <tr>
+                                                            <td align="center">
+                                                                <a href="https://play.google.com/store/apps/details?id=com.jh8.shopisan" target="_blank">
+                                                                    <img src="https://shopisan.com{% static 'images/google-play-badge_FR.png' %}" width="50" border="0" alt="google-play"/>
+                                                                </a>
+                                                            </td>
+                                                            <td align="center">
+                                                                <a href="https://apps.apple.com/fr/app/shopisan/id1567408162" target="_blank">
+                                                                    <img src="https://shopisan.com{% static 'images/app-store-badge_FR.png' %}" width="50" border="0" alt="app-store"/>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                     <table width="100%" border="0" cellspacing="0" cellpadding="20px" class="buttonEN">
+                                                        <tr>
+                                                            <td align="center">
+                                                                <a href="https://play.google.com/store/apps/details?id=com.jh8.shopisan" target="_blank">
+                                                                    <img src="https://shopisan.com{% static 'images/googleplay-badge_EN.png' %}" width="50" border="0" alt="google-play"/>
+                                                                </a>
+                                                            </td>
+                                                            <td align="center">
+                                                                <a href="https://apps.apple.com/fr/app/shopisan/id1567408162" target="_blank">
+                                                                    <img src="https://shopisan.com{% static 'images/App-store-Badge_EN.png' %}" width="50" border="0" alt="app-store"/>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                
+
                                                 </td>
                                             </tr>
                                         </table>
@@ -212,3 +244,11 @@
         </tr>
     </table>
 </body>
+<script>
+    if(i18n.language === "fr"){
+        document.getElementsByClassName(".buttonEN").remove;
+    } else {
+        document.getElementsByClassName(".buttonFR").remove;
+    }
+</script>
+</html>
