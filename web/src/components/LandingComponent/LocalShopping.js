@@ -18,7 +18,7 @@ export default function LocalShopping() {
             </div>
     
             <div className= "d-flex justify-content-center mt-5" >
-                <VideoMockUp url={"/static/video/preparer-FR.mp4"}/>
+                <VideoMockUp url={"https://d3un281b2108zi.cloudfront.net/video/preparer-FR.mp4"}/>
             </div>
         </div> 
     )

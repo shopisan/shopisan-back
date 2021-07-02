@@ -11,7 +11,7 @@ export default function Discover(){
     const locale = i18n.language;
 
     function getVideoUrl(){
-        return locale === "fr" ? "static/video/geoloc-FR.mp4" : "static/video/geoloc-EN.mp4";
+        return `https://d3un281b2108zi.cloudfront.net/video/geoloc-${locale.toUpperCase()}.mp4`;
     }
 
     return(

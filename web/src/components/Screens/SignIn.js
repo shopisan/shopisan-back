@@ -268,7 +268,7 @@ export default function SignIn() {
     }
 
     function getVideoUrl(){
-        return locale === "fr" ? "static/video/store-FR.mp4" : "static/video/store-EN.mp4";
+        return `https://d3un281b2108zi.cloudfront.net/video/store-${locale.toUpperCase()}.mp4`;
     }
     
     const handleSubmit = (event) => {

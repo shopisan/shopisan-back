@@ -12,7 +12,7 @@ export default function Concept() {
     const locale = i18n.language;
 
     function getVideoUrl(){
-        return locale === "fr" ? "/static/video/chercher-FR.mp4" : "/static/video/chercher-EN.mp4";
+        return `https://d3un281b2108zi.cloudfront.net/video/chercher-${locale.toUpperCase()}.mp4`;
     }
 
     return (
