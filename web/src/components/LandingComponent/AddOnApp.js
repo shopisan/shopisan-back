@@ -13,8 +13,6 @@ export default function AddOnApp() {
     const classes = useStyles();
     const locale = i18n.language;
 
-    console.log(locale);
-
     return(
         <div className={classes.addonapp}>
             <div className={classes.row}>

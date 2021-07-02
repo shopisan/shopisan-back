@@ -1,26 +1,17 @@
 import React, { Suspense, lazy } from "react";
 import {render} from "react-dom"
 import './css/index.scss'
-// import Landing from "./components/Screens/Landing"
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "react-bootstrap";
-// import MenuHeader from "./components/Utils/MenuHeader";
-// import SignIn from "./components/Screens/SignIn";
-// import Footer from './components/Utils/Footer';
-// import Contact from "./components/Screens/Contact";
 import {
     BrowserRouter as Router,
     Switch,
     Route,
   } from "react-router-dom";
-// import PrivacyPolicy from "./components/Screens/PrivacyPolicy";
-// import GeneralsConditions from "./components/Screens/GeneralsConditions";
-// import ScrollToTop from "./components/Utils/ScrollToTop";
-import { CookieBanner } from '@palmabit/react-cookie-law';
 import './i18n';
 import { useTranslation } from "react-i18next";
 import {Helmet} from "react-helmet";
-// import PageNotFound from "./components/Utils/PageNotFound";
+import CustomCookieBanner from "./components/Utils/CookieBanner";
 
 const MenuHeader = lazy(() => import("./components/Utils/MenuHeader"));
 const Footer = lazy(() => import("./components/Utils/Footer"));
@@ -63,83 +54,11 @@ const theme = createMuiTheme({
 
 function Base(){
     const {t, i18n} = useTranslation();
-    const hasCookie = getCookie('rcl_consent_given');
-
-    function actOnAccept(){
-        if (hasCookie == ""){
-            window.location.reload()
-        }
-    }
 
     return (
-        <React.StrictMode>
+        // <React.StrictMode>
         <Suspense fallback={(<div>Loading...</div>)}>
-             <CookieBanner
-                onAccept={() => actOnAccept()}
-                message={t('textCookies')}
-                privacyPolicyLinkText={t('cookiesPolicy')}
-                policyLink="/privacy_policy"
-                statisticsOptionText="Statistics"
-                managePreferencesButtonText={t('manageBtn')}
-                acceptButtonText={t('accept')}
-                showPreferencesOption={false}
-                showMarketingOption={false}
-                statisticsDefaultChecked = {true}
-                styles={{
-                dialog:{
-                background: "white",
-                position: "fixed",
-                bottom: '0px',
-                left:"0px",
-                right: '0px',
-                zIndex: "100000",
-                padding: "3rem 1rem",
-                borderTop: '1px solid #FFCFCF'
-                },
-                container:{
-                    padding: '1rem'
-                },
-                message:{
-                    fontSize: "1rem",
-                    fontWeight: 'bold',
-                    marginBottom : '1rem',
-                },
-                policy: {
-                fontsize: '1rem' ,
-                color: 'black',
-                textDecoration: "underline",
-                },
-                optionWrapper:{
-                display: 'inline-flex',
-                position:"relative",
-                margin: '0 7px',
-                float: 'left'
-                },
-                optionLabel:{
-                color: 'black',
-                fontSize:'15px',
-                marginLeft: '20px',
-                marginBottom: "0px"
-                },
-                // buttonWrapper:{
-                //     marginTop: "-3rem",
-                // display: "flex",
-                // justifyContent:  "flex-end"
-                // },
-                button:{
-                padding: "0.5rem 1rem",
-                borderRadius: "1rem",
-                border: "none",
-                backgroundColor: "#FFCFCF",
-                marginRight: '1rem',
-                marginTop: "10px",
-                color: "black"
-                },
-                manageButton:{
-                    content: "Manage my cookies"
-                }
-         }}
-        />
+        <CustomCookieBanner/>
         <Helmet>
             <title>Shopisan | {t('title.discoverStoreAround')}</title>
             <meta name="description" content={t('metaDescription')} />
@@ -160,7 +79,7 @@ function Base(){
             </ThemeProvider> 
         </Router>
         </Suspense>
-       </React.StrictMode>
+    //    </React.StrictMode>
     );
 }
 
