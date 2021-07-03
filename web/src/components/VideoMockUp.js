@@ -7,7 +7,7 @@ export default function VideoMockUp(props){
 
     return (
         <>
-            <img className={classes.img} src="static/images/mockup_iphone_vide.png"></img>
+            <img className={classes.img} src="/static/images/mockup_iphone_vide.png"></img>
             <div className={classes.contentVideo}>
                 <video className={classes.video1} autoPlay loop muted>
                     <source src={url} type="video/mp4"/>
