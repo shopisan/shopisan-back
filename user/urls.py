@@ -15,4 +15,5 @@ urlpatterns = [
     path('reset-password/', views.reset_password),
     path('get_user/', views.get_current_user),
     path('manage_favourite_store/', views.handle_favourite_store),
+    # path('<int:id>/generatePDF/', views.generatePDF, name='generatePDF')
 ]

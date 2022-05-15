@@ -1,6 +1,7 @@
 import secrets
 import string
 import datetime
+
 from pytz import timezone
 
 from emails import send_mail
@@ -110,3 +111,14 @@ class ProfileViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
     permission_classes = [permissions.IsAdminUser]
+
+
+# @staff_member_required
+# def generatePDF(request, id):
+#     buffer = io.BytesIO()
+#     x = canvas.Canvas(buffer)
+#     x.drawString(100, 100, "Let's generate this pdf file.")
+#     x.showPage()
+#     x.save()
+#     buffer.seek(0)
+#     return FileResponse(buffer, as_attachment=True, filename='attempt1.pdf')

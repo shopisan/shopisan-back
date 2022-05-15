@@ -31,17 +31,17 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser):
+    username = models.CharField(max_length=200, null=False, blank=False, unique=True)
     email = models.EmailField(
         verbose_name='Email address',
         max_length=255,
         unique=True,
         blank=False
     )
-    username = models.CharField(max_length=200, null=False, blank=False, unique=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
-    created = models.DateTimeField(auto_now_add=True)
     is_owner = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True)
     reset_password_token = models.CharField(max_length=50, null=True, blank=True)
     reset_password_validity = models.DateTimeField(null=True, blank=True)
 
@@ -77,11 +77,11 @@ class User(AbstractBaseUser):
 
 class Profile(models.Model):
     favourite_stores = models.ManyToManyField(Store, blank=True)
-    date_of_birth = models.DateField(null=True, blank=True)
-    picture = models.ForeignKey(File, on_delete=models.CASCADE, null=True, blank=True)
     user = models.OneToOneField(User, related_name="profile", on_delete=models.CASCADE, null=False)
+    picture = models.ForeignKey(File, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=200, null=False, blank=False)
     surname = models.CharField(max_length=200, null=False, blank=False)
+    date_of_birth = models.DateField(null=True, blank=True)
 
     def __str__(self):
         return self.name + " " + self.surname

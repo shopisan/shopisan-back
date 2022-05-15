@@ -144,7 +144,8 @@ export default function PrivacyPolicy(){
             </Typography>
 
             <Typography className={classes.h2}>{t('pp.rights.title')}</Typography>
-            <Typography className={classes.body1}>{t('pp.rights.text')}
+            <Typography className={classes.body1}>
+            {t('pp.rights.text')} <a href="mailto:info@shopisan.com">info@shopisan.com</a>.
             <br></br>
             <br></br>
             {t('pp.rights.a.title')}

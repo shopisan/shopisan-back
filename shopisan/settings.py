@@ -1,3 +1,4 @@
+import os
 import django_heroku
 from pathlib import Path
 
@@ -11,15 +12,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'z^6u4v_yf_3@ig&1c3hd=7_$)sljg^sz)+)9+d-x^&qt$^xm*y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["10.0.2.2", "127.0.0.1", "shopisan.com"]
+ALLOWED_HOSTS = ["10.0.2.2", "127.0.0.1", "shopisan.com", "shopisan.jh8"]
 
 # Application definition
 
 INSTALLED_APPS = [
+    'material',
     'material.admin',
-    'material.admin.default',
+    # 'material.admin.default',
     # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -63,7 +65,9 @@ ROOT_URLCONF = 'shopisan.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, "user/templates")
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
