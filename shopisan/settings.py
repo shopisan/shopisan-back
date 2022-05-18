@@ -1,6 +1,5 @@
 import os
 import django_heroku
-from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = Path(__file__).resolve().parent.parent
@@ -13,8 +12,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'z^6u4v_yf_3@ig&1c3hd=7_$)sljg^sz)+)9+d-x^&qt$^xm*y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = False
-DEBUG = True
+DEBUG = False
+# DEBUG = True
 
 ALLOWED_HOSTS = ["10.0.2.2", "127.0.0.1", "shopisan.com", "shopisan.jh8"]
 
@@ -60,8 +59,8 @@ MIDDLEWARE = [
 ]
 
 # config redirect to https (Prod)
-# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-# SECURE_SSL_REDIRECT = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
 
 ROOT_URLCONF = 'shopisan.urls'
 
