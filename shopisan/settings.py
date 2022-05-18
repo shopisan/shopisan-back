@@ -13,7 +13,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'z^6u4v_yf_3@ig&1c3hd=7_$)sljg^sz)+)9+d-x^&qt$^xm*y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["10.0.2.2", "127.0.0.1", "shopisan.com", "shopisan.jh8"]
 
@@ -59,8 +60,8 @@ MIDDLEWARE = [
 ]
 
 # config redirect to https (Prod)
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURE_SSL_REDIRECT = True
 
 ROOT_URLCONF = 'shopisan.urls'
 
@@ -123,6 +124,8 @@ DATABASES = {
     }
 }
 
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -160,7 +163,7 @@ REST_FRAMEWORK = {
 MATERIAL_ADMIN_SITE = {
     'HEADER': 'Shopisan',  # Admin site header
     'TITLE': 'Shopisan',  # Admin site title
-    # 'FAVICON':  'images/FAVICON.png',  # Admin site favicon (path to static should be specified)
+    'FAVICON':  'images/FAVICON.png',  # Admin site favicon (path to static should be specified)
     'MAIN_BG_COLOR':  '#FF6565',  # Admin site main color, css color should be specified
     'MAIN_HOVER_COLOR':  '#FF6565',  # Admin site main hover color, css color should be specified
     # 'PROFILE_PICTURE':  'path/to/image',  # Admin site profile picture (path to static should be specified)
@@ -214,12 +217,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
-print(os.path.join(BASE_DIR, 'web/static'))
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'web/static'),
-)
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_URL = '/static/'
+# print(os.path.join(BASE_DIR, 'web/static'))
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'web/static'),
+# )
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 # STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 # WHITENOISE_USE_FINDERS = True
