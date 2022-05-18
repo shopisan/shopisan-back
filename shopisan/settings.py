@@ -162,7 +162,7 @@ REST_FRAMEWORK = {
 MATERIAL_ADMIN_SITE = {
     'HEADER': 'Shopisan',  # Admin site header
     'TITLE': 'Shopisan',  # Admin site title
-    # 'FAVICON':  'images/FAVICON.png',  # Admin site favicon (path to static should be specified)
+    'FAVICON':  'images/FAVICON.png',  # Admin site favicon (path to static should be specified)
     'MAIN_BG_COLOR':  '#FF6565',  # Admin site main color, css color should be specified
     'MAIN_HOVER_COLOR':  '#FF6565',  # Admin site main hover color, css color should be specified
     # 'PROFILE_PICTURE':  'path/to/image',  # Admin site profile picture (path to static should be specified)
