@@ -12,8 +12,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'z^6u4v_yf_3@ig&1c3hd=7_$)sljg^sz)+)9+d-x^&qt$^xm*y'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-# DEBUG = True
+# DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["10.0.2.2", "127.0.0.1", "shopisan.com", "shopisan.jh8"]
 
