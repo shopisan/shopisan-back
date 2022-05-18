@@ -27,7 +27,7 @@ def get_geolocation(locale, country_iso, city):
         data = json.loads(response.content)
         if len(data['results']) > 0:
             city = get_city(data['results'][0]['address_components'])
-            print(city)
+            # print(city)
             return city
 
     return False

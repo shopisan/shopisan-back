@@ -25,7 +25,7 @@ class ProfileWriteSerializer(serializers.HyperlinkedModelSerializer):
 
     def update(self, instance, validated_data):
         picture = validated_data.pop("picture")
-        print(picture)
+        # print(picture)
         instance.save()
 
         return instance

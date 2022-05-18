@@ -9,7 +9,7 @@ def load_file(filename):
     with open(filename) as json_file:
         data = json.load(json_file)
 
-        print(data)
+        # print(data)
         for country_data in data:
             country_dict[country_data['alpha2']] = country_data['name']
 
