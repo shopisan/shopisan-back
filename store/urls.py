@@ -12,7 +12,8 @@ router.register(r'evals', views.EvaluationViewSet)
 
 urlpatterns = [
     path('stores/', include(router.urls)),
-    path("stores_geo/", views.StoreCategoryGeoList.as_view()),
+    path("stores_geo_new/", views.StoreCategoryGeoList.as_view()),
+    path("stores_geo/", views.StoreCategoryGeoListOld.as_view()),
     path("countries/", views.CountryList.as_view()),
     path("cities/", views.CitiesByCountryList.as_view())
 ]

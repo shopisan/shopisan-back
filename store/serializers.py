@@ -12,6 +12,13 @@ class AddressSerializer(serializers.ModelSerializer):
         extra_kwargs = {"id": {'read_only': False, 'required': False}}
 
 
+class AddressLightSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Address
+        fields = ['latitude', 'longitude']
+        read_only_fields = ['latitude', 'longitude']
+
+
 class EvaluationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Evaluation
@@ -50,6 +57,17 @@ class StoreSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['id', 'name', 'description_fr', 'description_en', 'url', 'website', 'storeStatus', 'openingTimes',
                   'profilePicture', 'categories', 'addresses', 'evaluations', 'average_score', 'appointmentOnly']
         read_only_fields = ('storeStatus',)
+
+
+class StoreLightSerializer(serializers.HyperlinkedModelSerializer):
+    addresses = AddressLightSerializer(many=True)
+    # evaluations = EvaluationSerializer(many=True, read_only=True)
+    categories = StoreCategorySerializer(many=True)
+    profilePicture = FileSerializer()
+
+    class Meta:
+        model = Store
+        fields = ['id', 'name', 'url', 'addresses', 'profilePicture', 'categories', 'average_score']
 
 
 class StoreWriteSerializer(serializers.HyperlinkedModelSerializer):
