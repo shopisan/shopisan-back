@@ -1,0 +1,7 @@
+from django.apps import AppConfig
+
+
+class FeaturedConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'featured'
+    icon_name = 'event_note'

@@ -34,9 +34,9 @@ class Store(models.Model):
 
     objects = models.Manager()
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(args, kwargs)
-        self.evaluations = None
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(args, kwargs)
+    #     self.evaluations = None
 
     def __str__(self):
         return self.name

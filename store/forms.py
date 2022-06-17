@@ -1,7 +1,6 @@
 import json
 
 from django import forms
-from django.shortcuts import render
 
 from .models import Store
 

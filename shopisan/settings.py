@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'imagekit',
     'web',
     'contact',
-    'emails'
+    'emails',
+    'featured'
 ]
 
 MIDDLEWARE = [
@@ -59,8 +60,8 @@ MIDDLEWARE = [
 ]
 
 # config redirect to https (Prod)
-# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-# SECURE_SSL_REDIRECT = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
 
 ROOT_URLCONF = 'shopisan.urls'
 
@@ -88,16 +89,16 @@ WSGI_APPLICATION = 'shopisan.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 # local
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'shopisan2',
-        'USER': 'postgres',
-        'PASSWORD': 'anthea07',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'shopisan2',
+#         'USER': 'postgres',
+#         'PASSWORD': 'anthea07',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 
 # dev
 # DATABASES = {
@@ -112,16 +113,16 @@ DATABASES = {
 # }
 
 # prod
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'd18jnerdka5ga5',
-#         'USER': 'vnqmgrpwnbojes',
-#         'PASSWORD': 'e94aaae394a19111e3b2d131f34400f27715a13bb3ba66ea0f42da47dc64a3d6',
-#         'HOST': 'ec2-34-255-134-200.eu-west-1.compute.amazonaws.com',
-#         'PORT': '5432',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd18jnerdka5ga5',
+        'USER': 'vnqmgrpwnbojes',
+        'PASSWORD': 'e94aaae394a19111e3b2d131f34400f27715a13bb3ba66ea0f42da47dc64a3d6',
+        'HOST': 'ec2-34-255-134-200.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432',
+    }
+}
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 

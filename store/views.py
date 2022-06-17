@@ -1,5 +1,9 @@
+from django.contrib.auth.models import AnonymousUser
 from rest_framework import viewsets, generics
 from rest_framework import permissions
+from rest_framework.response import Response
+
+from featured.models import Code
 from .permissions import IsOwnerOrAdminOrReadOnly
 from api.permissions import IsAdminOrReadOnly
 from functools import cmp_to_key
@@ -90,7 +94,18 @@ class StoreCategoryGeoListOld(generics.ListAPIView):
 class StoreCategoryGeoList(generics.ListAPIView):
     serializer_class = StoreLightSerializer
 
-    def get_queryset(self):
+    def get(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset(request))
+
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+    def get_queryset(self, request):
         categories_str = self.request.query_params.get('categories', None)
         countries_str = self.request.query_params.get('countries', None)
         position = self.request.query_params.get('position', None)
@@ -101,9 +116,29 @@ class StoreCategoryGeoList(generics.ListAPIView):
         #  (the list only displays a certain amount of data)
 
         if context is not None and context == "featured":
-            stores = Store.objects\
-                .filter(addresses__country__in=countries, profilePicture__isnull=False, addresses__isnull=False) \
-                .exclude(storeStatus=2)
+            user = request.user
+            print(user)
+
+            # TODO get all list featured to user (if user is null ==> get all list tagged allUsers)
+            # TODO for all of those lists get all stores featured
+            # TODO either apply a filter by location or random
+
+            contests = Code.objects.filter(is_active=True, all_users=True)
+            if not isinstance(user, AnonymousUser):
+                # TODO ajouter les contests auquels le user participe
+                contests2 = Code.objects.filter(is_active=True, users__in=[user])
+                contests = contests | contests2
+
+            # TODO reste a extraire tout les stores (unique)
+            stores = set([])
+            for contest in contests:
+                for store in contest.featured_stores.all():
+                    stores.add(store)
+            print(len(stores))
+            # The list should be created using the featured store lists (+ filter to get unique results)
+            # stores = Store.objects\
+            #     .filter(addresses__country__in=countries, profilePicture__isnull=False, addresses__isnull=False) \
+            #     .exclude(storeStatus=2)
         else:
             if context is not None and context == "customised":
                 stores = Store.objects\
