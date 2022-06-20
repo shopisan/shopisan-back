@@ -35,5 +35,6 @@ class Code(models.Model):
     to_date = models.DateTimeField()
     number_winners = models.IntegerField(default=1)
     notify_emails = models.TextField(default="info@shopian.com")
+    winners = models.ManyToManyField(User, blank=True, related_name="code_won")
 
     objects = models.Manager()
