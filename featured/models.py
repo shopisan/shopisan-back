@@ -29,7 +29,7 @@ class Code(models.Model):
     featured_stores = models.ManyToManyField(Store)
     is_contest = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)  # Can users still participate
-    is_closed = models.BooleanField(default=True)  # Can users still see the list of stores?
+    is_closed = models.BooleanField(default=False)  # Can users still see the list of stores?
     all_users = models.BooleanField(default=False)
     from_date = models.DateTimeField()
     to_date = models.DateTimeField()

@@ -1,5 +1,5 @@
 from datetime import datetime
-
+import pytz
 from django.contrib.auth.models import AnonymousUser
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -18,7 +18,12 @@ def add_code_to_user(request):
     if code is None:
         return Response(status=205)
 
-    date = datetime.now()
+    utc = pytz.UTC
+    date = utc.localize(datetime.now())
+    print(code.to_date)
+    print(date)
+    print(code.is_active)
+    print(code.is_closed)
     if code.to_date < date or not code.is_active or code.is_closed:
         return Response(status=204)
 
