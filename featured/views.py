@@ -20,10 +20,6 @@ def add_code_to_user(request):
 
     utc = pytz.UTC
     date = utc.localize(datetime.now())
-    print(code.to_date)
-    print(date)
-    print(code.is_active)
-    print(code.is_closed)
     if code.to_date < date or not code.is_active or code.is_closed:
         return Response(status=204)
 

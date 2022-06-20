@@ -112,33 +112,19 @@ class StoreCategoryGeoList(generics.ListAPIView):
         context = self.request.query_params.get('context', None)
         countries = countries_str.split(',')
 
-        # TODO it might be a great idea to lower the amount of data sent
-        #  (the list only displays a certain amount of data)
-
         if context is not None and context == "featured":
             user = request.user
-            print(user)
-
-            # TODO get all list featured to user (if user is null ==> get all list tagged allUsers)
-            # TODO for all of those lists get all stores featured
-            # TODO either apply a filter by location or random
 
             contests = Code.objects.filter(is_active=True, all_users=True)
             if not isinstance(user, AnonymousUser):
-                # TODO ajouter les contests auquels le user participe
                 contests2 = Code.objects.filter(is_active=True, users__in=[user])
-                contests = contests | contests2
+                contests3 = Code.objects.filter(is_active=False, is_closed=False, winners__in=[user])
+                contests = contests | contests2 | contests3
 
-            # TODO reste a extraire tout les stores (unique)
             stores = set([])
             for contest in contests:
                 for store in contest.featured_stores.all():
                     stores.add(store)
-            print(len(stores))
-            # The list should be created using the featured store lists (+ filter to get unique results)
-            # stores = Store.objects\
-            #     .filter(addresses__country__in=countries, profilePicture__isnull=False, addresses__isnull=False) \
-            #     .exclude(storeStatus=2)
         else:
             if context is not None and context == "customised":
                 stores = Store.objects\
